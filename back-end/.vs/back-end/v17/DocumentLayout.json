@@ -3,16 +3,408 @@
   "WorkspaceRootPath": "D:\\StudentInternManage\\back-end\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\service\\implement\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\service\\implement\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\dto\\user\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\dto\\user\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\dto\\user\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\dto\\user\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\common\\genericrespository\\baserespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\common\\genericrespository\\baserespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\common\\genericrespository\\ibaserespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\common\\genericrespository\\ibaserespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\service\\interface\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\service\\interface\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\service\\interface\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\service\\interface\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\service\\implement\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\service\\implement\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\itokenrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\itokenrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\iassignmentrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\iassignmentrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\assignmentrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\assignmentrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\certificationrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\certificationrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\employeerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\employeerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\jobrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\jobrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\postrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\postrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\posttechnologyrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\posttechnologyrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\rolerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\rolerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\taskrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\taskrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\technologyrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\technologyrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\tokenrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\tokenrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\userrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\userrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\implement\\userrolerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\implement\\userrolerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\icertificationrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\icertificationrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\itaskrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\itaskrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\iemployeerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\iemployeerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\ijobrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\ijobrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\ipostrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\ipostrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\iposttechnologyrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\iposttechnologyrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\irolerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\irolerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\itechnologyrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\itechnologyrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\iuserrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\iuserrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\respositories\\interface\\iuserrolerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\respositories\\interface\\iuserrolerespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\configurations\\servicesconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\configurations\\servicesconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\configurations\\authenticationconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\configurations\\authenticationconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\dto\\user\\userroledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\dto\\user\\userroledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enity\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enity\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\configurations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\configurations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enity\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enity\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\configurations\\automapperconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\configurations\\automapperconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\dto\\auth\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\dto\\auth\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\dto\\auth\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\dto\\auth\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enity\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enity\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\common\\passwordhasher\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\common\\passwordhasher\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\common\\passwordhasher\\ipasswordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\common\\passwordhasher\\ipasswordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enum\\jobstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enum\\jobstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enum\\roletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enum\\roletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322092808_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322092808_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enity\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enity\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enity\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enity\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enity\\certifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enity\\certifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enity\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enity\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enity\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enity\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091705_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322091705_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091545_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322091545_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091405_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322091405_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091220_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322091220_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091149_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322091149_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091132_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322091132_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322090539_add-post-technology-tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322090539_add-post-technology-tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enity\\posttechnology.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enity\\posttechnology.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322090426_add-user-role-token-userrole-tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322090426_add-user-role-token-userrole-tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322090337_add-user-role-token-userrole-tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322090337_add-user-role-token-userrole-tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322085834_add-employee-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322085834_add-employee-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322085202_add-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322085202_add-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322084538_add-user-role-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322084538_add-user-role-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322083902_initial-migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322083902_initial-migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322083053_add-migration initial-database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322083053_add-migration initial-database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322082550_update-database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250322082550_update-database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319191036_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319191036_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190824_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319190824_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190754_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319190754_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190647_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319190647_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190538_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319190538_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190448_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319190448_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190339_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319190339_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185639_add-datatable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319185639_add-datatable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185554_add-datatable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319185554_add-datatable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185445_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319185445_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185402_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319185402_initialDataBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184959_add-job-table-new.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319184959_add-job-table-new.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184916_add-job-tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319184916_add-job-tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184755_add-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319184755_add-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184624_add-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319184624_add-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184502_add-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319184502_add-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183908_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319183908_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183635_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319183635_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183237_table-post-technology.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319183237_table-post-technology.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183111_table-post-technology.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319183111_table-post-technology.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319181912_fix-error-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319181912_fix-error-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319181121_fix-error-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end\\Migrations\\20250319181121_fix-error-job-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enum\\employeetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enum\\employeetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\enum\\tasksstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\enum\\tasksstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\dto\\auth\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\dto\\auth\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\models\\response\\appresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\models\\response\\appresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|d:\\studentinternmanage\\back-end\\back-end\\migrations\\20250322092903_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67CE4FB5-28C9-4BC5-90EC-BFA74181FFB1}|back-end\\back-end.csproj|solutionrelative:back-end\\migrations\\20250322092903_add--tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +414,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,42 +430,1215 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Service\\Implement\\UserService.cs",
+              "RelativeDocumentMoniker": "back-end\\Service\\Implement\\UserService.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Service\\Implement\\UserService.cs",
+              "RelativeToolTip": "back-end\\Service\\Implement\\UserService.cs",
+              "ViewState": "AQIAALIAAAAAAAAAAAAuwMMAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T15:09:01.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BaseRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Common\\GenericRespository\\BaseRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Common\\GenericRespository\\BaseRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Common\\GenericRespository\\BaseRespository.cs",
+              "RelativeToolTip": "back-end\\Common\\GenericRespository\\BaseRespository.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAFYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T07:49:23.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IBaseRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Common\\GenericRespository\\IBaseRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Common\\GenericRespository\\IBaseRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Common\\GenericRespository\\IBaseRespository.cs",
+              "RelativeToolTip": "back-end\\Common\\GenericRespository\\IBaseRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T07:50:21.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\appsettings.json",
-              "RelativeDocumentMoniker": "back-end\\appsettings.json",
-              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\appsettings.json",
-              "RelativeToolTip": "back-end\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-13T10:36:26.811Z",
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "back-end\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Controllers\\UserController.cs",
+              "RelativeToolTip": "back-end\\Controllers\\UserController.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAuwDgAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T11:19:49.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\User.cs",
+              "RelativeDocumentMoniker": "back-end\\Enity\\User.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\User.cs",
+              "RelativeToolTip": "back-end\\Enity\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T10:58:29.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserDTO.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\User\\UserDTO.cs",
+              "RelativeDocumentMoniker": "back-end\\DTO\\User\\UserDTO.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\User\\UserDTO.cs",
+              "RelativeToolTip": "back-end\\DTO\\User\\UserDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T11:26:49.011Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ApplicationDBContext.cs",
-              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Data\\ApplicationDBContext.cs",
-              "RelativeDocumentMoniker": "back-end\\Data\\ApplicationDBContext.cs",
-              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Data\\ApplicationDBContext.cs",
-              "RelativeToolTip": "back-end\\Data\\ApplicationDBContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
+              "Title": "RoleDTO.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\User\\RoleDTO.cs",
+              "RelativeDocumentMoniker": "back-end\\DTO\\User\\RoleDTO.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\User\\RoleDTO.cs",
+              "RelativeToolTip": "back-end\\DTO\\User\\RoleDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T10:35:07.458Z",
+              "WhenOpened": "2025-03-18T08:05:34.214Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
+              "Title": "IRoleService.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Service\\Interface\\IRoleService.cs",
+              "RelativeDocumentMoniker": "back-end\\Service\\Interface\\IRoleService.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Service\\Interface\\IRoleService.cs",
+              "RelativeToolTip": "back-end\\Service\\Interface\\IRoleService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T06:44:12.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Service\\Interface\\IUserService.cs",
+              "RelativeDocumentMoniker": "back-end\\Service\\Interface\\IUserService.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Service\\Interface\\IUserService.cs",
+              "RelativeToolTip": "back-end\\Service\\Interface\\IUserService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAtwBYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T14:59:27.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RoleService.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Service\\Implement\\RoleService.cs",
+              "RelativeDocumentMoniker": "back-end\\Service\\Implement\\RoleService.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Service\\Implement\\RoleService.cs",
+              "RelativeToolTip": "back-end\\Service\\Implement\\RoleService.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAQwBwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T06:44:36.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ITokenRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\ITokenRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\ITokenRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\ITokenRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\ITokenRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T08:16:37.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IAssignmentRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IAssignmentRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\IAssignmentRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IAssignmentRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\IAssignmentRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T14:13:01.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AssignmentRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\AssignmentRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\AssignmentRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\AssignmentRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\AssignmentRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T14:13:59.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CertificationRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\CertificationRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\CertificationRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\CertificationRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\CertificationRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T14:24:39.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "EmployeeRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\EmployeeRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\EmployeeRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\EmployeeRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\EmployeeRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T14:12:01.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "JobRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\JobRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\JobRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\JobRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\JobRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T14:08:58.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PostRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\PostRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\PostRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\PostRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\PostRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T13:52:25.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PostTechnologyRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\PostTechnologyRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\PostTechnologyRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\PostTechnologyRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\PostTechnologyRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T13:55:54.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RoleRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\RoleRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\RoleRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\RoleRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\RoleRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T06:47:53.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TaskRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\TaskRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\TaskRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\TaskRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\TaskRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T14:21:15.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TechnologyRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\TechnologyRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\TechnologyRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\TechnologyRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\TechnologyRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T13:37:29.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "TokenRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\TokenRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\TokenRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\TokenRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\TokenRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T08:18:03.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UserRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\UserRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\UserRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\UserRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\UserRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T14:36:26.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "UserRoleRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\UserRoleRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Implement\\UserRoleRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Implement\\UserRoleRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Implement\\UserRoleRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T08:59:25.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ICertificationRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\ICertificationRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\ICertificationRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\ICertificationRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\ICertificationRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T14:22:35.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ITaskRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\ITaskRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\ITaskRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\ITaskRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\ITaskRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T14:20:46.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IEmployeeRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IEmployeeRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\IEmployeeRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IEmployeeRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\IEmployeeRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T14:11:31.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "IJobRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IJobRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\IJobRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IJobRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\IJobRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T14:07:28.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "IPostTechnologyRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IPostTechnologyRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\IPostTechnologyRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IPostTechnologyRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\IPostTechnologyRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T13:55:22.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "IPostRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IPostRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\IPostRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IPostRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\IPostRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T13:50:10.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "IRoleRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IRoleRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\IRoleRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IRoleRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\IRoleRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T06:47:03.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ITechnologyRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\ITechnologyRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\ITechnologyRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\ITechnologyRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\ITechnologyRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T13:38:39.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "IUserRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IUserRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\IUserRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IUserRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\IUserRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T14:52:07.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "IUserRoleRespository.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IUserRoleRespository.cs",
+              "RelativeDocumentMoniker": "back-end\\Respositories\\Interface\\IUserRoleRespository.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Respositories\\Interface\\IUserRoleRespository.cs",
+              "RelativeToolTip": "back-end\\Respositories\\Interface\\IUserRoleRespository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T09:00:11.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "AuthenticationConfiguration.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Configurations\\AuthenticationConfiguration.cs",
+              "RelativeDocumentMoniker": "back-end\\Configurations\\AuthenticationConfiguration.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Configurations\\AuthenticationConfiguration.cs",
+              "RelativeToolTip": "back-end\\Configurations\\AuthenticationConfiguration.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAAACQAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T12:50:28.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ServicesConfiguration.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Configurations\\ServicesConfiguration.cs",
+              "RelativeDocumentMoniker": "back-end\\Configurations\\ServicesConfiguration.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Configurations\\ServicesConfiguration.cs",
+              "RelativeToolTip": "back-end\\Configurations\\ServicesConfiguration.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T12:37:47.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "back-end\\Controllers\\RoleController.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "back-end\\Controllers\\RoleController.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAEAAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T06:43:15.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "UserRoleDTO.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\User\\UserRoleDTO.cs",
+              "RelativeDocumentMoniker": "back-end\\DTO\\User\\UserRoleDTO.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\User\\UserRoleDTO.cs",
+              "RelativeToolTip": "back-end\\DTO\\User\\UserRoleDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T08:14:00.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\UserRole.cs",
+              "RelativeDocumentMoniker": "back-end\\Enity\\UserRole.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\UserRole.cs",
+              "RelativeToolTip": "back-end\\Enity\\UserRole.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T11:02:30.474Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Configurations\\Configuration.cs",
+              "RelativeDocumentMoniker": "back-end\\Configurations\\Configuration.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Configurations\\Configuration.cs",
+              "RelativeToolTip": "back-end\\Configurations\\Configuration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T11:41:32.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Program.cs",
               "RelativeDocumentMoniker": "back-end\\Program.cs",
               "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Program.cs",
               "RelativeToolTip": "back-end\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAANAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAjwBwAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T10:27:35.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T10:27:35.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Token.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Token.cs",
+              "RelativeDocumentMoniker": "back-end\\Enity\\Token.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Token.cs",
+              "RelativeToolTip": "back-end\\Enity\\Token.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAwwAwAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T08:32:44.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "AutoMapperConfiguration.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Configurations\\AutoMapperConfiguration.cs",
+              "RelativeDocumentMoniker": "back-end\\Configurations\\AutoMapperConfiguration.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Configurations\\AutoMapperConfiguration.cs",
+              "RelativeToolTip": "back-end\\Configurations\\AutoMapperConfiguration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T12:46:56.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\Auth\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "back-end\\DTO\\Auth\\LoginResponse.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\Auth\\LoginResponse.cs",
+              "RelativeToolTip": "back-end\\DTO\\Auth\\LoginResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T07:54:16.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\appsettings.json",
+              "RelativeDocumentMoniker": "back-end\\appsettings.json",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\appsettings.json",
+              "RelativeToolTip": "back-end\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-13T10:36:26.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\Auth\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "back-end\\DTO\\Auth\\LoginRequest.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\Auth\\LoginRequest.cs",
+              "RelativeToolTip": "back-end\\DTO\\Auth\\LoginRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T14:16:44.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Role.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Role.cs",
+              "RelativeDocumentMoniker": "back-end\\Enity\\Role.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Role.cs",
+              "RelativeToolTip": "back-end\\Enity\\Role.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T07:13:20.837Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "PasswordHasher.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Common\\PasswordHasher\\PasswordHasher.cs",
+              "RelativeDocumentMoniker": "back-end\\Common\\PasswordHasher\\PasswordHasher.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Common\\PasswordHasher\\PasswordHasher.cs",
+              "RelativeToolTip": "back-end\\Common\\PasswordHasher\\PasswordHasher.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T17:48:55.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "JobStatus.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enum\\JobStatus.cs",
+              "RelativeDocumentMoniker": "back-end\\Enum\\JobStatus.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enum\\JobStatus.cs",
+              "RelativeToolTip": "back-end\\Enum\\JobStatus.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T17:34:10.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "IPasswordHasher.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Common\\PasswordHasher\\IPasswordHasher.cs",
+              "RelativeDocumentMoniker": "back-end\\Common\\PasswordHasher\\IPasswordHasher.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Common\\PasswordHasher\\IPasswordHasher.cs",
+              "RelativeToolTip": "back-end\\Common\\PasswordHasher\\IPasswordHasher.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T17:47:48.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "RoleType.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enum\\RoleType.cs",
+              "RelativeDocumentMoniker": "back-end\\Enum\\RoleType.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enum\\RoleType.cs",
+              "RelativeToolTip": "back-end\\Enum\\RoleType.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T10:03:39.333Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "Certifications.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Certifications.cs",
+              "RelativeDocumentMoniker": "back-end\\Enity\\Certifications.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Certifications.cs",
+              "RelativeToolTip": "back-end\\Enity\\Certifications.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:10:17.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 100,
+              "Title": "20250322092903_add--tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322092903_add--tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322092903_add--tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322092903_add--tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322092903_add--tables.cs",
+              "ViewState": "AQIAANMAAAAAAAAAAABBwOcAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:29:03.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "Assignment.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Assignment.cs",
+              "RelativeDocumentMoniker": "back-end\\Enity\\Assignment.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Assignment.cs",
+              "RelativeToolTip": "back-end\\Enity\\Assignment.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAABBwBAAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:10:19.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "20250322092808_add--tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322092808_add--tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322092808_add--tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322092808_add--tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322092808_add--tables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:28:08.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "ApplicationDBContext.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Data\\ApplicationDBContext.cs",
+              "RelativeDocumentMoniker": "back-end\\Data\\ApplicationDBContext.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Data\\ApplicationDBContext.cs",
+              "RelativeToolTip": "back-end\\Data\\ApplicationDBContext.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAmwBYAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T10:35:07.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Employee.cs",
+              "RelativeDocumentMoniker": "back-end\\Enity\\Employee.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Employee.cs",
+              "RelativeToolTip": "back-end\\Enity\\Employee.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAABBwBAAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:04:57.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "Post.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Post.cs",
+              "RelativeDocumentMoniker": "back-end\\Enity\\Post.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Post.cs",
+              "RelativeToolTip": "back-end\\Enity\\Post.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:05:03.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "Job.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Job.cs",
+              "RelativeDocumentMoniker": "back-end\\Enity\\Job.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\Job.cs",
+              "RelativeToolTip": "back-end\\Enity\\Job.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAABBwAwAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:04:54.277Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "20250322091705_add--tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091705_add--tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322091705_add--tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091705_add--tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322091705_add--tables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:17:05.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "20250322091545_add--tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091545_add--tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322091545_add--tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091545_add--tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322091545_add--tables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:15:45.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "20250322091405_add--tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091405_add--tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322091405_add--tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091405_add--tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322091405_add--tables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:14:05.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "20250322091220_add--tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091220_add--tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322091220_add--tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091220_add--tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322091220_add--tables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:12:20.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "20250322091149_add--tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091149_add--tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322091149_add--tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091149_add--tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322091149_add--tables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:11:49.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "20250322091132_add--tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091132_add--tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322091132_add--tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322091132_add--tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322091132_add--tables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:11:32.223Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "20250322090539_add-post-technology-tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322090539_add-post-technology-tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322090539_add-post-technology-tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322090539_add-post-technology-tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322090539_add-post-technology-tables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:05:39.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "PostTechnology.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\PostTechnology.cs",
+              "RelativeDocumentMoniker": "back-end\\Enity\\PostTechnology.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enity\\PostTechnology.cs",
+              "RelativeToolTip": "back-end\\Enity\\PostTechnology.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:05:02.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "20250322090426_add-user-role-token-userrole-tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322090426_add-user-role-token-userrole-tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322090426_add-user-role-token-userrole-tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322090426_add-user-role-token-userrole-tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322090426_add-user-role-token-userrole-tables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:04:26.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "20250322090337_add-user-role-token-userrole-tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322090337_add-user-role-token-userrole-tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322090337_add-user-role-token-userrole-tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322090337_add-user-role-token-userrole-tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322090337_add-user-role-token-userrole-tables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T09:03:37.268Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "20250322085834_add-employee-table.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322085834_add-employee-table.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322085834_add-employee-table.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322085834_add-employee-table.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322085834_add-employee-table.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:58:34.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "20250322085202_add-job-table.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322085202_add-job-table.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322085202_add-job-table.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322085202_add-job-table.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322085202_add-job-table.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:52:02.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "20250322084538_add-user-role-table.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322084538_add-user-role-table.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322084538_add-user-role-table.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322084538_add-user-role-table.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322084538_add-user-role-table.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:45:38.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "20250322083902_initial-migration.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322083902_initial-migration.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322083902_initial-migration.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322083902_initial-migration.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322083902_initial-migration.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:39:02.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "20250322083053_add-migration initial-database.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322083053_add-migration initial-database.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322083053_add-migration initial-database.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322083053_add-migration initial-database.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322083053_add-migration initial-database.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:30:53.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "20250322082550_update-database.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322082550_update-database.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250322082550_update-database.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250322082550_update-database.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250322082550_update-database.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:25:51.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "20250319191036_initialDataBase.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319191036_initialDataBase.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319191036_initialDataBase.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319191036_initialDataBase.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319191036_initialDataBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T19:10:36.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "20250319190824_initialDataBase.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190824_initialDataBase.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319190824_initialDataBase.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190824_initialDataBase.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319190824_initialDataBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T19:08:24.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "20250319190754_initialDataBase.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190754_initialDataBase.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319190754_initialDataBase.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190754_initialDataBase.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319190754_initialDataBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T19:07:54.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "20250319190647_initialDataBase.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190647_initialDataBase.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319190647_initialDataBase.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190647_initialDataBase.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319190647_initialDataBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T19:06:47.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "20250319190538_initialDataBase.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190538_initialDataBase.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319190538_initialDataBase.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190538_initialDataBase.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319190538_initialDataBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T19:05:38.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "20250319190448_initialDataBase.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190448_initialDataBase.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319190448_initialDataBase.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190448_initialDataBase.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319190448_initialDataBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T19:04:48.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "20250319190339_initialDataBase.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190339_initialDataBase.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319190339_initialDataBase.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319190339_initialDataBase.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319190339_initialDataBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T19:03:39.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "20250319185639_add-datatable.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185639_add-datatable.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319185639_add-datatable.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185639_add-datatable.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319185639_add-datatable.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:56:39.524Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "20250319185554_add-datatable.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185554_add-datatable.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319185554_add-datatable.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185554_add-datatable.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319185554_add-datatable.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:55:54.502Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "20250319185445_initialDataBase.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185445_initialDataBase.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319185445_initialDataBase.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185445_initialDataBase.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319185445_initialDataBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:54:45.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "20250319185402_initialDataBase.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185402_initialDataBase.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319185402_initialDataBase.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319185402_initialDataBase.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319185402_initialDataBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:54:02.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "20250319184959_add-job-table-new.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184959_add-job-table-new.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319184959_add-job-table-new.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184959_add-job-table-new.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319184959_add-job-table-new.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:49:59.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "20250319184916_add-job-tables.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184916_add-job-tables.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319184916_add-job-tables.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184916_add-job-tables.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319184916_add-job-tables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:49:16.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "20250319184755_add-job-table.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184755_add-job-table.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319184755_add-job-table.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184755_add-job-table.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319184755_add-job-table.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:47:55.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "20250319184624_add-job-table.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184624_add-job-table.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319184624_add-job-table.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184624_add-job-table.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319184624_add-job-table.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:46:24.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 89,
+              "Title": "20250319184502_add-job-table.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184502_add-job-table.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319184502_add-job-table.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319184502_add-job-table.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319184502_add-job-table.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:45:02.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 90,
+              "Title": "20250319183908_initial.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183908_initial.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319183908_initial.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183908_initial.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319183908_initial.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:39:08.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 91,
+              "Title": "20250319183635_init.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183635_init.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319183635_init.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183635_init.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319183635_init.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:36:35.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 92,
+              "Title": "20250319183237_table-post-technology.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183237_table-post-technology.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319183237_table-post-technology.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183237_table-post-technology.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319183237_table-post-technology.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:32:38.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "20250319183111_table-post-technology.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183111_table-post-technology.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319183111_table-post-technology.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319183111_table-post-technology.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319183111_table-post-technology.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:31:11.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 94,
+              "Title": "20250319181912_fix-error-job-table.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319181912_fix-error-job-table.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319181912_fix-error-job-table.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319181912_fix-error-job-table.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319181912_fix-error-job-table.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:19:12.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 95,
+              "Title": "20250319181121_fix-error-job-table.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319181121_fix-error-job-table.cs",
+              "RelativeDocumentMoniker": "back-end\\Migrations\\20250319181121_fix-error-job-table.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Migrations\\20250319181121_fix-error-job-table.cs",
+              "RelativeToolTip": "back-end\\Migrations\\20250319181121_fix-error-job-table.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:11:21.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 96,
+              "Title": "EmployeeType.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enum\\EmployeeType.cs",
+              "RelativeDocumentMoniker": "back-end\\Enum\\EmployeeType.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enum\\EmployeeType.cs",
+              "RelativeToolTip": "back-end\\Enum\\EmployeeType.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T17:52:19.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 97,
+              "Title": "TasksStatus.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Enum\\TasksStatus.cs",
+              "RelativeDocumentMoniker": "back-end\\Enum\\TasksStatus.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Enum\\TasksStatus.cs",
+              "RelativeToolTip": "back-end\\Enum\\TasksStatus.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T17:46:15.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 98,
+              "Title": "RegisterDTO.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\Auth\\RegisterDTO.cs",
+              "RelativeDocumentMoniker": "back-end\\DTO\\Auth\\RegisterDTO.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\DTO\\Auth\\RegisterDTO.cs",
+              "RelativeToolTip": "back-end\\DTO\\Auth\\RegisterDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T11:30:01.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 99,
+              "Title": "AppResponse.cs",
+              "DocumentMoniker": "D:\\StudentInternManage\\back-end\\back-end\\Models\\Response\\AppResponse.cs",
+              "RelativeDocumentMoniker": "back-end\\Models\\Response\\AppResponse.cs",
+              "ToolTip": "D:\\StudentInternManage\\back-end\\back-end\\Models\\Response\\AppResponse.cs",
+              "RelativeToolTip": "back-end\\Models\\Response\\AppResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBJwAsAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T15:01:42.137Z"
             }
           ]
         },

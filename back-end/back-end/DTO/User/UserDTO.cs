@@ -1,0 +1,14 @@
+﻿namespace back_end.DTO.User
+{
+    public class UserDTO
+    {
+        public Guid? Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string? SchoolName { get; set; }
+        public DateTime? BirthDate { get; set; }
+        public bool? Gender { get; set; }
+        public List<RoleDTO>? Roles { get; set; }
+    }
+}
