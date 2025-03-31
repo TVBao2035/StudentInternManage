@@ -1,5 +1,5 @@
 ﻿using back_end.DTO.Auth;
-using back_end.DTO.User;
+using back_end.DTO.UserDTOModel;
 using back_end.Enity;
 using back_end.Models.Response;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

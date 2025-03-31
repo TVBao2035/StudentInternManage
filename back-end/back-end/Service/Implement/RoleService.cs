@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using back_end.DTO.User;
+using back_end.DTO.UserDTOModel;
 using back_end.Enity;
 using back_end.Models.Response;
 using back_end.Respositories.Implement;
@@ -35,10 +35,7 @@ namespace back_end.Service.Implement
                 var role = await _roleRespository.Queryable().Where(r => r.IsDelete == false).FirstOrDefaultAsync(r => r.Name.Equals(data.Name));
                 if (role != null) return result.BuilderError("Role is existing");
                 Role newRole = _mapper.Map<Role>(data);
-                newRole.Id = Guid.NewGuid();
-                newRole.IsDelete = false;
-                newRole.CreatedAt = DateTime.UtcNow;
-                newRole.UpdateAt = DateTime.UtcNow;
+                newRole.InitialEnity();
                 await _roleRespository.Insert(newRole);
                 return result.BuilderResult(newRole, "Creating Role Success");
 
@@ -109,10 +106,7 @@ namespace back_end.Service.Implement
             {
                 if (data is null) return result.BuilderError("Data is wrong");
                 UserRole userRole = _mapper.Map<UserRole>(data);
-                userRole.Id = Guid.NewGuid();
-                userRole.IsDelete = false;
-                userRole.CreatedAt = DateTime.UtcNow;
-                userRole.UpdateAt = DateTime.UtcNow;
+                userRole.InitialEnity();
                 await _userRoleRespository.Insert(userRole);
                 return result.BuilderResult(userRole, "Success");
             }

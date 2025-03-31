@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using back_end.Common.PasswordHasher;
 using back_end.DTO.Auth;
-using back_end.DTO.User;
+using back_end.DTO.UserDTOModel;
 using back_end.Enity;
 using back_end.Enum;
 using back_end.Models.Response;
@@ -51,7 +51,7 @@ namespace back_end.Service.Implement
             var result = new AppResponse<LoginResponse>();
             try
             {
-                var user = await _userRespository.Queryable().FirstOrDefaultAsync(u => u.Email == data.Email);
+                var user = await _userRespository.Queryable().Where(u => u.Email == data.Email && !u.IsDelete).FirstOrDefaultAsync();
 
                 if (user == null) return result.BuilderError("Login is not success");
      
@@ -64,14 +64,10 @@ namespace back_end.Service.Implement
                 (string refreshToken, DateTime refreshTokenExpired, string code) = await CreateRefreshToken(user);
 
                 Token token = new Token();
-                token.Id = Guid.NewGuid();
                 token.Code = code;
-                token.IsDelete = false;
-                token.CreatedAt = DateTime.UtcNow;
                 token.RefreshToken = refreshToken;
-                token.UpdateAt = DateTime.UtcNow;
                 token.UserId = user.Id;
-                
+                token.InitialEnity();
                 await _tokenResposirory.Insert(token);
 
                 var loginResponse = new LoginResponse();
@@ -106,10 +102,7 @@ namespace back_end.Service.Implement
                 if (newUser != null) return result.BuilderError("Account has register already");
 
                 newUser = _mapper.Map<User>(data);
-                newUser.Id = Guid.NewGuid();
-                newUser.IsDelete = false;
-                newUser.UpdateAt = DateTime.UtcNow;
-                newUser.CreatedAt = DateTime.UtcNow;
+                newUser.InitialEnity();
                 newUser.Password = _passwordHasher.Hash(newUser.Password);
 
                 Role role = await _roleRespository.Queryable().FirstAsync(r => r.Name.Equals("student"));
@@ -117,10 +110,7 @@ namespace back_end.Service.Implement
                     return result.BuilderError("Error");
 
                 UserRole userRole = new UserRole();
-                userRole.Id = Guid.NewGuid();
-                userRole.CreatedAt = DateTime.UtcNow;
-                userRole.UpdateAt = DateTime.UtcNow;
-                userRole.IsDelete = false;
+                userRole.InitialEnity();
 
                 await _userRespository.Insert(newUser);
                 userRole.UserId = newUser.Id;
@@ -142,22 +132,20 @@ namespace back_end.Service.Implement
             {
                 var listUser = await _userRespository.Queryable()
                     .Where(user => user.IsDelete == false)
-                    .Select(user => _mapper.Map<UserDTO>(user))
-                    .ToListAsync();
-                
-                foreach(var user in listUser)
-                {
-                    var userRoleList = await _userRoleRespository.Queryable().Where(ur => ur.UserId == user.Id).ToListAsync();
-                    if(userRoleList.Count != 0)
+                    .Select(u => new UserDTO
                     {
-                        user.Roles = new List<RoleDTO>();
-                        foreach(var userRole in userRoleList)
-                        {
-                            var role = _mapper.Map<RoleDTO>(await _roleRespository.Queryable().FirstOrDefaultAsync(r => r.Id == userRole.RoleId));
-                            user.Roles.Add(role);
-                        }
-                    }
-                }
+                        Id = u.Id,
+                        Name = u.Name,
+                        BirthDate = u.BirthDate,
+                        Email = u.Email,
+                        Gender = u.Gender,
+                        PhoneNumber = u.PhoneNumber,
+                        SchoolName = u.SchoolName,
+                        Roles = u.UserRoles.Where(ur => !ur.IsDelete && ur.UserId == u.Id)
+                        .Select(ur => _mapper.Map<RoleDTO>(ur.Role)).ToList()
+                    }).ToListAsync();
+                
+               
                 return result.BuilderResult(listUser, "success");
             }
             catch (Exception ex)
@@ -173,39 +161,58 @@ namespace back_end.Service.Implement
             try
             {
                 User user = await _userRespository.Queryable()
-                    .Where(u => u.Id == data.Id)
+                    .Where(u => u.Id == data.Id && !u.IsDelete)
                     .FirstOrDefaultAsync();
                 if(user is null) return result.BuilderError("User id is invalid");
-                
 
-                User newUser = _mapper.Map<User>(data);
-                newUser.IsDelete = false;
-                newUser.CreatedAt = user.CreatedAt;
-                newUser.UpdateAt = DateTime.UtcNow;
+                user.Email = data.Email;
+                user.Name = data.Name;
+                user.PhoneNumber = data.PhoneNumber;
+                user.BirthDate = data.BirthDate;
+                user.UpdateTimeEntity();
 
+                // -----  update infor user
+                await _userRespository.Update(user);
+
+
+                // --------- Get all role of user ---------
                 List<Guid> roles = await _userRoleRespository
-                    .Queryable()
-                    .Where(ur => ur.UserId == user.Id)
+                    .FindBy(ur => ur.UserId == user.Id)
                     .Select(ur => ur.RoleId).ToListAsync();
+
+
                 bool isCheck = false;
+                UserRole? userole = new UserRole();
+
+                // ----- Delete role from user ------
                 foreach(var role in roles)
                 {
                     isCheck = data.Roles.Select(r => r.Id).ToList().Contains(role);
                     if (!isCheck)
                     {
                         // delete user - role
+                        userole = await _userRoleRespository.Queryable()
+                            .Where(ur => ur.UserId == user.Id && ur.RoleId == role)
+                            .FirstOrDefaultAsync();
+                        await _userRoleRespository.Delete(userole);
                     }
                 }
-              /*  foreach(var role in data.Roles)
+                // ----- Add new Role for user ------
+                var roldIdList = data.Roles.Select(r => _mapper.Map<Role>(r)).Select(r => r.Id).ToList();
+                foreach (var role in roldIdList)
                 {
-                    if (role.Id != null && userRoles.Contains(role.Id))
+                    isCheck = roles.Contains(role);
+                    if (!isCheck)
                     {
-
+                        userole = new UserRole();
+                        userole.InitialEnity();
+                        userole.UserId = user.Id;
+                        userole.RoleId = role;
+                        await _userRoleRespository.Insert(userole);
                     }
-                }*/
+                }
 
-
-                return result.BuilderResult(_mapper.Map<UserDTO>(newUser), "Success");
+                return result.BuilderResult(data, "Success");
                 
             }
             catch (Exception ex)
@@ -215,14 +222,55 @@ namespace back_end.Service.Implement
             }
         }
 
-        public Task<AppResponse<UserDTO>> Create(UserDTO data)
+        public async Task<AppResponse<UserDTO>> Create(UserDTO data)
         {
-            throw new NotImplementedException();
+            var result = new AppResponse<UserDTO>();
+            try
+            {
+                User user = await _userRespository.Queryable()
+                     .Where(u => (u.Email == data.Email || u.PhoneNumber == data.PhoneNumber) && !u.IsDelete).FirstOrDefaultAsync();
+                if (user != null) return result.BuilderError("Account was exiting");
+
+                user = _mapper.Map<User>(data);
+                user.InitialEnity();
+                user.Password = _passwordHasher.Hash("12345");
+                await _userRespository.Insert(user);
+
+                UserRole userRole;
+                List<UserRole> userRoleList = new List<UserRole>();
+                data.Roles?.Select(r => _mapper.Map<Role>(r)).ToList().ForEach( role =>
+                {
+                    userRole = new UserRole();
+                    userRole.InitialEnity();
+                    userRole.UserId = user.Id;
+                    userRole.RoleId = role.Id;
+                    userRoleList.Add(userRole);
+                });
+                await _userRoleRespository.Insert(userRoleList);
+                return result.BuilderResult("Create Account Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError(ex.Message);
+            }
         }
 
-        public Task<AppResponse<UserDTO>> Delete(Guid userId)
+        public async Task<AppResponse<UserDTO>> Delete(Guid userId)
         {
-            throw new NotImplementedException();
+            var result = new AppResponse<UserDTO>();
+            try
+            {
+                User user = await _userRespository.FindBy(u => u.Id == userId).FirstOrDefaultAsync();
+                if(user is null) return result.BuilderError("Not found user");
+
+                user.IsDelete = true;
+                await _userRespository.Update(user);
+                return result.BuilderResult("Delete User Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError(ex.Message);
+            }
         }
 
         public async Task<AppResponse<LoginResponse>> Refresh(string refresh)
@@ -263,7 +311,7 @@ namespace back_end.Service.Implement
        
         private async Task<(string, DateTime)> CreateAccessToken(User user)
         {
-            DateTime expired = DateTime.UtcNow.AddMinutes(5);
+            DateTime expired = DateTime.UtcNow.AddHours(5);
             var claims = await GetClaims(user);
             claims.Add(new Claim(JwtRegisteredClaimNames.Exp, expired.ToString()));
             var accessToken = GenerationToken(claims, expired);

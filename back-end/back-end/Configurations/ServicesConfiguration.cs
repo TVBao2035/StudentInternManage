@@ -10,16 +10,24 @@ namespace back_end.Configurations
     {
         public static void AddServices(this IServiceCollection services)
         {
-            services.AddScoped<IUserService, UserService>().Reverse();
-            services.AddScoped<IRoleService, RoleService>().Reverse();
-            services.AddScoped<IUserRespository, UserRespository>().Reverse();
-            services.AddScoped<IRoleRespository, RoleRespository>().Reverse();
-            services.AddScoped<ITokenRespository, TokenRespository>().Reverse();
-            services.AddScoped<IUserRoleRespository, UserRoleRespository>().Reverse();
-            services.AddScoped<ITechnologyRespository, TechnologyRespository>().Reverse();
+            //------------ Service ----------------//
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<ITechnologyService, TechnologyService>();
+            services.AddScoped<IPostService, PostService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            //------------ Respository ------------//
+            services.AddScoped<IUserRespository, UserRespository>();
+            services.AddScoped<IRoleRespository, RoleRespository>();
+            services.AddScoped<ITokenRespository, TokenRespository>();
+            services.AddScoped<IUserRoleRespository, UserRoleRespository>();
+            services.AddScoped<ITechnologyRespository, TechnologyRespository>();
+            services.AddScoped<IPostRespository, PostRespository>();
+            services.AddScoped<IPostTechnologyRespository, PostTechnologyRespository>();
+            services.AddScoped<IEmployeeRespository, EmployeeRespository>();
 
-
-            services.AddScoped<IPasswordHasher, PasswordHasher>().Reverse();
+            // ---------------- Other _____________ //
+            services.AddScoped<IPasswordHasher, PasswordHasher>();
         }
     }
 }

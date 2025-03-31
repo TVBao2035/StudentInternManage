@@ -1,4 +1,4 @@
-﻿using back_end.DTO.User;
+﻿using back_end.DTO.UserDTOModel;
 using back_end.Enity;
 using back_end.Service.Interface;
 using Microsoft.AspNetCore.Http;
@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace back_end.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class RoleController : ControllerBase
     {

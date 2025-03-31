@@ -1,21 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using back_end.Common.Enity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace back_end.Enity
 {
     [Table("PostTechnology")]
-    public class PostTechnology
+    public class PostTechnology:BaseEntity
     {
-        [Key]
-        public Guid Id { get; set; }
         [ForeignKey("Post")]
         public Guid PostId { get; set; }
         public Post? Post { get; set; }
         [ForeignKey("Technology")]
         public Guid TechnologyId { get; set; }
         public Technology? Technology { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public bool IsDelete { get; set; }
     }
 }

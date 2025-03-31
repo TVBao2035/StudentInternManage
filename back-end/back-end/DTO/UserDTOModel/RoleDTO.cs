@@ -1,4 +1,4 @@
-﻿namespace back_end.DTO.User
+﻿namespace back_end.DTO.UserDTOModel
 {
     public class RoleDTO
     {

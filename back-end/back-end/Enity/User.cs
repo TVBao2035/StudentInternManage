@@ -1,4 +1,5 @@
-﻿using back_end.DTO.User;
+﻿using back_end.Common.Enity;
+using back_end.DTO.UserDTOModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,10 +7,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace back_end.Enity
 {
     [Table("User")]
-    public class User
+    public class User:BaseEntity
     {
-        [Key]
-        public Guid Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -20,10 +19,7 @@ namespace back_end.Enity
         public string PhoneNumber { get; set; }
         public  string? SchoolName { get; set; }
         public bool? Gender { get; set; }
-        public DateTime? BirthDate { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public bool IsDelete { get; set; }
-
+        public string? BirthDate { get; set; }
+        public List<UserRole>? UserRoles { get; set; }
     }
 }

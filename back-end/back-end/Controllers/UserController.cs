@@ -1,5 +1,5 @@
 ﻿using back_end.Data;
-using back_end.DTO.User;
+using back_end.DTO.UserDTOModel;
 using back_end.Enity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -25,13 +25,6 @@ namespace back_end.Controllers
         {
             _userService = userService;
         }
-        [HttpGet]
-        public async Task<IActionResult> GetAllUsers()
-        {
-            var data = await _userService.GetAll();
-            return Ok(data);
-        }
-
         [HttpPost]
         [Route("register")]
         [AllowAnonymous]
@@ -49,6 +42,12 @@ namespace back_end.Controllers
             var data = await _userService.Login(login);
             return Ok(data);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var data = await _userService.GetAll();
+            return Ok(data);
+        }
 
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UserDTO user)
@@ -57,7 +56,20 @@ namespace back_end.Controllers
             return Ok(data);
         }
 
-        // ---------- not yet -------------
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var data = await _userService.Delete(id);
+            return Ok(data);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] UserDTO user)
+        {
+            var data = await _userService.Create(user);
+            return Ok(data);
+        }
+
         [HttpPost]
         [Route("refresh")]
         [AllowAnonymous]

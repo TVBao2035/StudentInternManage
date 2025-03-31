@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using back_end.Common.GenericRespository;
 using back_end.Data;
-using back_end.DTO.User;
 using back_end.Enity;
 using back_end.Respositories.Interface;
 using Microsoft.EntityFrameworkCore;

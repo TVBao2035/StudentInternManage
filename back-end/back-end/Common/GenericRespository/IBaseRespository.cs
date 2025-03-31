@@ -11,6 +11,7 @@ namespace back_end.Common.GenericRespository
         Task Update(IEnumerable<T> entities);
         Task Delete(T entity);
         Task Delete(IEnumerable<T> entity);
+        IQueryable<T> FindBy(Expression<Func<T, bool>> expression);
         IQueryable<T> Queryable();
     }
 }

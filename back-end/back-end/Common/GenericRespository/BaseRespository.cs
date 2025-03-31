@@ -1,5 +1,6 @@
 ﻿using back_end.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
 
 namespace back_end.Common.GenericRespository
@@ -7,13 +8,28 @@ namespace back_end.Common.GenericRespository
     public class BaseRespository<T> : IDisposable, IBaseRespository<T> where T : class
     {
         private ApplicationDBContext _context;
+        private DbSet<T> _entities;
         private bool disposedValue;
-
+        
         public BaseRespository(ApplicationDBContext context)
         {
             _context = context;
+            _entities = context.Set<T>();
         }
+       
+        public IQueryable<T> FindBy(Expression<Func<T, bool>> expression)
+        {
+            try
+            {
+                return _context.Set<T>().Where(expression).AsQueryable<T>();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
+       
         public async Task<IEnumerable<T>> GetQuery(Expression<Func<T, bool>> express = null)
         {
             if (express is null)
@@ -23,10 +39,12 @@ namespace back_end.Common.GenericRespository
 
             return await _context.Set<T>().Where(express).ToListAsync();
         }
+     
         public IQueryable<T> Queryable()
         {
             return _context.Set<T>();
         }
+    
         public async Task Delete(T entity)
         {
             try
@@ -40,6 +58,7 @@ namespace back_end.Common.GenericRespository
                 throw;
             }
         }
+      
         public async Task Delete(IEnumerable<T> entities)
         {
             try
@@ -53,13 +72,13 @@ namespace back_end.Common.GenericRespository
                 throw;
             }
         }
-
+       
         public async Task Insert(T entity)
         {
             try
             {
                 await _context.Set<T>().AddAsync(entity);
-                await _context.SaveChangesAsync();
+                 _context.SaveChanges();
             }
             catch (Exception)
             {
@@ -85,8 +104,11 @@ namespace back_end.Common.GenericRespository
         {
             try
             {
-                _context.Set<T>().Update(entity);
-                await _context.SaveChangesAsync();
+                if (entity != null)
+                {
+                    _context.Set<T>().Update(entity);
+                    await _context.SaveChangesAsync();
+                }
             }
             catch (Exception)
             {
@@ -137,5 +159,7 @@ namespace back_end.Common.GenericRespository
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+
+        
     }
 }
