@@ -91,7 +91,7 @@ const Login = () => {
             draggable: true,
           });
       
-          //document.cookie = `${process.env.REACT_APP_COOKIE_NAME}=${res.data?.data?.accessToken}; SameSite=None; Secure`
+          document.cookie = `${process.env.REACT_APP_COOKIE_NAME}=${res.data?.data?.refreshToken}; SameSite=None; Secure`
           dispatch(setData(res.data.data));
           //   navigate("/");
           dispatch(setLoading(true));
