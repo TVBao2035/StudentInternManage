@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import PostManagementItem from "../../components/PostManagementItem";
 import CreatePostModal from "../../components/PostModalManager/CreatePostModal";
 import UpdatePostModal from "../../components/PostModalManager/UpdatePostModal";
-import DeletePostModal from "../../components/PostModalManager/DeletePostModal";
+//import DeletePostModal from "../../components/PostModalManager/DeletePostModal";
+import DeleteConfirmModal from "../../components/DeleteConfirmModal";
 
 const PostManagement = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -183,7 +184,7 @@ const PostManagement = () => {
         onSubmit={handleSubmitUpdateForm}
       />
 
-      <DeletePostModal
+      {/* <DeletePostModal
         isOpen={showDeleteModal}
         onClose={() => {
           setShowDeleteModal(false);
@@ -192,7 +193,17 @@ const PostManagement = () => {
         postId={currentPost?.id}
         postTitle={currentPost?.title}
         onConfirm={handleConfirmDelete}
+      /> */}
+
+      <DeleteConfirmModal
+        isOpen={showDeleteModal}
+        onClose={() => setShowDeleteModal(false)}
+        itemId={currentPost?.id}
+        itemName={currentPost?.title}
+        itemType="bài đăng"
+        onConfirm={handleConfirmDelete}
       />
+
     </div>
   );
 };
