@@ -3,20 +3,35 @@ import React, { useState, useEffect } from "react";
 import PostManagementItem from "../../components/PostManagementItem";
 import CreatePostModal from "../../components/PostModalManager/CreatePostModal";
 import UpdatePostModal from "../../components/PostModalManager/UpdatePostModal";
+
 //import DeletePostModal from "../../components/PostModalManager/DeletePostModal";
 import DeleteConfirmModal from "../../components/DeleteConfirmModal";
+
+import DeletePostModal from "../../components/PostModalManager/DeletePostModal";
+import useDebounce from "../../hooks/useDebounce";
+
 
 const PostManagement = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  //const navigate = useNavigate();
+
+  const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
+
 
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [currentPost, setCurrentPost] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-
+  // --------- test useDebounce ----------- //
+  const debounce = useDebounce(searchValue);
+  useEffect(() => {
+    if(debounce.trim().length != 0){
+      console.log(debounce);
+    }
+  }, [debounce]);
+// ------------------------------------------//
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
@@ -118,13 +133,22 @@ const PostManagement = () => {
   return (
     <div className="bg-gray-50 min-h-screen pt-20 pb-10">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="mb-6">
+        <div className="mb-6 flex">
+        
           <button
             onClick={handleCreatePost}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200"
+            className="px-4 w-1/4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200"
           >
             Tạo mới
           </button>
+          <div className="w-3/4"> 
+          {/* test using useDebounce for search function */}
+            <input
+            value={searchValue}
+            onChange={(e)=>setSearchValue(e.target.value)} 
+            type="text" 
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
+          </div>
         </div>
 
         {loading ? (

@@ -19,17 +19,20 @@ namespace back_end.Service.Implement
 
         private IMapper _mapper;
         private IUserRespository _userRespository;
+        private IUserService _userService;
         private IUserRoleRespository _userRoleRespository;
 
         public EmployeeService(
             IEmployeeRespository employeeRespository,
             IUserRespository userRespository,
             IUserRoleRespository userRoleRespository, 
+            IUserService userService,
             IMapper mapper)
         {
             _mapper = mapper;
             _employeeRespository = employeeRespository;
             _userRespository = userRespository;
+            _userService = userService;
             _userRoleRespository = userRoleRespository;
         }
         public async Task<AppResponse<EmployeeDTO>> Create(EmployeeDTO employee)
@@ -130,17 +133,38 @@ namespace back_end.Service.Implement
         {
             var result = new AppResponse<EmployeeDTO>();
             try
-            {
-                var data = await _employeeRespository.FindBy(em => !em.IsDelete && em.Id == employee.Id).FirstOrDefaultAsync();
-                if (data is null) return result.BuilderError("Not found employee");
-                var user = await _userRespository.FindBy(u => !u.IsDelete && u.Id == employee.UserId).FirstOrDefaultAsync();
-                if (user is null) return result.BuilderError("Not found account");
+            { 
+                User userAuth = await _userService.GetUserFromToken();
+                if (userAuth is null)
+                    return result.BuilderError("Not found user in token");
+                User user = await _userRespository.FindBy(u => u.Email.ToLower().Equals(employee.User.Email.ToLower())).FirstOrDefaultAsync();
+                if (user is null)
+                    return result.BuilderError("Not found user");
+                bool isBusiness = _userService.checkRole("business");
+                if (user.Id != userAuth.Id && !isBusiness)
+                    return result.BuilderError("You don't permission perform this function");
+                // if business change the employee infore, then request data will have user id and employee id
+                Employee data;
+                if (isBusiness && user.Id != userAuth.Id) 
+                {
+                    user = await _userRespository.FindBy(u => !u.IsDelete && u.Id == employee.UserId).FirstOrDefaultAsync();
+                    data = await _employeeRespository.FindBy(em => !em.IsDelete && em.Id == employee.Id).FirstOrDefaultAsync();
+                }
+                else
+                {
+                    data = await _employeeRespository.FindBy(em => !em.IsDelete && em.UserId == userAuth.Id).FirstOrDefaultAsync();
+                }
+                if (data is null)
+                    return result.BuilderError("Not found employee");
+                if (user is null) 
+                    return result.BuilderError("Not found account");
+
                 data.UpdateTimeEntity();
                 data.Type = employee.Type;
                 await _employeeRespository.Update(data);
                 user.BirthDate = Helper.FormatDate(employee.User.BirthDate);
-              //  user.BirthDate = employee.User.BirthDate;
                 user.Gender = employee.User.Gender;
+                user.Name = employee.User.Name;
                 user.SchoolName = employee.User.SchoolName;
                 await _userRespository.Update(user);
 

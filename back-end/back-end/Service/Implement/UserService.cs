@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using back_end.Common;
 using back_end.Common.PasswordHasher;
 using back_end.DTO.Auth;
 using back_end.DTO.UserDTOModel;
@@ -25,15 +26,17 @@ namespace back_end.Service.Implement
         private IRoleRespository _roleRespository;
         private IUserRoleRespository _userRoleRespository;
         private ITokenRespository _tokenResposirory;
+        private IHttpContextAccessor _contextAccessor;
         private IConfiguration _config;
 
 
-        public UserService(IUserRespository userRespository, 
+        public UserService(IUserRespository userRespository,
             IConfiguration config,
-            IMapper mapper, 
-            IPasswordHasher passwordHasher, 
+            IMapper mapper,
+            IPasswordHasher passwordHasher,
             ITokenRespository tokenRespository,
             IRoleRespository roleRespository,
+            IHttpContextAccessor contextAccessor,
             IUserRoleRespository userRoleRespository
             )
         {
@@ -43,9 +46,10 @@ namespace back_end.Service.Implement
             _roleRespository = roleRespository;
             _userRoleRespository = userRoleRespository;
             _tokenResposirory = tokenRespository;
+              _contextAccessor = contextAccessor;
             _config = config;
         }
-
+        // ------- Account other ------ //
         public async Task<AppResponse<LoginResponse>> Login(LoginRequest data)
         {
             var result = new AppResponse<LoginResponse>();
@@ -160,56 +164,74 @@ namespace back_end.Service.Implement
             var result = new AppResponse<UserDTO>();
             try
             {
-                User user = await _userRespository.Queryable()
-                    .Where(u => u.Id == data.Id && !u.IsDelete)
-                    .FirstOrDefaultAsync();
-                if(user is null) return result.BuilderError("User id is invalid");
+                User user;
+                bool isAdmin = checkRole();
 
-                user.Email = data.Email;
+                if (isAdmin)
+                {
+                    user = await _userRespository.Queryable()
+                        .Where(u => u.Id == data.Id && !u.IsDelete)
+                        .FirstOrDefaultAsync();
+                }
+                else
+                {
+                    user = await GetUserFromToken();
+                }
+
+                if(user is null ) return result.BuilderError("User id is invalid");
+
+                var checkEmail = await _userRespository.FindBy(u => u.Email.Equals(data.Email)).FirstOrDefaultAsync();
+                var checkPhone = await _userRespository.FindBy(u => u.PhoneNumber.Equals(data.PhoneNumber)).FirstOrDefaultAsync();
+
+                // -----  update infor user ----
+                if(checkEmail is null && isAdmin) user.Email = data.Email;
+
+                if (checkPhone is null) user.PhoneNumber = data.PhoneNumber;
+
                 user.Name = data.Name;
-                user.PhoneNumber = data.PhoneNumber;
                 user.BirthDate = data.BirthDate;
                 user.UpdateTimeEntity();
 
-                // -----  update infor user
                 await _userRespository.Update(user);
 
-
-                // --------- Get all role of user ---------
-                List<Guid> roles = await _userRoleRespository
-                    .FindBy(ur => ur.UserId == user.Id)
-                    .Select(ur => ur.RoleId).ToListAsync();
-
-
-                bool isCheck = false;
-                UserRole? userole = new UserRole();
-
-                // ----- Delete role from user ------
-                foreach(var role in roles)
+                if (isAdmin)
                 {
-                    isCheck = data.Roles.Select(r => r.Id).ToList().Contains(role);
-                    if (!isCheck)
+                    // --------- Get all role of user ---------
+                    List<Guid> roles = await _userRoleRespository
+                        .FindBy(ur => ur.UserId == user.Id)
+                        .Select(ur => ur.RoleId).ToListAsync();
+
+                    bool isCheck = false;
+                    UserRole? userole = new UserRole();
+
+                    // ----- Delete role from user ------
+                    foreach(var role in roles)
                     {
-                        // delete user - role
-                        userole = await _userRoleRespository.Queryable()
-                            .Where(ur => ur.UserId == user.Id && ur.RoleId == role)
-                            .FirstOrDefaultAsync();
-                        await _userRoleRespository.Delete(userole);
+                        isCheck = data.Roles.Select(r => r.Id).ToList().Contains(role);
+                        if (!isCheck)
+                        {
+                            // delete user - role
+                            userole = await _userRoleRespository.Queryable()
+                                .Where(ur => ur.UserId == user.Id && ur.RoleId == role)
+                                .FirstOrDefaultAsync();
+                            await _userRoleRespository.Delete(userole);
+                        }
                     }
-                }
-                // ----- Add new Role for user ------
-                var roldIdList = data.Roles.Select(r => _mapper.Map<Role>(r)).Select(r => r.Id).ToList();
-                foreach (var role in roldIdList)
-                {
-                    isCheck = roles.Contains(role);
-                    if (!isCheck)
+                    // ----- Add new Role for user ------
+                    var roldIdList = data.Roles.Select(r => _mapper.Map<Role>(r)).Select(r => r.Id).ToList();
+                    foreach (var role in roldIdList)
                     {
-                        userole = new UserRole();
-                        userole.InitialEnity();
-                        userole.UserId = user.Id;
-                        userole.RoleId = role;
-                        await _userRoleRespository.Insert(userole);
+                        isCheck = roles.Contains(role);
+                        if (!isCheck)
+                        {
+                            userole = new UserRole();
+                            userole.InitialEnity();
+                            userole.UserId = user.Id;
+                            userole.RoleId = role;
+                            await _userRoleRespository.Insert(userole);
+                        }
                     }
+
                 }
 
                 return result.BuilderResult(data, "Success");
@@ -440,6 +462,33 @@ namespace back_end.Service.Implement
             }
             
 
+        }
+
+        public  bool checkRole(string roleName = "admin")
+        {
+            ClaimsIdentity identity = _contextAccessor.HttpContext.User.Identity as ClaimsIdentity;
+            var accountRoles = identity.FindAll("Roles").ToList();
+            foreach (var item in accountRoles)
+                if (item.ToString().Split(':')[1].Trim().ToLower().Equals(roleName.ToLower()))
+                    return true;
+            return false;
+        }
+
+        public async Task<User> GetUserFromToken()
+        {
+            try
+            {
+                ClaimsIdentity identity = _contextAccessor.HttpContext.User.Identity as ClaimsIdentity;
+                string email = identity.FindFirst("Email").ToString().Split(':')[1].Trim();
+                User user =  await _userRespository.FindBy(u => u.Email.ToLower().Equals(email.ToLower())).FirstOrDefaultAsync();
+                return user;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            
         }
     }
 }
