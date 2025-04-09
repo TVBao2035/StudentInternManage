@@ -1,4 +1,4 @@
-import Reac, { useState, useEffect, use } from "react";
+import React, { useState, useEffect, use } from "react";
 import { useNavigate } from "react-router-dom";
 import JobAppItem from "../../components/JobAppItem";
 
