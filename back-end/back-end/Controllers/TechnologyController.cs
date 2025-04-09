@@ -2,6 +2,7 @@
 using back_end.Enity;
 using back_end.Service.Implement;
 using back_end.Service.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace back_end.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize(Roles ="business")]
     public class TechnologyController : ControllerBase
     {
         private ITechnologyService _technologyService;
