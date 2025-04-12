@@ -105,9 +105,23 @@ namespace back_end.Service.Implement
             try
             {
                 if (data is null) return result.BuilderError("Data is wrong");
-                UserRole userRole = _mapper.Map<UserRole>(data);
+
+                var user = await _userRespository.FindBy(u => !u.IsDelete && u.Id == data.UserId).FirstOrDefaultAsync();
+                if(user is null) return result.BuilderError("Not found user!");
+
+                var role = await _roleRespository.FindBy(r => !r.IsDelete && r.Id == data.RoleId).FirstOrDefaultAsync();
+                if (role is null) return result.BuilderError("Not found role!");
+
+                var userRole = await _userRoleRespository
+                    .FindBy(ur => ur.UserId == data.UserId && ur.RoleId == data.RoleId)
+                    .FirstOrDefaultAsync();
+                if (userRole != null) return result.BuilderError("User has been at this permision");
+
+
                 userRole.InitialEnity();
                 await _userRoleRespository.Insert(userRole);
+                userRole.User = user;
+                userRole.Role = role;
                 return result.BuilderResult(userRole, "Success");
             }
             catch (Exception ex)

@@ -136,7 +136,6 @@ namespace back_end.Service.Implement
                         Id = p.Id,
                         Name = p.Name,
                         Context = p.Context,
-                        EmployeeId = p.EmployeeId,
                         ExperienceYear = p.ExperienceYear,
                         Exprised = p.Exprised,
                         Technologies = p.PostTechnologies

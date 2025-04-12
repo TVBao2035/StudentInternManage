@@ -200,7 +200,7 @@ const Header = ({
             )}
           </div>
 
-          <div className="md:hidden flex items-center">
+          {/* <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-full bg-blue-600/40 hover:bg-blue-600/70 transition-colors duration-300"
@@ -208,7 +208,7 @@ const Header = ({
             >
               {isMenuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
             </button>
-          </div>
+          </div> */}
         </div>
 
         {isMenuOpen && (
@@ -219,7 +219,7 @@ const Header = ({
               active={getActiveNavItem()}
             />
 
-            {isAuthenticated ? (
+            {isAuthenticated  ? (
               <div className="border-t border-blue-400/50 pt-2">
                 {mainMenuItems.map((item, index) => (
                   <button

@@ -17,7 +17,7 @@ const PostManagement = () => {
   const [error, setError] = useState(null);
 
   const [searchValue, setSearchValue] = useState("");
-  const navigate = useNavigate();
+
 
 
   const [showCreateModal, setShowCreateModal] = useState(false);

@@ -9,7 +9,7 @@ namespace back_end.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize(Roles ="business")]
+    [Authorize(Roles ="manager")]
     public class EmployeeController : ControllerBase
     {
         private IEmployeeService _employeeService;
