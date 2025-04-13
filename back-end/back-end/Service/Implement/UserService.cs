@@ -99,11 +99,24 @@ namespace back_end.Service.Implement
             var result = new AppResponse<UserDTO>();
             try
             {
+                if (!Helper.ValidateEmail(data.Email))
+                {
+                    return result.BuilderError("Email is invalid");
+                }
+
+                if (Helper.IsPhoneNumber(data.PhoneNumber))
+                {
+                    return result.BuilderError("Phone is invalid");
+                }
                 User? newUser = await _userRespository.Queryable()
                     .Where(user => !user.IsDelete)
-                    .FirstOrDefaultAsync(user => user.Email.Equals(data.Email) || user.PhoneNumber.Equals(data.PhoneNumber));
+                    .FirstOrDefaultAsync(user => user.Email.Equals(data.Email));
+                if (newUser != null) return result.BuilderError("Email has register already");
 
-                if (newUser != null) return result.BuilderError("Account has register already");
+                newUser = await _userRespository
+                    .FindBy(u => !u.IsDelete && u.PhoneNumber.Equals(data.PhoneNumber))
+                    .FirstOrDefaultAsync();
+                if (newUser != null) return result.BuilderError("Phone has register already");
 
                 newUser = _mapper.Map<User>(data);
                 newUser.InitialEnity();
