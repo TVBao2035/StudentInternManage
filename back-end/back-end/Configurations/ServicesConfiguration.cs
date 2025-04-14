@@ -17,6 +17,7 @@ namespace back_end.Configurations
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IJobService, JobService>();
+            services.AddScoped<IAssignmentService, AssignmentService>();
 
             //------------ Respository ------------//
             services.AddScoped<IUserRespository, UserRespository>();
@@ -28,6 +29,7 @@ namespace back_end.Configurations
             services.AddScoped<IPostTechnologyRespository, PostTechnologyRespository>();
             services.AddScoped<IEmployeeRespository, EmployeeRespository>();
             services.AddScoped<IJobRespository, JobRespository>();
+            services.AddScoped<IAssignmentRespository, AssignmentRespository>();
 
             // ---------------- Other _____________ //
             services.AddScoped<IPasswordHasher, PasswordHasher>();
