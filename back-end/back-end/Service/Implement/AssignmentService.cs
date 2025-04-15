@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using back_end.DTO;
 using back_end.Enity;
+using back_end.Enum;
 using back_end.Models.Response;
 using back_end.Respositories.Implement;
 using back_end.Respositories.Interface;
 using back_end.Service.Interface;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.InteropServices;
 
 namespace back_end.Service.Implement
 {
@@ -14,17 +16,52 @@ namespace back_end.Service.Implement
         private IMapper _mapper;
         private IAssignmentRespository _assignmentRespository;
         private IEmployeeRespository _employeeRespository;
+        private IUserService _userService;
 
         public AssignmentService(
             IMapper mapper, 
             IAssignmentRespository assignmentRespository,
-            IEmployeeRespository employeeRespository
+            IEmployeeRespository employeeRespository,
+            IUserService userService
             )
         {
             _mapper = mapper;
             _assignmentRespository = assignmentRespository;
             _employeeRespository = employeeRespository;
+            _userService = userService;
+        }
 
+        public async Task<AppResponse<AssignmentDTO>> UpdateScore(AssignmentDTO data)
+        {
+            var result = new AppResponse<AssignmentDTO>();
+            try
+            {
+                var assignmentData = _mapper.Map<Assignment>(data);
+                User user = await _userService.GetUserFromToken();
+
+                var employee = await _employeeRespository
+                    .FindBy(emp => !emp.IsDelete && emp.UserId == user.Id)
+                    .FirstOrDefaultAsync();
+                if (employee is null || employee.Type != EmployeeType.OfficalEmployee) 
+                    return result.BuilderError("This account have no permisstion perform this function");
+                
+                var assignment = await _assignmentRespository
+                    .FindBy(assign => !assign.IsDelete && assign.Id == assignmentData.Id)
+                    .FirstOrDefaultAsync();
+                if (assignment is null) 
+                    return result.BuilderError("Not found this assignment");
+
+                if (assignment.MentorId != employee.Id)
+                    return result.BuilderError("You are not mentor of this assignment");
+
+                assignment.Score = assignmentData.Score;
+                await _assignmentRespository.Update(assignment);
+                return result.BuilderResult(_mapper.Map<AssignmentDTO>(assignment),"Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError("Error" + ex.Message);
+            }
         }
 
         public async Task<AppResponse<AssignmentDTO>> Create(AssignmentDTO data)
@@ -68,6 +105,13 @@ namespace back_end.Service.Implement
             var result = new AppResponse<bool>();
             try
             {
+                var assignment = await _assignmentRespository
+                    .FindBy(assign => !assign.IsDelete && assign.Id == id)
+                    .FirstOrDefaultAsync();
+                if (assignment is null) return result.BuilderError("Not found assignment");
+
+                assignment.DeleteEnity();
+                await _assignmentRespository.Update(assignment);
                 return result.BuilderResult("Success");
             }
             catch (Exception ex)
@@ -81,7 +125,24 @@ namespace back_end.Service.Implement
             var result = new AppResponse<List<AssignmentDTO>>();
             try
             {
-                return result.BuilderResult("Success");
+                var assignmentList = await _assignmentRespository
+                    .FindBy(assign => !assign.IsDelete)
+                    .Include(assign => assign.Intern )
+                        .ThenInclude(emp => emp.User)
+                    .Include(assign=>assign.Mentor)
+                        .ThenInclude(emp => emp.User)
+                    .Select(assign => new AssignmentDTO
+                    {
+                        Id = assign.Id,
+                        MentorId = assign.MentorId,
+                        InternId = assign.InternId,
+                        Mentor = _mapper.Map<EmployeeDTO>(assign.Mentor),
+                        Intern = _mapper.Map<EmployeeDTO>(assign.Intern),
+                        Score = assign.Score
+
+                    }).ToListAsync();
+
+                return result.BuilderResult(assignmentList, "Success");
             }
             catch (Exception ex)
             {
@@ -94,7 +155,27 @@ namespace back_end.Service.Implement
             var result = new AppResponse<AssignmentDTO>();
             try
             {
-                return result.BuilderResult("Success");
+                var assigmentData = _mapper.Map<Assignment>(data);
+                Assignment? assignment = await _assignmentRespository
+                    .FindBy(assign => !assign.IsDelete 
+                        && assign.Id == assigmentData.Id 
+                        && assign.InternId == assigmentData.InternId
+                     )
+                    .FirstOrDefaultAsync();
+                if (assignment is null) return result.BuilderError("Not found assignment");
+
+                Employee? mentor = await _employeeRespository
+                    .FindBy(emp => !emp.IsDelete && emp.Id == assigmentData.MentorId)
+                    .FirstOrDefaultAsync();
+                if (mentor is null) return result.BuilderError("Not found mentor");
+
+                if (mentor.Type != EmployeeType.OfficalEmployee)
+                    return result.BuilderError("This employee is not an offical employee");
+
+
+                assignment.MentorId = assigmentData.MentorId;  
+                await _assignmentRespository.Update(assignment);
+                return result.BuilderResult(_mapper.Map<AssignmentDTO>(assignment) ,"Success");
             }
             catch (Exception ex)
             {

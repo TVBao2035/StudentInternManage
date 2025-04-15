@@ -9,5 +9,6 @@ namespace back_end.Service.Interface
         Task<AppResponse<AssignmentDTO>> Update(AssignmentDTO data);
         Task<AppResponse<List<AssignmentDTO>>> GetAll();
         Task<AppResponse<bool>> Delete(Guid id);
+        Task<AppResponse<AssignmentDTO>> UpdateScore(AssignmentDTO data);
     }
 }

@@ -66,6 +66,7 @@ namespace back_end.Service.Implement
 
                 newEmployee = _mapper.Map<Employee>(employee);
                 newEmployee.InitialEnity();
+
                 await _employeeRespository.Insert(newEmployee);
                 employee = _mapper.Map<EmployeeDTO>(newEmployee);
                 employee.User = user;

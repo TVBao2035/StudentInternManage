@@ -117,7 +117,8 @@ namespace back_end.Service.Implement
                     .FirstOrDefaultAsync();
                 if (userRole != null) return result.BuilderError("User has been at this permision");
 
-
+                userRole = new UserRole();
+                userRole = _mapper.Map<UserRole>(data);
                 userRole.InitialEnity();
                 await _userRoleRespository.Insert(userRole);
                 userRole.User = user;
@@ -155,11 +156,13 @@ namespace back_end.Service.Implement
             var result = new AppResponse<UserRoleDTO>();
             try
             {
-                var userRole = await _userRoleRespository.Queryable().FirstOrDefaultAsync(ur => ur.Id == userRoleId);
+                var userRole = await _userRoleRespository
+                    .Queryable()
+                    .FirstOrDefaultAsync(ur => ur.Id == userRoleId);
                 if (userRole != null)
                 {
                     await _userRoleRespository.Delete(userRole);
-                    return result.BuilderResult(_mapper.Map<UserRoleDTO>(userRole), "Success");
+                    return result.BuilderResult(_mapper.Map<UserRoleDTO>(userRole), "Delete Success");
                 }
                 return result.BuilderError("Not found");
             }
