@@ -18,6 +18,7 @@ namespace back_end.Configurations
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IJobService, JobService>();
             services.AddScoped<IAssignmentService, AssignmentService>();
+            services.AddScoped<ITaskService, TaskService>();
 
             //------------ Respository ------------//
             services.AddScoped<IUserRespository, UserRespository>();
@@ -30,6 +31,7 @@ namespace back_end.Configurations
             services.AddScoped<IEmployeeRespository, EmployeeRespository>();
             services.AddScoped<IJobRespository, JobRespository>();
             services.AddScoped<IAssignmentRespository, AssignmentRespository>();
+            services.AddScoped<ITaskRespository, TaskRespository>();
 
             // ---------------- Other _____________ //
             services.AddScoped<IPasswordHasher, PasswordHasher>();

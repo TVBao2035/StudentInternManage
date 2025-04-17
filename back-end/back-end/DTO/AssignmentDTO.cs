@@ -10,5 +10,6 @@ namespace back_end.DTO
         public int? Score { get; set; }
         public EmployeeDTO? Intern { get; set; }
         public EmployeeDTO? Mentor { get; set; }
+        public List<TaskDTO>? Tasks { get; set; }
     }
 }
