@@ -59,7 +59,9 @@ namespace back_end.Service.Implement
                 newTask.Status = TasksStatus.Pending;
                 
                 // call api here
-               await _taskRespository.Insert(newTask);
+                await _taskRespository.Insert(newTask);
+
+                // avoid sending too much data
                 newTask.Assignment = null;
                 return result.BuilderResult(_mapper.Map<TaskDTO>(newTask),"Success");
             }
@@ -74,6 +76,28 @@ namespace back_end.Service.Implement
             var result = new AppResponse<bool>();
             try
             {
+                var tasks = await _taskRespository
+                    .FindBy(t => !t.IsDelete && t.Id == id).Include(t =>t.Assignment)
+                    .FirstOrDefaultAsync();
+
+                if (tasks is null) 
+                    return result.BuilderError("Not found this task");
+
+                User user = await _userService.GetUserFromToken();
+
+                var metor = await _employeeRespository
+                    .FindBy(emp => !emp.IsDelete && emp.UserId == user.Id)
+                    .FirstOrDefaultAsync();
+
+                if (metor is null) 
+                    return result.BuilderError("This account is not Employee");
+
+                if (metor.Id != tasks.Assignment.MentorId)
+                    return result.BuilderError("Employee is not mentor of this assign");
+
+                tasks.DeleteEnity();
+
+                await _taskRespository.Update(tasks);
                 return result.BuilderResult("Success");
 
             }
@@ -88,7 +112,21 @@ namespace back_end.Service.Implement
             var result = new AppResponse<List<TaskDTO>>();
             try
             {
-                return result.BuilderResult("Success");
+                var taskList = await _taskRespository
+                    .FindBy(t => !t.IsDelete)
+                    .Include(t => t.Assignment).ThenInclude(assign => assign.Intern).ThenInclude(emp => emp.User)
+                    .Include(t => t.Assignment).ThenInclude(assign => assign.Mentor).ThenInclude(emp => emp.User)
+                    .Select(t => new TaskDTO
+                    {
+                        Id = t.Id,
+                        Name = t.Name,
+                        Note = t.Note,
+                        AssignmentId = t.AssignmentId,
+                        Status = t.Status,
+                        Assignment = _mapper.Map<AssignmentDTO>(t.Assignment)
+                    })
+                    .ToListAsync();
+                return result.BuilderResult(taskList,"Success");
 
             }
             catch (Exception ex)
@@ -116,7 +154,42 @@ namespace back_end.Service.Implement
             var result = new AppResponse<TaskDTO>();
             try
             {
-                return result.BuilderResult("Success");
+                User user = await _userService.GetUserFromToken();
+
+                Employee? mentor = await _employeeRespository
+                    .FindBy(emp => !emp.IsDelete && emp.UserId == user.Id)
+                    .FirstOrDefaultAsync();
+
+                if (mentor is null) 
+                    return result.BuilderError("You are not employee");
+
+
+                Tasks? tasks = await _taskRespository.FindBy(t => !t.IsDelete && t.Id == data.Id).FirstOrDefaultAsync();
+
+                if(tasks is null) 
+                    return result.BuilderError("Not found task");
+
+                Assignment? assignment = await _assignmentRespository
+                    .FindBy(assign => !assign.IsDelete && assign.Id == data.AssignmentId)
+                    .FirstOrDefaultAsync();
+
+                if (assignment is null) 
+                    return result.BuilderError("Not found assignment");
+
+                if(tasks.AssignmentId != assignment.Id) 
+                    return result.BuilderError("Tasks don't match Assignment");
+
+
+                if (mentor.Id != assignment.MentorId)
+                    return result.BuilderError("You are not mentor of this assignment, so you can't create task for it");
+
+
+                tasks.Name = data.Name;
+                tasks.Note = data.Note;
+
+                await _taskRespository.Update(tasks);
+                tasks.Assignment = null;
+                return result.BuilderResult( _mapper.Map<TaskDTO>(tasks),"Success");
 
             }
             catch (Exception ex)
