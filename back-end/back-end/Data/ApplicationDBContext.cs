@@ -21,6 +21,7 @@ namespace back_end.Data
         public DbSet<Employee> Employee { get; set; }
         public DbSet<Assignment> Assignment { get; set; }
         public DbSet<Certifications> Certifications { get; set; }
+        public DbSet<Tasks> Tasks { get; set; }
     }
 
 }
