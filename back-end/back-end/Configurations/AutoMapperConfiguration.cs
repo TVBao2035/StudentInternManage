@@ -17,9 +17,6 @@ namespace back_end.Configurations
             CreateMap<Technology, TechnologyDTO>().ReverseMap();
             CreateMap<Post, PostDTO>().ReverseMap();
             CreateMap<Employee, EmployeeDTO>().ReverseMap();
-            CreateMap<Job, JobDTO>().ReverseMap();
-            CreateMap<Assignment, AssignmentDTO>().ReverseMap();
-            CreateMap<Tasks, TaskDTO>().ReverseMap();
         }
 
     }

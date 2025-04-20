@@ -10,6 +10,5 @@ namespace back_end.Service.Interface
         Task<AppResponse<EmployeeDTO>> Create(EmployeeDTO employee);
         Task<AppResponse<EmployeeDTO>> Update(EmployeeDTO employee);
         Task<AppResponse<bool>> Delete(Guid employeeId);
-        //Task<AppResponse<EmployeeDTO>> GetById(Guid id);
     }
 }

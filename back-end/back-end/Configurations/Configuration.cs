@@ -19,17 +19,7 @@ namespace back_end.Configurations
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Server"));
             });
-            builder.Services.AddHttpContextAccessor();
-            builder.Services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(builder =>
-                {
-                    builder.SetIsOriginAllowed(origin => true)
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowCredentials();
-                });
-            });
+
            
         }
        
