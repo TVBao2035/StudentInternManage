@@ -7,8 +7,8 @@ const SkillItem = ({ title, isSelected, onClick }) => {
       onClick={onClick}
       className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-sm ${
         isSelected
-          ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-blue-200 hover:shadow-md hover:from-blue-600 hover:to-blue-700"
-          : "bg-white text-gray-700 border border-gray-200 hover:border-blue-300 hover:text-blue-600 hover:shadow-md hover:bg-gray-50"
+          ? "bg-green-500 text-white shadow-green-200 hover:shadow-md hover:bg-green-600"
+          : "bg-white text-gray-700 border border-gray-200 hover:border-green-300 hover:text-green-600 hover:shadow-md hover:bg-gray-50"
       }`}
     >
       {title}

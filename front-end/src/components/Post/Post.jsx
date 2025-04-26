@@ -1,13 +1,42 @@
 import React from "react";
 import { Code, ArrowUpRight, Clock } from "lucide-react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Post = ({ job, onApply }) => {
-  const { title, requirements, experience, postedTime } = job;
+  const { id, title, requirements, experience, postedTime } = job;
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+  const isAuthenticated = !!user.email;
 
   const requirementsArray = Array.isArray(requirements)
-    ? requirements
-    : requirements?.split(",").map((item) => item.trim()) || [];
+    ? requirements.map((tech) => tech.name)
+    : typeof requirements === "string"
+    ? requirements.split(",").map((item) => item.trim())
+    : [];
+
+  const formattedDate = postedTime
+    ? new Date(postedTime).toLocaleDateString("vi-VN", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      })
+    : "";
+
+  const formattedExperience =
+    typeof experience === "number"
+      ? `${experience} năm`
+      : experience || "Không yêu cầu";
+
+  const handleApplyClick = () => {
+    if (isAuthenticated) {
+      navigate(`/job-detail?id=${id}`);
+    } else {
+      localStorage.setItem("redirectAfterLogin", `/job-detail?id=${id}`);
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="w-full max-w-4xl h-61 mx-auto bg-white rounded-xl shadow-lg border border-blue-100 overflow-hidden hover:shadow-xl transition-all duration-300">
@@ -28,7 +57,7 @@ const Post = ({ job, onApply }) => {
 
           <div className="flex items-center text-white text-sm bg-white bg-opacity-20 px-3 py-1 rounded-full shadow-md backdrop-blur-sm">
             <Clock className="h-3 w-3 mr-1" />
-            <span>{postedTime || "3 ngày trước"}</span>
+            <span>{formattedDate}</span>
           </div>
         </div>
       </div>
@@ -67,7 +96,7 @@ const Post = ({ job, onApply }) => {
             </div>
             <div className="flex-grow">
               <span className="text-gray-600 bg-gray-50 px-3 py-1 rounded-full text-sm border border-gray-100 shadow-sm">
-                {experience || "Không yêu cầu"}
+                {formattedExperience}
               </span>
             </div>
           </div>
@@ -76,7 +105,7 @@ const Post = ({ job, onApply }) => {
         <div className="flex justify-end">
           <button
             className="group flex items-center px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transform hover:-translate-y-0.5 transition-all duration-200 shadow-md"
-            onClick={() => onApply && onApply(job)}
+            onClick={handleApplyClick}
           >
             <span>Ứng tuyển</span>
             <ArrowUpRight className="h-4 w-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -92,7 +121,12 @@ Post.propTypes = {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,
     requirements: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-    experience: PropTypes.string,
+    experience: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    postedTime: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.instanceOf(Date),
+    ]),
+    context: PropTypes.string,
   }).isRequired,
   onApply: PropTypes.func,
 };

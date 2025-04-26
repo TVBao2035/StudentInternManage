@@ -1,16 +1,21 @@
 import React from "react";
 import { Pencil, Trash2, Calendar } from "lucide-react";
-import { format } from "date-fns";
-import { vi } from "date-fns/locale";
+//import { format } from "date-fns";
+//import { vi } from "date-fns/locale";
 
 const PostManagementItem = ({ post, onEdit, onDelete }) => {
   const formatDate = (dateString) => {
+    if (!dateString) return "";
+
     try {
-      const date = new Date(dateString);
-      return format(date, "dd/MM/yyyy", { locale: vi });
+      return new Date(dateString).toLocaleDateString("vi-VN", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      });
     } catch (error) {
       console.error("Error formatting date:", error);
-      return dateString;
+      return "";
     }
   };
 
@@ -22,7 +27,7 @@ const PostManagementItem = ({ post, onEdit, onDelete }) => {
             <h3 className="text-lg font-medium text-blue-600">{post.title}</h3>
             <div className="flex items-center text-sm text-gray-500 mt-2">
               <Calendar className="h-3.5 w-3.5 mr-1.5" />
-              <span>Ngày đăng: {formatDate(post.postDate)}</span>
+              <span>Ngày đăng: {formatDate(post.postedTime)}</span>
             </div>
           </div>
 

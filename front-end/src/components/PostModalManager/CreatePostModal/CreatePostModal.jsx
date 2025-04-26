@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { X, ChevronDown } from "lucide-react";
 
-const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
+const CreatePostModal = ({
+  isOpen,
+  onClose,
+  onSubmit,
+  isSubmitting,
+  technologies = [],
+}) => {
   const [formData, setFormData] = useState({
     title: "",
     requirements: "",
@@ -10,6 +16,8 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
     benefits: "",
   });
 
+  const requirementsRef = useRef(null);
+  const positionsRef = useRef(null);
   const [requirementTags, setRequirementTags] = useState([]);
   const [positionTag, setPositionTag] = useState("");
 
@@ -17,26 +25,7 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
     useState(false);
   const [showPositionsDropdown, setShowPositionsDropdown] = useState(false);
 
-  const requirementsRef = useRef(null);
-  const positionsRef = useRef(null);
-
-  const availableRequirements = [
-    "React JS",
-    "Redux",
-    "Angular",
-    "Vue.js",
-    "JavaScript",
-    "TypeScript",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "SQL",
-    "Fluent English",
-    "PHP",
-    "Laravel",
-    "Django",
-    "Python",
-  ];
+  const availableRequirements = technologies.length > 0 ? technologies : [];
 
   const availablePositions = [
     "Frontend Developer",
@@ -81,20 +70,29 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
   };
 
   const handleSelectRequirement = (requirement) => {
-    if (!requirementTags.includes(requirement)) {
+    if (!requirementTags.some((tag) => tag.id === requirement.id)) {
       setRequirementTags([...requirementTags, requirement]);
     }
+    // if (!requirementTags.includes(requirement)) {
+    //   setRequirementTags([...requirementTags, requirement]);
+    // }
     setShowRequirementsDropdown(false);
   };
+
+  const removeRequirementTag = (tagToRemove) => {
+    setRequirementTags(
+      requirementTags.filter((tag) => tag.id !== tagToRemove.id)
+    );
+  };
+
+  const filteredRequirements = availableRequirements.filter(
+    (req) => !requirementTags.some((tag) => tag.id === req.id)
+  );
 
   const handleSelectPosition = (position) => {
     setPositionTag(position);
     setFormData((prev) => ({ ...prev, position }));
     setShowPositionsDropdown(false);
-  };
-
-  const removeRequirementTag = (tagToRemove) => {
-    setRequirementTags(requirementTags.filter((tag) => tag !== tagToRemove));
   };
 
   const removePositionTag = () => {
@@ -107,7 +105,7 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
 
     const dataToSubmit = {
       ...formData,
-      requirements: requirementTags.join(", "),
+      requirements: requirementTags,
       position: positionTag,
     };
 
@@ -123,10 +121,6 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
     setRequirementTags([]);
     setPositionTag("");
   };
-
-  const filteredRequirements = availableRequirements.filter(
-    (req) => !requirementTags.includes(req)
-  );
 
   if (!isOpen) return null;
 
@@ -174,7 +168,7 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
                       className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm flex items-center"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      {tag}
+                      {tag.name}
                       <button
                         type="button"
                         className="ml-2 text-white font-bold"
@@ -191,21 +185,15 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
                 </div>
                 {showRequirementsDropdown && (
                   <div className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
-                    {filteredRequirements.length > 0 ? (
-                      filteredRequirements.map((req, index) => (
-                        <div
-                          key={index}
-                          className="px-4 py-2 hover:bg-blue-50 cursor-pointer"
-                          onClick={() => handleSelectRequirement(req)}
-                        >
-                          {req}
-                        </div>
-                      ))
-                    ) : (
-                      <div className="px-4 py-2 text-gray-500">
-                        Không có tùy chọn nào khác
+                    {filteredRequirements.map((req, index) => (
+                      <div
+                        key={index}
+                        className="px-4 py-2 hover:bg-blue-50 cursor-pointer"
+                        onClick={() => handleSelectRequirement(req)}
+                      >
+                        {req.name}
                       </div>
-                    )}
+                    ))}
                   </div>
                 )}
               </div>
