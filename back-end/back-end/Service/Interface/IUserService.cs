@@ -17,7 +17,8 @@ namespace back_end.Service.Interface
         Task<AppResponse<UserDTO>> Create(UserDTO data);
         Task<AppResponse<UserDTO>> Delete(Guid userId);
         Task ValidateTAccessToken(TokenValidatedContext context);
-        Task<User> GetUserFromToken();
-        bool checkRole(string roleName = "admin");
+
+
+
     }
 }

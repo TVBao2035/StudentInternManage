@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using back_end.Common;
 using back_end.DTO;
 using back_end.DTO.UserDTOModel;
 using back_end.Enity;
@@ -10,7 +9,6 @@ using back_end.Respositories.Implement;
 using back_end.Respositories.Interface;
 using back_end.Service.Interface;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 
 namespace back_end.Service.Implement
 {
@@ -20,9 +18,6 @@ namespace back_end.Service.Implement
         private IPostTechnologyRespository _postTechnologyRespository;
         private ITechnologyRespository _technologyRespository;
         private IEmployeeRespository _employeeRespository;
-        private IHttpContextAccessor _contextAccessor;
-        private IUserRespository _userRespository;
-        private IUserService _userService;
         private IMapper _mapper;
 
         public PostService(
@@ -30,18 +25,12 @@ namespace back_end.Service.Implement
             IPostTechnologyRespository postTechnologyRespository,
             ITechnologyRespository technologyRespository,  
             IEmployeeRespository employeeRespository,
-            IHttpContextAccessor contextAccessor,
-            IUserRespository userRespository,
-            IUserService userService,
             IMapper mapper)
         {
             _postRespository = postRespository;
             _postTechnologyRespository = postTechnologyRespository;
             _technologyRespository = technologyRespository;
             _employeeRespository = employeeRespository;
-            _contextAccessor = contextAccessor;
-            _userRespository = userRespository;
-            _userService = userService;
             _mapper = mapper;
         }
 
@@ -50,46 +39,43 @@ namespace back_end.Service.Implement
             var result = new AppResponse<PostDTO>();
             try
             {
-
-                User user = await _userService.GetUserFromToken();
-                if (user is null)
-                    return result.BuilderError("Can't found user from token");
-
                 // ------------ check employee and  permission -------------- //
                 var employee = await _employeeRespository
-                    .FindBy(em => !em.IsDelete && em.UserId == user.Id)
+                    .FindBy(em => !em.IsDelete && em.Id == post.EmployeeId)
+                    .Include(em=>em.User)
+                    .ThenInclude(u => u.UserRoles)
+                    .ThenInclude(ur=>ur.Role)
                     .FirstOrDefaultAsync();
-                if( employee is null || employee.Type != EmployeeType.OfficalEmployee) 
-                    return result.BuilderError("You don't have permission");
+                if(
+                    employee is null 
+                    || employee.User.UserRoles.Where(ur => ur.Role.Name.Equals("business")).FirstOrDefault() is null
+                    || employee.Type != EmployeeType.OfficalEmployee 
+                ) return result.BuilderError("You don't have permission");
 
 
                 // -------- saving new employee ---------------//
                 Post newPost = _mapper.Map<Post>(post);
                 newPost.InitialEnity();
-                newPost.EmployeeId = employee.Id;
                 await _postRespository.Insert(newPost);
 
                 // -------- saving post of technologies ------- //
                 List<PostTechnology> postTechnologyList = new List<PostTechnology>();
-                var techList = post.Technologies?.Select(t => _mapper.Map<Technology>(t)).ToList();
+                var techList = post.Technologies.Select(t => _mapper.Map<Technology>(t)).ToList();
                 post.Id = newPost.Id;
                 post.Technologies = [];
-                if(techList != null)
+                foreach (var technology in techList)
                 {
-                    foreach (var technology in techList)
-                    {
-                        var tech = await _technologyRespository.FindBy(t => t.Id == technology.Id && !t.IsDelete).FirstOrDefaultAsync();
-                        if (tech != null){
-                            var postTechnology = new PostTechnology();
-                            postTechnology.InitialEnity();
-                            postTechnology.PostId = newPost.Id;
-                            postTechnology.TechnologyId = tech.Id;
-                            post.Technologies.Add(_mapper.Map<TechnologyDTO>(tech));
-                            postTechnologyList.Add(postTechnology);
-                        }
+                    var tech = await _technologyRespository.FindBy(t => t.Id == technology.Id && !t.IsDelete).FirstOrDefaultAsync();
+                    if (tech != null){
+                        var postTechnology = new PostTechnology();
+                        postTechnology.InitialEnity();
+                        postTechnology.PostId = newPost.Id;
+                        postTechnology.TechnologyId = tech.Id;
+                        post.Technologies.Add(_mapper.Map<TechnologyDTO>(tech));
+                        postTechnologyList.Add(postTechnology);
                     }
-                    await _postTechnologyRespository.Insert(postTechnologyList);
                 }
+                await _postTechnologyRespository.Insert(postTechnologyList);
 
                 return result.BuilderResult(post,"Success");
             }
@@ -105,15 +91,9 @@ namespace back_end.Service.Implement
             var result = new AppResponse<bool>();
             try
             {
-                User user = await _userService.GetUserFromToken();
-                if (user is null)
-                    return result.BuilderError("Not found user from token");
-
-                var post = await _postRespository.FindBy(p => p.Id == postId).Include(p=>p.Employee).FirstOrDefaultAsync();
+                var post = await _postRespository.FindBy(p => p.Id == postId).FirstOrDefaultAsync();
                 if (post is null) return result.BuilderError("Not found post");
 
-                if (post.Employee.UserId != user.Id && !_userService.checkRole())
-                    return result.BuilderError("You are not Author of this post");
                 post.DeleteEnity();
                 await _postRespository.Update(post);
 
@@ -137,6 +117,7 @@ namespace back_end.Service.Implement
                         Id = p.Id,
                         Name = p.Name,
                         Context = p.Context,
+                        EmployeeId = p.EmployeeId,
                         ExperienceYear = p.ExperienceYear,
                         Exprised = p.Exprised.ToString("dd/MM/yyyy"),
                         Technologies = p.PostTechnologies
@@ -170,19 +151,12 @@ namespace back_end.Service.Implement
             var result = new AppResponse<PostDTO>();
             try
             {
-                Post? data = await _postRespository
+                var data = await _postRespository
                     .FindBy(p => !p.IsDelete && p.Id == post.Id)
                     .Include(p => p.Employee)
                     .Include(p=>p.PostTechnologies).ThenInclude(pt => pt.Technology)
                     .FirstOrDefaultAsync();
                 if (data is null) return result.BuilderError("Not found post");
-
-                User user = await _userService.GetUserFromToken();
-                if (user is null)
-                    return result.BuilderError("Can't found user from token");
-
-                if (user.Id != data.Employee.UserId && !_userService.checkRole())
-                    return result.BuilderError("You are not Author of this Post");
 
                 // ----------- Update information post ------------------- //
 
