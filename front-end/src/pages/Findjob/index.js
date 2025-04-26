@@ -1,1 +1,1 @@
-export {default} from './Findjob';
+export { default } from './Findjob';

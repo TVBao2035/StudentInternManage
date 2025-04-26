@@ -1,56 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { showErrorToast } from "../../helpers/NotificationToast";
+import "react-toastify/dist/ReactToastify.css";
+import { getAllPost } from "../../api/postAPI";
 import Post from "../../components/Post";
-import { toast } from "react-toastify";
-
-const fetchJobs = async () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        status: 200,
-        data: [
-          {
-            id: 1,
-            title: "Tuyển dụng React JS",
-            requirements: "React js, Redux, Fluent English",
-            experience: "Không",
-            position: "Frontend Developer",
-            postedTime: "3 ngày trước",
-            benefits:
-              "Môi trường trẻ, môi trường làm việc hiện đại, năng động, thân thiện và cởi mở.",
-          },
-          {
-            id: 2,
-            title: "Tuyển dụng Vue JS",
-            requirements: "Vue js, Javascript, Fluent English",
-            experience: "Không",
-            position: "Frontend Developer",
-            postedTime: "7 ngày trước",
-            benefits: "Môi trường làm việc năng động, cơ hội thăng tiến cao",
-          },
-          {
-            id: 3,
-            title: "Tuyển dụng PHP",
-            requirements: "PHP, Fluent English",
-            experience: "Không",
-            position: "Backend Developer",
-            postedTime: "5 ngày trước",
-            benefits: "Lương thưởng cạnh tranh, chế độ nghỉ phép hấp dẫn",
-          },
-          {
-            id: 4,
-            title: "Tuyển dụng ASP.NET",
-            requirements: "Asp.net, C#, Fluent English",
-            experience: "Không",
-            position: "Full Stack Developer",
-            postedTime: "2 ngày trước",
-            benefits: "Chế độ bảo hiểm tốt, thưởng dự án theo quý",
-          },
-        ],
-      });
-    }, 1000);
-  });
-};
 
 const Home = () => {
   const [listJobsPost, setListJobsPost] = useState([]);
@@ -60,15 +12,22 @@ const Home = () => {
     const getJobs = async () => {
       try {
         setLoading(true);
-        const response = await fetchJobs();
+        const response = await getAllPost();
 
-        if (response.status === 200) {
-          setListJobsPost(response.data);
-          toast.error("Có lỗi xảy ra khi tải danh sách công việc");
+        if (
+          response?.status === 200 &&
+          response?.data?.isSuccess &&
+          response?.data?.data
+        ) {
+          const posts = response.data.data || [];
+          setListJobsPost(posts);
+        } else {
+          showErrorToast("Error loading post list!");
         }
       } catch (error) {
         console.error("Error fetching jobs:", error);
-        toast.error("Có lỗi xảy ra khi kết nối đến máy chủ");
+        showErrorToast("Connection error!");
+        setListJobsPost([]);
       } finally {
         setLoading(false);
       }
@@ -85,12 +44,24 @@ const Home = () => {
           </div>
         ) : (
           <div className="space-y-6">
-            {listJobsPost.map((job) => (
-              <Post
-                key={job.id}
-                job={job}
-              />
-            ))}
+            {listJobsPost.length > 0 ? (
+              listJobsPost.map((post) => (
+                <Post
+                  key={post.id}
+                  job={{
+                    id: post.id,
+                    title: post.name,
+                    requirements: post.technologies,
+                    experience: post.experienceYear,
+                    postedTime: post.exprised,
+                  }}
+                />
+              ))
+            ) : (
+              <div className="text-center py-10">
+                <p className="text-gray-500 text-lg">Không có bài đăng nào</p>
+              </div>
+            )}
           </div>
         )}
       </div>

@@ -1,34 +1,26 @@
+<<<<<<< HEAD
 import React, { useState, useRef, useEffect } from "react";
 import { FiMenu, FiX, FiUser, FiSettings, FiLogOut } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
+=======
+import React, { useState } from "react";
+import { FiMenu, FiX, FiHome, FiBriefcase, FiSearch } from "react-icons/fi";
+import { useLocation, useNavigate } from "react-router-dom";
+>>>>>>> 60b50e783261d2ad655d5f95bdc012bab142f4cd
 import PropTypes from "prop-types";
-import Navbar from "../Navbar/Navbar";
-import DropdownMenu from "../DropdownMenu/DropdownMenu";
+import UserDropdownMenu from "../UserDropdownMenu/UserDropdownMenu";
+import MobileMenu from "../MobileMenu/MobileMenu";
 
 const Header = ({
   isAuthenticated,
   userFullName,
+  userRoles,
   onLoginClick,
-  onRegisterClick,
   onLogoutClick,
 }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const getActiveNavItem = () => {
     const path = location.pathname;
@@ -42,56 +34,21 @@ const Header = ({
   const navItems = [
     {
       title: "Trang chủ",
-      href: "/",
-      type: "link",
+      action: () => navigate("/"),
+      type: "button",
       id: "home",
     },
     {
       title: "Tìm việc",
-      href: "/post-manager",
-      type: "link",
+      action: () => navigate("/find-job"),
+      type: "button",
       id: "jobs",
     },
     {
       title: "Công việc ứng tuyển",
-      href: "/intern-manager",
-      type: "link",
+      action: () => navigate("/applyingjobs"),
+      type: "button",
       id: "applications",
-    },
-  ];
-
-  const mainMenuItems = [
-    {
-      title: "Thông tin cá nhân",
-      action: () => (window.location.href = "/profile"),
-    },
-    {
-      title: "Quản lý ứng tuyển",
-      action: () => (window.location.href = "/applications/manage"),
-    },
-    {
-      title: "Quản lý nhân viên",
-      action: () => (window.location.href = "/employees"),
-    },
-    {
-      title: "Quản lý bài đăng",
-      action: () => (window.location.href = "/posts/manage"),
-    },
-    {
-      title: "Quản lý thực tập",
-      action: () => (window.location.href = "/interns"),
-    },
-    {
-      title: "Quản lý tài khoản",
-      action: () => (window.location.href = "/account"),
-    },
-    {
-      title: "Xem danh sách công việc",
-      action: () => (window.location.href = "/jobs"),
-    },
-    {
-      title: "Đăng xuất",
-      action: onLogoutClick,
     },
   ];
 
@@ -104,17 +61,30 @@ const Header = ({
               {navItems.map((item) => {
                 const isActive = getActiveNavItem() === item.id;
                 return (
-                  <Link
+                  <button
                     key={item.id}
+<<<<<<< HEAD
                     to={item.href}
                     className={`border-b-2 py-4 px-6 font-medium text-base transition-colors duration-200 ${
+=======
+                    onClick={item.action}
+                    className={`py-2 px-6 font-medium text-base transition-all duration-300 mx-1 ${
+>>>>>>> 60b50e783261d2ad655d5f95bdc012bab142f4cd
                       isActive
                         ? "text-white border-white"
                         : "text-blue-100 border-transparent hover:text-white hover:border-blue-300"
                     }`}
                   >
+<<<<<<< HEAD
                     {item.title}
                   </Link>
+=======
+                    <div className="flex items-center">
+                      {item.icon && <span className="mr-2">{item.icon}</span>}
+                      {item.title}
+                    </div>
+                  </button>
+>>>>>>> 60b50e783261d2ad655d5f95bdc012bab142f4cd
                 );
               })}
             </div>
@@ -122,6 +92,7 @@ const Header = ({
 
           <div className="hidden md:flex items-center">
             {isAuthenticated ? (
+<<<<<<< HEAD
               <div className="relative" ref={dropdownRef}>
                 <div className="flex items-center">
                   <span className="mr-2 text-white font-medium">
@@ -154,12 +125,19 @@ const Header = ({
                   </div>
                 )}
               </div>
+=======
+              <UserDropdownMenu
+                userFullName={userFullName}
+                userRoles={userRoles || []}
+                onLogoutClick={onLogoutClick}
+              />
+>>>>>>> 60b50e783261d2ad655d5f95bdc012bab142f4cd
             ) : (
               <button
                 onClick={onLoginClick}
                 className="px-6 py-2 font-medium hover:underline"
               >
-                Đăng nhập/Đăng ký
+                Đăng nhập
               </button>
             )}
           </div>
@@ -175,6 +153,7 @@ const Header = ({
           </div>
         </div>
 
+<<<<<<< HEAD
         {isMenuOpen && (
           <div className="md:hidden py-2 space-y-1">
             <Navbar
@@ -205,6 +184,18 @@ const Header = ({
             )}
           </div>
         )}
+=======
+        <MobileMenu
+          isOpen={isMenuOpen}
+          navItems={navItems}
+          activeItem={getActiveNavItem()}
+          isAuthenticated={isAuthenticated}
+          userRoles={userRoles || []}
+          onLoginClick={onLoginClick}
+          onLogoutClick={onLogoutClick}
+          onItemClick={() => setIsMenuOpen(false)}
+        />
+>>>>>>> 60b50e783261d2ad655d5f95bdc012bab142f4cd
       </div>
     </header>
   );
@@ -213,8 +204,8 @@ const Header = ({
 Header.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   userFullName: PropTypes.string,
+  userRoles: PropTypes.array,
   onLoginClick: PropTypes.func.isRequired,
-  onRegisterClick: PropTypes.func.isRequired,
   onLogoutClick: PropTypes.func.isRequired,
 };
 

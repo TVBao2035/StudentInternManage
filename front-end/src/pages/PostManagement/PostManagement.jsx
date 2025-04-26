@@ -1,20 +1,38 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import PostManagementItem from "../../components/PostManagementItem";
 import CreatePostModal from "../../components/PostModalManager/CreatePostModal";
 import UpdatePostModal from "../../components/PostModalManager/UpdatePostModal";
+<<<<<<< HEAD
 import DeletePostModal from "../../components/PostModalManager/DeletePostModal";
+=======
+
+//import DeletePostModal from "../../components/PostModalManager/DeletePostModal";
+import DeleteConfirmModal from "../../components/DeleteConfirmModal";
+//import useDebounce from "../../hooks/useDebounce";
+import { getAllPost, getAllTechnology, createPost } from "../../api/postAPI";
+import {
+  showSuccessToast,
+  showErrorToast,
+} from "../../helpers/NotificationToast";
+>>>>>>> 60b50e783261d2ad655d5f95bdc012bab142f4cd
 
 const PostManagement = () => {
   const [posts, setPosts] = useState([]);
+  const [technologies, setTechnologies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+<<<<<<< HEAD
   const navigate = useNavigate();
+=======
+  //const navigate = useNavigate();
+>>>>>>> 60b50e783261d2ad655d5f95bdc012bab142f4cd
 
   const [showCreateModal, setShowCreateModal] = useState(false);
-  const [showEditModal, setShowEditModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [currentPost, setCurrentPost] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+<<<<<<< HEAD
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -59,27 +77,101 @@ const PostManagement = () => {
             benefits: "Chế độ bảo hiểm tốt, thưởng dự án theo quý",
           },
         ];
+=======
+  const [isSubmitting, setIsSubmitting] = useState(false);
+>>>>>>> 60b50e783261d2ad655d5f95bdc012bab142f4cd
 
-        setPosts(mockPosts);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-        setError("An error occurred while loading post data.");
-      } finally {
-        setLoading(false);
+  const fetchPosts = async () => {
+    setLoading(true);
+    try {
+      const response = await getAllPost();
+      if (
+        response?.status === 200 &&
+        response?.data?.isSuccess &&
+        response?.data?.data
+      ) {
+        setPosts(response.data.data || []);
+      } else {
+        setError("Error loading post list!");
+        showErrorToast("Error loading post list!");
       }
-    };
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+      setError("Connection error!");
+      showErrorToast("Connection error!");
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  const fetchTechnologies = async () => {
+    try {
+      const response = await getAllTechnology();
+      if (
+        response?.status === 200 &&
+        response?.data?.isSuccess &&
+        response?.data?.data
+      ) {
+        setTechnologies(response.data.data || []);
+      }
+    } catch (error) {
+      console.error("Error fetching technologies:", error);
+    }
+  };
+
+  useEffect(() => {
     fetchPosts();
+    fetchTechnologies();
   }, []);
 
   const handleCreatePost = () => {
     setShowCreateModal(true);
   };
 
+  const handleSubmitCreateForm = async (formData) => {
+    try {
+      setIsSubmitting(true);
+
+      const postData = {
+        name: formData.title,
+        context: formData.context || "",
+        experienceYear: formData.experience.includes("năm")
+          ? parseInt(formData.experience.replace("năm", "").trim())
+          : formData.experience,
+        exprised: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+        technologies: formData.requirements.map((tech) => ({
+          id: tech.id,
+          name: tech.name,
+        })),
+      };
+
+      console.log("Sending data:", postData);
+
+      const response = await createPost(postData);
+
+      if (
+        response?.status === 200 &&
+        response?.data?.isSuccess &&
+        response?.data?.data
+      ) {
+        showSuccessToast("Post created successfully!");
+        fetchPosts();
+      } else {
+        showErrorToast(response?.data?.message || "Error creating post!");
+      }
+    } catch (error) {
+      console.error("Error creating post:", error);
+      showErrorToast("Connection error while creating post!");
+    } finally {
+      setIsSubmitting(false);
+      setShowCreateModal(false);
+    }
+  };
+
   const handleUpdatePost = (postId) => {
     const postToEdit = posts.find((post) => post.id === postId);
     setCurrentPost(postToEdit);
-    setShowEditModal(true);
+    setShowUpdateModal(true);
   };
 
   const handleDeletePost = (postId) => {
@@ -94,13 +186,6 @@ const PostManagement = () => {
     console.log("Đã xóa bài đăng:", postId);
   };
 
-  const handleSubmitCreateForm = (formData) => {
-    const newPost = {};
-    const updatedPosts = [...posts, newPost];
-    setPosts(updatedPosts);
-    setShowCreateModal(false);
-  };
-
   const handleSubmitUpdateForm = (formData) => {
     if (!currentPost) return;
 
@@ -110,19 +195,28 @@ const PostManagement = () => {
 
     setPosts(updatedPosts);
 
-    setShowEditModal(false);
+    setShowUpdateModal(false);
     setCurrentPost(null);
   };
 
   return (
     <div className="bg-gray-50 min-h-screen pt-20 pb-10">
       <div className="max-w-6xl mx-auto px-4">
+<<<<<<< HEAD
         <div className="mb-6">
           <button
             onClick={handleCreatePost}
             className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200"
+=======
+        <div className="mb-6 flex">
+          <button
+            onClick={handleCreatePost}
+            className={`px-4 w-1/4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 ${
+              isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+            }`}
+>>>>>>> 60b50e783261d2ad655d5f95bdc012bab142f4cd
           >
-            Tạo mới
+            {isSubmitting ? "Đang xử lý..." : "Tạo mới"}
           </button>
         </div>
 
@@ -143,7 +237,24 @@ const PostManagement = () => {
             {posts.map((post) => (
               <PostManagementItem
                 key={post.id}
-                post={post}
+                post={{
+                  id: post.id,
+                  title: post.name,
+                  requirements: Array.isArray(post.technologies)
+                    ? post.technologies
+                        .map((tech) =>
+                          typeof tech === "object" ? tech.name : tech
+                        )
+                        .join(", ")
+                    : typeof post.technologies === "string"
+                    ? post.technologies
+                    : "",
+                  experience:
+                    typeof post.experienceYear === "number"
+                      ? `${post.experienceYear} năm`
+                      : post.experienceYear || "Không yêu cầu",
+                  postedTime: post.exprised,
+                }}
                 onEdit={handleUpdatePost}
                 onDelete={handleDeletePost}
               />
@@ -168,15 +279,17 @@ const PostManagement = () => {
       </div>
 
       <CreatePostModal
+        technologies={technologies}
         isOpen={showCreateModal}
         onClose={() => setShowCreateModal(false)}
         onSubmit={handleSubmitCreateForm}
+        isSubmitting={isSubmitting}
       />
 
       <UpdatePostModal
-        isOpen={showEditModal}
+        isOpen={showUpdateModal}
         onClose={() => {
-          setShowEditModal(false);
+          setShowUpdateModal(false);
           setCurrentPost(null);
         }}
         post={currentPost}
