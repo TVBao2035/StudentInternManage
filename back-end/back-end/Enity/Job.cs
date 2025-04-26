@@ -9,7 +9,7 @@ namespace back_end.Enity
     [Table("Job")]
     public class Job:BaseEntity
     {
-       [ForeignKey("User")]
+        [ForeignKey("User")]
         public Guid UserId { get; set; }
         public User? User { get; set; }
 

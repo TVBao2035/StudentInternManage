@@ -3,7 +3,6 @@ using back_end.DTO;
 using back_end.DTO.UserDTOModel;
 using back_end.Enity;
 using back_end.Enum;
-using back_end.Models.Request;
 using back_end.Models.Response;
 using back_end.Respositories.Implement;
 using back_end.Respositories.Interface;
@@ -106,11 +105,6 @@ namespace back_end.Service.Implement
             {
                 return result.BuilderError("Error: " + ex.Message);
             }
-        }
-
-        public Task<AppResponse<SearchResponse<JobDTO>>> Search(SearchResquest resquest)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<AppResponse<JobDTO>> Update(JobDTO data)

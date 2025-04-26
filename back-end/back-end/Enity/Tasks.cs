@@ -14,5 +14,6 @@ namespace back_end.Enity
         public Guid AssignmentId { get; set; }
         public Assignment? Assignment { get; set; }
         public TasksStatus Status { get; set; }
+
     }
 }

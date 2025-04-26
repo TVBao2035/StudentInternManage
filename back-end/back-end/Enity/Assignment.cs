@@ -16,5 +16,7 @@ namespace back_end.Enity
         public Employee? Mentor { get; set; }
 
         public int Score { get; set; }
+
+        public List<Tasks>? Tasks { get; set; }
     }
 }

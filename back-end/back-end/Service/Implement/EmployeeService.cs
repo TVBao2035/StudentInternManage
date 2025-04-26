@@ -4,7 +4,6 @@ using back_end.DTO;
 using back_end.DTO.UserDTOModel;
 using back_end.Enity;
 using back_end.Enum;
-using back_end.Models.Request;
 using back_end.Models.Response;
 using back_end.Respositories.Implement;
 using back_end.Respositories.Interface;
@@ -20,19 +19,24 @@ namespace back_end.Service.Implement
 
         private IMapper _mapper;
         private IUserRespository _userRespository;
+        private IUserService _userService;
         private IUserRoleRespository _userRoleRespository;
 
         public EmployeeService(
             IEmployeeRespository employeeRespository,
             IUserRespository userRespository,
             IUserRoleRespository userRoleRespository, 
+            IUserService userService,
             IMapper mapper)
         {
             _mapper = mapper;
             _employeeRespository = employeeRespository;
             _userRespository = userRespository;
+            _userService = userService;
             _userRoleRespository = userRoleRespository;
         }
+
+
         public async Task<AppResponse<EmployeeDTO>> Create(EmployeeDTO employee)
         {
             var result = new AppResponse<EmployeeDTO>();
@@ -62,6 +66,7 @@ namespace back_end.Service.Implement
 
                 newEmployee = _mapper.Map<Employee>(employee);
                 newEmployee.InitialEnity();
+
                 await _employeeRespository.Insert(newEmployee);
                 employee = _mapper.Map<EmployeeDTO>(newEmployee);
                 employee.User = user;
@@ -127,11 +132,6 @@ namespace back_end.Service.Implement
             }
         }
 
-        public Task<AppResponse<SearchResponse<EmployeeDTO>>> Search(SearchResquest request)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<AppResponse<EmployeeDTO>> Update(EmployeeDTO employee)
         {
             var result = new AppResponse<EmployeeDTO>();
@@ -146,7 +146,6 @@ namespace back_end.Service.Implement
                 bool isBusiness = _userService.checkRole("business");
                 if (user.Id != userAuth.Id && !isBusiness)
                     return result.BuilderError("You don't permission perform this function");
-
                 // if business change the employee infore, then request data will have user id and employee id
                 Employee data;
                 if (isBusiness && user.Id != userAuth.Id) 
@@ -167,8 +166,8 @@ namespace back_end.Service.Implement
                 data.Type = employee.Type;
                 await _employeeRespository.Update(data);
                 user.BirthDate = Helper.FormatDate(employee.User.BirthDate);
-              //  user.BirthDate = employee.User.BirthDate;
                 user.Gender = employee.User.Gender;
+                user.Name = employee.User.Name;
                 user.SchoolName = employee.User.SchoolName;
                 await _userRespository.Update(user);
 

@@ -8,10 +8,9 @@ namespace back_end.DTO
         public Guid? Id { get; set; }
         public string Name { get; set; }
         public string Context { get; set; }
-        public Guid? EmployeeId { get; set; }
         public EmployeeDTO? Employee { get; set; }
         public int ExperienceYear { get; set; }
-        public string Exprised { get; set; }
+        public DateTime Exprised { get; set; }
 
         public List<TechnologyDTO>? Technologies { get; set; }
     }
