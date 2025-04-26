@@ -99,6 +99,15 @@ namespace back_end.Service.Implement
             var result = new AppResponse<UserDTO>();
             try
             {
+                if (!Helper.ValidateEmail(data.Email))
+                {
+                    return result.BuilderError("Email is invalid");
+                }
+
+                if (Helper.IsPhoneNumber(data.PhoneNumber))
+                {
+                    return result.BuilderError("Phone is invalid");
+                }
                 User? newUser = await _userRespository.Queryable()
                     .Where(user => !user.IsDelete)
                     .FirstOrDefaultAsync(user => user.Email.Equals(data.Email) || user.PhoneNumber.Equals(data.PhoneNumber));
