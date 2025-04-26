@@ -2,6 +2,7 @@
 using back_end.DTO;
 using back_end.Enity;
 using back_end.Enum;
+using back_end.Models.Request;
 using back_end.Models.Response;
 using back_end.Respositories.Implement;
 using back_end.Respositories.Interface;
@@ -55,7 +56,9 @@ namespace back_end.Service.Implement
                     return result.BuilderError("You are not mentor of this assignment");
 
                 assignment.Score = assignmentData.Score;
+                assignment.UpdateTimeEntity();
                 await _assignmentRespository.Update(assignment);
+
                 return result.BuilderResult(_mapper.Map<AssignmentDTO>(assignment),"Success");
             }
             catch (Exception ex)
@@ -172,15 +175,21 @@ namespace back_end.Service.Implement
                 if (mentor.Type != EmployeeType.OfficalEmployee)
                     return result.BuilderError("This employee is not an offical employee");
 
-
-                assignment.MentorId = assigmentData.MentorId;  
+                assignment.MentorId = assigmentData.MentorId;
+                assignment.UpdateTimeEntity();
                 await _assignmentRespository.Update(assignment);
+
                 return result.BuilderResult(_mapper.Map<AssignmentDTO>(assignment) ,"Success");
             }
             catch (Exception ex)
             {
                 return result.BuilderError("Error: " + ex.Message);
             }
+        }
+
+        public Task<AppResponse<SearchResponse<AssignmentDTO>>> Search(SearchResquest request)
+        {
+            throw new NotImplementedException();
         }
     }
 }

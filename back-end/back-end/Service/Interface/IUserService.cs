@@ -1,6 +1,7 @@
 ﻿using back_end.DTO.Auth;
 using back_end.DTO.UserDTOModel;
 using back_end.Enity;
+using back_end.Models.Request;
 using back_end.Models.Response;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
@@ -8,6 +9,7 @@ namespace back_end.Service.Interface
 {
     public interface IUserService
     {
+        Task<AppResponse<SearchResponse<UserDTO>>> Search(SearchResquest resquest);
         Task<AppResponse<LoginResponse>> Login(LoginRequest data);
         Task<AppResponse<UserDTO>> Register(RegisterDTO data);
         Task<AppResponse<List<UserDTO>>> GetAll();

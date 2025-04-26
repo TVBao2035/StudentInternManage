@@ -1,10 +1,12 @@
 ﻿using back_end.DTO;
+using back_end.Models.Request;
 using back_end.Models.Response;
 
 namespace back_end.Service.Interface
 {
     public interface IJobService
     {
+        Task<AppResponse<SearchResponse<JobDTO>>> Search(SearchResquest resquest);
         Task<AppResponse<JobDTO>> Create(JobDTO data);
         Task<AppResponse<List<JobDTO>>> GetAll();
         Task<AppResponse<bool>> Delete(Guid id);

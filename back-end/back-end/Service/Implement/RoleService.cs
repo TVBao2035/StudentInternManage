@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using back_end.DTO.UserDTOModel;
 using back_end.Enity;
+using back_end.Models.Request;
 using back_end.Models.Response;
 using back_end.Respositories.Implement;
 using back_end.Respositories.Interface;
@@ -69,6 +70,7 @@ namespace back_end.Service.Implement
             try
             {
                 if (data is null) return result.BuilderError("data is wrong");
+                data.UpdateTimeEntity();
                 await _roleRespository.Update(data);
                 return result.BuilderResult(data, "Success");
             }
@@ -173,5 +175,9 @@ namespace back_end.Service.Implement
             }
         }
 
+        public Task<AppResponse<SearchResponse<UserRoleDTO>>> Search(SearchResquest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

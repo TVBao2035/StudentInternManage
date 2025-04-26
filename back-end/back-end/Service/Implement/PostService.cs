@@ -4,6 +4,7 @@ using back_end.DTO;
 using back_end.DTO.UserDTOModel;
 using back_end.Enity;
 using back_end.Enum;
+using back_end.Models.Request;
 using back_end.Models.Response;
 using back_end.Respositories.Implement;
 using back_end.Respositories.Interface;
@@ -137,7 +138,7 @@ namespace back_end.Service.Implement
                         Name = p.Name,
                         Context = p.Context,
                         ExperienceYear = p.ExperienceYear,
-                        Exprised = p.Exprised,
+                        Exprised = p.Exprised.ToString("dd/MM/yyyy"),
                         Technologies = p.PostTechnologies
                         .Where(pt => !pt.IsDelete && pt.PostId == p.Id)
                         .Select(pt => _mapper.Map<TechnologyDTO>(pt.Technology)).ToList(),
@@ -157,6 +158,11 @@ namespace back_end.Service.Implement
 
                 return result.BuilderError("Error " + ex.Message);
             }
+        }
+
+        public Task<AppResponse<SearchResponse<PostDTO>>> Search(SearchResquest resquest)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<AppResponse<PostDTO>> Update(PostDTO post)
@@ -183,8 +189,8 @@ namespace back_end.Service.Implement
                 data.Context = post.Context;
                 data.Name = post.Name;
                 data.ExperienceYear = post.ExperienceYear;
-                data.Exprised = post.Exprised;
-
+                data.Exprised = DateTime.Parse(post.Exprised);
+                data.UpdateTimeEntity();
                 await _postRespository.Update(data);
 
                 // ---------- Get all technology id of post --------------- //
@@ -192,13 +198,13 @@ namespace back_end.Service.Implement
                 var newTechPostList = post.Technologies.Select(t => _mapper.Map<Technology>(t)).Select(t=>t.Id);
                 var addPostTechnologyList = new List<PostTechnology>();
                 var deletePostTechnologyList = new List<PostTechnology>();
-
+                PostTechnology? postTechnology;
                 // ----------- Add new technology for post --------------- //
-                foreach(var tectId in newTechPostList)
+                foreach (var tectId in newTechPostList)
                 {
                     if (!oldTechPostList.Contains(tectId))
                     {
-                        PostTechnology postTechnology = new PostTechnology();
+                        postTechnology = new PostTechnology();
                         postTechnology.InitialEnity();
                         postTechnology.PostId = data.Id;
                         postTechnology.TechnologyId = tectId;
@@ -207,15 +213,16 @@ namespace back_end.Service.Implement
                 }
                 await _postTechnologyRespository.Insert(addPostTechnologyList);
                 // --------------- Delete technology for post ------------ //
-                foreach(var techId in oldTechPostList)
+                
+                foreach (var techId in oldTechPostList)
                 {
                     if (!newTechPostList.Contains(techId))
                     {
-                        PostTechnology? postTechnology = await _postTechnologyRespository
-                             .FindBy(pt => !pt.IsDelete && pt.TechnologyId == techId && pt.PostId == data.Id)
-                             .FirstOrDefaultAsync();
+                        postTechnology = await _postTechnologyRespository
+                        .FindBy(pt => !pt.IsDelete && pt.TechnologyId == techId && pt.PostId == data.Id)
+                        .FirstOrDefaultAsync();
 
-                        if (postTechnology != null) 
+                        if (postTechnology != null)
                             deletePostTechnologyList.Add(postTechnology);
                     }
                 }

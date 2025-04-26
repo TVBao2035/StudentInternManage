@@ -5,6 +5,7 @@ using back_end.DTO.Auth;
 using back_end.DTO.UserDTOModel;
 using back_end.Enity;
 using back_end.Enum;
+using back_end.Models.Request;
 using back_end.Models.Response;
 using back_end.Respositories.Implement;
 using back_end.Respositories.Interface;
@@ -396,10 +397,6 @@ namespace back_end.Service.Implement
 
                 return null;
             }
-            
-
-
-
         }
 
         public async Task ValidateTAccessToken(TokenValidatedContext context)
@@ -456,12 +453,9 @@ namespace back_end.Service.Implement
             }
             catch (Exception ex)
             {
-
                 context.Fail("Token was expired" + ex.Message);
                 return;
             }
-            
-
         }
 
         public  bool checkRole(string roleName = "admin")
@@ -490,5 +484,13 @@ namespace back_end.Service.Implement
             }
             
         }
+
+        public Task<AppResponse<SearchResponse<UserDTO>>> Search(SearchResquest resquest)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        
     }
 }

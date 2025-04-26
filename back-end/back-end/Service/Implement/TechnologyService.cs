@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using back_end.DTO;
 using back_end.Enity;
+using back_end.Models.Request;
 using back_end.Models.Response;
 using back_end.Respositories.Interface;
 using back_end.Service.Interface;
@@ -79,6 +80,11 @@ namespace back_end.Service.Implement
 
                 return result.BuilderError("Error " + ex.Message);
             }
+        }
+
+        public Task<AppResponse<SearchResponse<TechnologyDTO>>> Search(SearchResquest resquest)
+        {
+            throw new NotImplementedException();
         }
 
         public async  Task<AppResponse<TechnologyDTO>> Update(TechnologyDTO technology)
