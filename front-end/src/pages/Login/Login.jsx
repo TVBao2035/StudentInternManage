@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import { useNavigate, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { setLoading } from "../../redux/loadingSlice";
-import { getAllUser, login } from "../../api/userApi";
-import { setData } from "../../redux/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user);
-  console.log(user);
+
   const initInfor = {
-    email: "test@gmail.com",
-    password: "12345",
+    email: "",
+    password: "",
   };
 
   const initMessage = {
@@ -66,46 +63,29 @@ const Login = () => {
     if (!validateField("password", formData.password)) {
       isValid = false;
     }
-    
+
     return isValid;
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // if (!validateForm()) {
-      //   return;
-      // }
-      
-      setIsLoading(true);
-      
-      try {
-        const res = await login(formData);
-        if (res?.status === 200 && res?.data?.isSuccess) {
-          toast.success(res.message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-          });
-      
-          document.cookie = `${process.env.REACT_APP_COOKIE_NAME}=${res.data?.data?.refreshToken}; SameSite=None; Secure`
-          dispatch(setData(res.data.data));
-          //   navigate("/");
-          dispatch(setLoading(true));
-          dispatch(setLoading(false));
-         const data = await getAllUser();
-         console.log(data);
-        }
-        if (res?.status === 404 || !res?.data?.isSuccess) {
-          setErrors({
-            ...errors,
-            [res?.data]: res?.message,
-          });
-        
-        toast.error(res?.message, {
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const res = await formData;
+
+      if (res.status === 404) {
+        setErrors({
+          ...errors,
+          [res.data]: res.message,
+        });
+
+        toast.error(res.message, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -116,6 +96,30 @@ const Login = () => {
         return;
       }
 
+      if (res.status === 200) {
+        //const userData = res.data;
+
+        dispatch();
+        // setDataMain({
+        //   id: userData.id,
+        //   token: userData.accessToken,
+        //   name: userData.name,
+        // })
+
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+
+        localStorage.setItem();
+        navigate("/");
+        dispatch(setLoading(true));
+        dispatch(setLoading(false));
+      }
     } catch (error) {
       console.error("Login error:", error);
 
@@ -148,9 +152,6 @@ const Login = () => {
     );
   };
 
-  useEffect(()=>{
-    
-  }, []);
   return (
     //<div className="h-screen overflow-hidden bg-gradient-to-br from-indigo-100 via-purple-50 to-blue-100 p-4 flex items-center justify-center">
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
@@ -272,9 +273,9 @@ const Login = () => {
             className={`w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white transition-all duration-200 ${
               isFormValid()
                 ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-[1.02]"
-                : "bg-gray-300 "
+                : "bg-gray-300 cursor-not-allowed"
             }`}
-           // disabled={isLoading || !isFormValid()}
+            disabled={isLoading || !isFormValid()}
           >
             {isLoading ? (
               <svg

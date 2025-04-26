@@ -35,6 +35,8 @@ namespace back_end.Service.Implement
             _userService = userService;
             _userRoleRespository = userRoleRespository;
         }
+
+
         public async Task<AppResponse<EmployeeDTO>> Create(EmployeeDTO employee)
         {
             var result = new AppResponse<EmployeeDTO>();
@@ -64,6 +66,7 @@ namespace back_end.Service.Implement
 
                 newEmployee = _mapper.Map<Employee>(employee);
                 newEmployee.InitialEnity();
+
                 await _employeeRespository.Insert(newEmployee);
                 employee = _mapper.Map<EmployeeDTO>(newEmployee);
                 employee.User = user;

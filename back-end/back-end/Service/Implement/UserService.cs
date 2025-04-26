@@ -81,7 +81,7 @@ namespace back_end.Service.Implement
                 loginResponse.Email = user.Email;
                 loginResponse.Roles = await _userRoleRespository
                     .Queryable()
-                    .Where(ur => ur.UserId == user.Id)
+                    .Where(ur => ur.UserId == user.Id && !ur.IsDelete)
                     .Select(ur => ur.Role.Name)
                     .ToListAsync();
 
