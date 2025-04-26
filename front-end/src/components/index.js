@@ -17,5 +17,3 @@ export { default as JobAppItem } from './JobAppItem';
 export { default as PostManagementItem } from './PostManagementItem';
 
 export { default as InternSubMenu } from './InternSubMenu';
-
-export {default as Menu} from './Menu';

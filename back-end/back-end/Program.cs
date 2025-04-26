@@ -27,9 +27,8 @@ namespace back_end
 
             app.UseHttpsRedirection();
 
-            app.UseCors();
-            app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.MapControllers();
 

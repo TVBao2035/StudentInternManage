@@ -7,6 +7,7 @@ using back_end.Enum;
 using back_end.Respositories.Interface;
 using back_end.Service.Interface;
 using Microsoft.EntityFrameworkCore;
+using back_end.Models.Request;
 
 namespace back_end.Service.Implement
 {
@@ -176,6 +177,11 @@ namespace back_end.Service.Implement
             {
                 return result.BuilderError("Error: " + ex.Message);
             }
+        }
+
+        public Task<AppResponse<SearchResponse<TaskDTO>>> Search(SearchResquest resquest)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<AppResponse<TaskDTO>> Update(TaskDTO data)

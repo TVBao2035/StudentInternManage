@@ -1,6 +1,5 @@
 ﻿using back_end.DTO;
 using back_end.Service.Interface;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,7 +7,6 @@ namespace back_end.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize(Roles ="business")]
     public class PostController : ControllerBase
     {
         private IPostService _postService;
@@ -19,7 +17,6 @@ namespace back_end.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var data = await _postService.GetAll();

@@ -239,42 +239,6 @@ namespace back_end.Migrations
                     b.ToTable("Role");
                 });
 
-            modelBuilder.Entity("back_end.Enity.Tasks", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AssignmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Note")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AssignmentId");
-
-                    b.ToTable("Tasks");
-                });
-
             modelBuilder.Entity("back_end.Enity.Technology", b =>
                 {
                     b.Property<Guid>("Id")
@@ -506,17 +470,6 @@ namespace back_end.Migrations
                     b.Navigation("Technology");
                 });
 
-            modelBuilder.Entity("back_end.Enity.Tasks", b =>
-                {
-                    b.HasOne("back_end.Enity.Assignment", "Assignment")
-                        .WithMany("Tasks")
-                        .HasForeignKey("AssignmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Assignment");
-                });
-
             modelBuilder.Entity("back_end.Enity.Token", b =>
                 {
                     b.HasOne("back_end.Enity.User", "User")
@@ -552,11 +505,6 @@ namespace back_end.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("back_end.Enity.Assignment", b =>
-                {
-                    b.Navigation("Tasks");
                 });
 
             modelBuilder.Entity("back_end.Enity.Post", b =>
