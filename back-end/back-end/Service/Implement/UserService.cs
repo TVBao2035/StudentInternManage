@@ -104,7 +104,7 @@ namespace back_end.Service.Implement
                     return result.BuilderError("Email is invalid");
                 }
 
-                if (Helper.IsPhoneNumber(data.PhoneNumber))
+                if (!Helper.IsPhoneNumber(data.PhoneNumber))
                 {
                     return result.BuilderError("Phone is invalid");
                 }

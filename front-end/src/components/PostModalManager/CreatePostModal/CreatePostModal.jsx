@@ -12,32 +12,32 @@ const CreatePostModal = ({
     title: "",
     requirements: "",
     experience: "",
-    position: "",
-    benefits: "",
+    //position: "",
+    context: "",
   });
 
   const requirementsRef = useRef(null);
-  const positionsRef = useRef(null);
+  //const positionsRef = useRef(null);
   const [requirementTags, setRequirementTags] = useState([]);
-  const [positionTag, setPositionTag] = useState("");
+  //const [positionTag, setPositionTag] = useState("");
 
   const [showRequirementsDropdown, setShowRequirementsDropdown] =
     useState(false);
-  const [showPositionsDropdown, setShowPositionsDropdown] = useState(false);
+  //const [showPositionsDropdown, setShowPositionsDropdown] = useState(false);
 
   const availableRequirements = technologies.length > 0 ? technologies : [];
 
-  const availablePositions = [
-    "Frontend Developer",
-    "Backend Developer",
-    "Full Stack Developer",
-    "Mobile Developer",
-    "UI/UX Designer",
-    "DevOps Engineer",
-    "QA Engineer",
-    "Product Manager",
-    "Project Manager",
-  ];
+  // const availablePositions = [
+  //   "Frontend Developer",
+  //   "Backend Developer",
+  //   "Full Stack Developer",
+  //   "Mobile Developer",
+  //   "UI/UX Designer",
+  //   "DevOps Engineer",
+  //   "QA Engineer",
+  //   "Product Manager",
+  //   "Project Manager",
+  // ];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -47,12 +47,12 @@ const CreatePostModal = ({
       ) {
         setShowRequirementsDropdown(false);
       }
-      if (
-        positionsRef.current &&
-        !positionsRef.current.contains(event.target)
-      ) {
-        setShowPositionsDropdown(false);
-      }
+      // if (
+      //   positionsRef.current &&
+      //   !positionsRef.current.contains(event.target)
+      // ) {
+      //   setShowPositionsDropdown(false);
+      // }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -89,16 +89,16 @@ const CreatePostModal = ({
     (req) => !requirementTags.some((tag) => tag.id === req.id)
   );
 
-  const handleSelectPosition = (position) => {
-    setPositionTag(position);
-    setFormData((prev) => ({ ...prev, position }));
-    setShowPositionsDropdown(false);
-  };
+  // const handleSelectPosition = (position) => {
+  //   setPositionTag(position);
+  //   setFormData((prev) => ({ ...prev, position }));
+  //   setShowPositionsDropdown(false);
+  // };
 
-  const removePositionTag = () => {
-    setPositionTag("");
-    setFormData((prev) => ({ ...prev, position: "" }));
-  };
+  // const removePositionTag = () => {
+  //   setPositionTag("");
+  //   setFormData((prev) => ({ ...prev, position: "" }));
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -106,7 +106,7 @@ const CreatePostModal = ({
     const dataToSubmit = {
       ...formData,
       requirements: requirementTags,
-      position: positionTag,
+      //position: positionTag,
     };
 
     onSubmit(dataToSubmit);
@@ -115,11 +115,11 @@ const CreatePostModal = ({
       title: "",
       requirements: "",
       experience: "",
-      position: "",
-      benefits: "",
+      //position: "",
+      context: "",
     });
     setRequirementTags([]);
-    setPositionTag("");
+    //setPositionTag("");
   };
 
   if (!isOpen) return null;
@@ -213,7 +213,7 @@ const CreatePostModal = ({
               />
             </div>
 
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Vị trí:
               </label>
@@ -255,15 +255,15 @@ const CreatePostModal = ({
                   </div>
                 )}
               </div>
-            </div>
+            </div> */}
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Quyền lợi:
               </label>
               <textarea
-                name="benefits"
-                value={formData.benefits}
+                name="context"
+                value={formData.context}
                 onChange={handleChange}
                 rows={4}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"

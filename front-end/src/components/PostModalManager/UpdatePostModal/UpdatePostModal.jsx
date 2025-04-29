@@ -1,77 +1,76 @@
 import React, { useState, useEffect, useRef } from "react";
 import { X, ChevronDown } from "lucide-react";
 
-const EditPostModal = ({ isOpen, onClose, post, onSubmit }) => {
+const UpdatePostModal = ({ isOpen, onClose, post, onSubmit, technologies = [] }) => {
   const [formData, setFormData] = useState({
     title: "",
     requirements: [],
     experience: "",
-    position: "",
-    benefits: "",
+    //position: "",
+    context: "",
   });
 
   const [requirementTags, setRequirementTags] = useState([]);
-  const [positionTag, setPositionTag] = useState("");
+  //const [positionTag, setPositionTag] = useState("");
 
   const [showRequirementsDropdown, setShowRequirementsDropdown] =
     useState(false);
-  const [showPositionsDropdown, setShowPositionsDropdown] = useState(false);
+  //const [showPositionsDropdown, setShowPositionsDropdown] = useState(false);
 
   const requirementsRef = useRef(null);
-  const positionsRef = useRef(null);
+  //const positionsRef = useRef(null);
 
-  const availableRequirements = [
-    "React JS",
-    "Redux",
-    "Angular",
-    "Vue.js",
-    "JavaScript",
-    "TypeScript",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "SQL",
-    "Fluent English",
-    "PHP",
-    "Laravel",
-    "Django",
-    "Python",
-  ];
+  const availableRequirements = technologies.length > 0 ? technologies : [];
 
-  const availablePositions = [
-    "Frontend Developer",
-    "Backend Developer",
-    "Full Stack Developer",
-    "Mobile Developer",
-    "UI/UX Designer",
-    "DevOps Engineer",
-    "QA Engineer",
-    "Product Manager",
-    "Project Manager",
-  ];
+  // const availablePositions = [
+  //   "Frontend Developer",
+  //   "Backend Developer",
+  //   "Full Stack Developer",
+  //   "Mobile Developer",
+  //   "UI/UX Designer",
+  //   "DevOps Engineer",
+  //   "QA Engineer",
+  //   "Product Manager",
+  //   "Project Manager",
+  // ];
 
   useEffect(() => {
     if (isOpen && post) {
+      //console.log("Post data received in modal:", post);
+      //console.log("Technologies available:", technologies);
+
+      const postTitle = post.name || "";
+      const postExperience = 
+        typeof post.experienceYear === "number"
+          ? (post.experienceYear === 0 ? "Không" : `${post.experienceYear} năm`)
+          : post.experience || "";
+      
+      //console.log("Setting title:", postTitle);
+      //console.log("Setting experience:", postExperience);
       setFormData({
-        title: post.title || "",
-        requirements: post.requirements || [],
-        experience: post.experience || "",
-        position: post.position || "",
-        benefits: post.benefits || "",
+        title: postTitle,
+        experience: postExperience,
+        context: post.context || "",
       });
 
-      if (typeof post.requirements === "string") {
-        const tags = post.requirements.split(",").map((item) => item.trim());
-        setRequirementTags(tags);
-      } else if (Array.isArray(post.requirements)) {
-        setRequirementTags(post.requirements);
+      if (Array.isArray(post.technologies)) {
+        //console.log("Technologies is array:", post.technologies);
+        setRequirementTags(post.technologies);
+      } else if (typeof post.requirements === "string" && post.requirements) {
+        //console.log("Requirements is string:", post.requirements);
+        const reqNames = post.requirements.split(",").map(item => item.trim());
+        
+        const techObjects = reqNames.map(name => {
+          const tech = technologies.find(t => t.name === name);
+          return tech || { id: null, name: name };
+        });
+        setRequirementTags(techObjects);
       } else {
+        console.log("No technologies or requirements found");
         setRequirementTags([]);
       }
-
-      setPositionTag(post.position || "");
     }
-  }, [isOpen, post]);
+  }, [isOpen, post, technologies]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -81,12 +80,12 @@ const EditPostModal = ({ isOpen, onClose, post, onSubmit }) => {
       ) {
         setShowRequirementsDropdown(false);
       }
-      if (
-        positionsRef.current &&
-        !positionsRef.current.contains(event.target)
-      ) {
-        setShowPositionsDropdown(false);
-      }
+      // if (
+      //   positionsRef.current &&
+      //   !positionsRef.current.contains(event.target)
+      // ) {
+      //   setShowPositionsDropdown(false);
+      // }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -104,26 +103,26 @@ const EditPostModal = ({ isOpen, onClose, post, onSubmit }) => {
   };
 
   const handleSelectRequirement = (requirement) => {
-    if (!requirementTags.includes(requirement)) {
+    if (!requirementTags.some(tag => tag.id === requirement.id)) {
       setRequirementTags([...requirementTags, requirement]);
     }
     setShowRequirementsDropdown(false);
   };
 
-  const handleSelectPosition = (position) => {
-    setPositionTag(position);
-    setFormData((prev) => ({ ...prev, position }));
-    setShowPositionsDropdown(false);
-  };
+  // const handleSelectPosition = (position) => {
+  //   setPositionTag(position);
+  //   setFormData((prev) => ({ ...prev, position }));
+  //   setShowPositionsDropdown(false);
+  // };
 
   const removeRequirementTag = (tagToRemove) => {
-    setRequirementTags(requirementTags.filter((tag) => tag !== tagToRemove));
+    setRequirementTags(requirementTags.filter((tag) => tag.id !== tagToRemove.id));
   };
 
-  const removePositionTag = () => {
-    setPositionTag("");
-    setFormData((prev) => ({ ...prev, position: "" }));
-  };
+  // const removePositionTag = () => {
+  //   setPositionTag("");
+  //   setFormData((prev) => ({ ...prev, position: "" }));
+  // };
 
   const handleTextareaChange = (e) => {
     const { name, value } = e.target;
@@ -141,15 +140,15 @@ const EditPostModal = ({ isOpen, onClose, post, onSubmit }) => {
 
     const dataToSubmit = {
       ...formData,
-      requirements: requirementTags.join(", "),
-      position: positionTag,
+      requirements: requirementTags,
+      //position: positionTag,
     };
 
     onSubmit(dataToSubmit);
   };
 
   const filteredRequirements = availableRequirements.filter(
-    (req) => !requirementTags.includes(req)
+    (req) => !requirementTags.some(tag => tag.id === req.id)
   );
 
   if (!isOpen) return null;
@@ -198,7 +197,7 @@ const EditPostModal = ({ isOpen, onClose, post, onSubmit }) => {
                       className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm flex items-center"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      {tag}
+                      {typeof tag === 'object' ? tag.name : tag}
                       <button
                         type="button"
                         className="ml-2 text-white font-bold"
@@ -222,7 +221,7 @@ const EditPostModal = ({ isOpen, onClose, post, onSubmit }) => {
                           className="px-4 py-2 hover:bg-blue-50 cursor-pointer"
                           onClick={() => handleSelectRequirement(req)}
                         >
-                          {req}
+                          {typeof req === 'object' ? req.name : req}
                         </div>
                       ))
                     ) : (
@@ -248,7 +247,7 @@ const EditPostModal = ({ isOpen, onClose, post, onSubmit }) => {
               />
             </div>
 
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Vị trí:
               </label>
@@ -290,15 +289,15 @@ const EditPostModal = ({ isOpen, onClose, post, onSubmit }) => {
                   </div>
                 )}
               </div>
-            </div>
+            </div> */}
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Quyền lợi:
               </label>
               <textarea
-                name="benefits"
-                value={formData.benefits}
+                name="context"
+                value={formData.context}
                 onChange={handleTextareaChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 min-h-[100px] resize-y"
               ></textarea>
@@ -319,4 +318,4 @@ const EditPostModal = ({ isOpen, onClose, post, onSubmit }) => {
   );
 };
 
-export default EditPostModal;
+export default UpdatePostModal;

@@ -42,12 +42,14 @@ namespace back_end.Common
 
         public static bool IsPhoneNumber(string number)
         {
-            return Regex.Match(number, @"^(\+[0-9]{9})$").Success;
+            return Regex.Match(number, @"^(0[0-9]{9})$").Success;
+            //return Regex.Match(number, @"^(\+[0-9]{9})$").Success;
         }
         public static DateTime FormatDate(DateTime date)
         {
             return DateTime.ParseExact(
-                    date.ToShortDateString().ToString(),
+                    date.ToString("dd/MM/yyyy"),
+                    //date.ToShortDateString().ToString(),
                     "dd/MM/yyyy",
                     CultureInfo.InvariantCulture
                 );

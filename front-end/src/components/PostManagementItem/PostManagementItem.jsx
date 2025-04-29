@@ -1,7 +1,5 @@
 import React from "react";
 import { Pencil, Trash2, Calendar } from "lucide-react";
-//import { format } from "date-fns";
-//import { vi } from "date-fns/locale";
 
 const PostManagementItem = ({ post, onEdit, onDelete }) => {
   const formatDate = (dateString) => {
@@ -27,7 +25,7 @@ const PostManagementItem = ({ post, onEdit, onDelete }) => {
             <h3 className="text-lg font-medium text-blue-600">{post.title}</h3>
             <div className="flex items-center text-sm text-gray-500 mt-2">
               <Calendar className="h-3.5 w-3.5 mr-1.5" />
-              <span>Ngày đăng: {formatDate(post.postedTime)}</span>
+              <span>Ngày đăng: {formatDate(post.exprised)}</span>
             </div>
           </div>
 
@@ -46,7 +44,9 @@ const PostManagementItem = ({ post, onEdit, onDelete }) => {
                 <span className="text-sm font-medium text-gray-700 mr-1">
                   Kinh nghiệm:
                 </span>
-                <span className="text-sm text-gray-600">{post.experience}</span>
+                <span className="text-sm text-gray-600">
+                  {post.experience === "0 năm" ? "Không" : post.experience}
+                </span>
               </div>
             </div>
           </div>

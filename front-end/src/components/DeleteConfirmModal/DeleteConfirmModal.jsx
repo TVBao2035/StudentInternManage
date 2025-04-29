@@ -30,9 +30,9 @@ const DeleteConfirmModal = ({
     try {
       setIsDeleting(true);
       await onConfirm(itemId);
-      onClose();
     } catch (error) {
       console.error(`Error deleting ${itemType}:`, error);
+      onClose();
     } finally {
       setIsDeleting(false);
     }

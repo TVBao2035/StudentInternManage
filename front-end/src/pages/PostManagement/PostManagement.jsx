@@ -3,11 +3,17 @@ import React, { useState, useEffect } from "react";
 import PostManagementItem from "../../components/PostManagementItem";
 import CreatePostModal from "../../components/PostModalManager/CreatePostModal";
 import UpdatePostModal from "../../components/PostModalManager/UpdatePostModal";
-
+import preparePostData from "../../helpers/preparePostData";
 //import DeletePostModal from "../../components/PostModalManager/DeletePostModal";
 import DeleteConfirmModal from "../../components/DeleteConfirmModal";
 //import useDebounce from "../../hooks/useDebounce";
-import { getAllPost, getAllTechnology, createPost } from "../../api/postAPI";
+import {
+  getAllPost,
+  getAllTechnology,
+  createPost,
+  updatePost,
+  deletePost,
+} from "../../api/postAPI";
 import {
   showSuccessToast,
   showErrorToast,
@@ -77,20 +83,20 @@ const PostManagement = () => {
     try {
       setIsSubmitting(true);
 
-      const postData = {
-        name: formData.title,
-        context: formData.context || "",
-        experienceYear: formData.experience.includes("năm")
-          ? parseInt(formData.experience.replace("năm", "").trim())
-          : formData.experience,
-        exprised: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
-        technologies: formData.requirements.map((tech) => ({
-          id: tech.id,
-          name: tech.name,
-        })),
-      };
+      // const postData = {
+      //   name: formData.title,
+      //   context: formData.context || "",
+      //   experienceYear: formData.experience.includes("năm")
+      //     ? parseInt(formData.experience.replace("năm", "").trim())
+      //     : formData.experience,
+      //   technologies: formData.requirements.map((tech) => ({
+      //     id: tech.id,
+      //     name: tech.name,
+      //   })),
+      // };
 
-      console.log("Sending data:", postData);
+      const postData = preparePostData(formData);
+      //console.log("Sending data:", postData);
 
       const response = await createPost(postData);
 
@@ -125,23 +131,51 @@ const PostManagement = () => {
     setShowDeleteModal(true);
   };
 
-  const handleConfirmDelete = (postId) => {
-    const updatedPosts = posts.filter((post) => post.id !== postId);
-    setPosts(updatedPosts);
-    console.log("Đã xóa bài đăng:", postId);
+  const handleConfirmDelete = async (postId) => {
+    try {
+      const response = await deletePost(postId);
+      if (response?.status === 200 && response?.data?.isSuccess) {
+        const updatedPosts = posts.filter((post) => post.id !== postId);
+        setPosts(updatedPosts);
+        showSuccessToast("Post deleted successfully!");
+      } else {
+        showErrorToast(response?.data?.message || "Error deleting post!");
+        fetchPosts();
+      }
+    } catch (error) {
+      console.error("Error deleting post:", error);
+      showErrorToast("Connection error while deleting post!");
+      fetchPosts();
+    } finally {
+      setShowDeleteModal(false);
+      setCurrentPost(null);
+    }
   };
 
-  const handleSubmitUpdateForm = (formData) => {
+  const handleSubmitUpdateForm = async (formData) => {
     if (!currentPost) return;
 
-    const updatedPosts = posts.map((post) =>
-      post.id === currentPost.id ? { ...post, ...formData } : post
-    );
+    try {
+      setIsSubmitting(true);
 
-    setPosts(updatedPosts);
+      const postData = preparePostData(formData, currentPost);
+      //console.log("Updating with data:", postData);
 
-    setShowUpdateModal(false);
-    setCurrentPost(null);
+      const response = await updatePost(postData);
+      if (response?.status === 200 && response?.data?.isSuccess) {
+        showSuccessToast("Post updated successfully!");
+        fetchPosts();
+      } else {
+        showErrorToast(response?.data?.message || "Error updating post!");
+      }
+    } catch (error) {
+      console.error("Error updating post:", error);
+      showErrorToast("Connection error while updating post!");
+    } finally {
+      setIsSubmitting(false);
+      setShowUpdateModal(false);
+      setCurrentPost(null);
+    }
   };
 
   return (
@@ -189,9 +223,11 @@ const PostManagement = () => {
                     : "",
                   experience:
                     typeof post.experienceYear === "number"
-                      ? `${post.experienceYear} năm`
-                      : post.experienceYear || "Không yêu cầu",
-                  postedTime: post.exprised,
+                      ? post.experienceYear === 0
+                        ? "Không"
+                        : `${post.experienceYear} năm`
+                      : post.experienceYear || "Không",
+                  exprised: post.exprised,
                 }}
                 onEdit={handleUpdatePost}
                 onDelete={handleDeletePost}
@@ -232,6 +268,7 @@ const PostManagement = () => {
         }}
         post={currentPost}
         onSubmit={handleSubmitUpdateForm}
+        technologies={technologies}
       />
 
       {/* <DeletePostModal

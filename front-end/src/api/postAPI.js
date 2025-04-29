@@ -11,3 +11,11 @@ export const getAllTechnology = async () => {
 export const createPost = async (postData) => {
     return await axios.post("/Post", postData);
 }
+
+export const updatePost = async (postData) => {
+    return await axios.put("/Post", postData);
+}
+
+export const deletePost = async (postId) => {
+    return await axios.delete(`/Post/${postId}`);
+}

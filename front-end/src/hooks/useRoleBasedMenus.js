@@ -60,8 +60,8 @@ export function useRoleBasedMenus(navigate, onLogoutClick) {
     if (userRoles.includes("mentor")) {
       menuItems.push(
         {
-          title: "Quản lý học viên",
-          action: () => navigate("/mentees"),
+          title: "Quản lý thực tập sinh",
+          action: () => navigate("/intern-manager"),
           icon: <FiUsers size={16} />,
         },
         {
