@@ -89,7 +89,7 @@ namespace back_end.Service.Implement
                     }
                     await _postTechnologyRespository.Insert(postTechnologyList);
                 }
-
+                post.CreatedAt = Helper.GetNowDateString();
                 return result.BuilderResult(post,"Success");
             }
             catch (Exception ex)
@@ -138,6 +138,7 @@ namespace back_end.Service.Implement
                         Context = p.Context,
                         ExperienceYear = p.ExperienceYear,
                         Exprised = p.Exprised,
+                        CreatedAt = p.CreatedAt.ToString("dd/MM/yyyy"),
                         Technologies = p.PostTechnologies
                         .Where(pt => !pt.IsDelete && pt.PostId == p.Id)
                         .Select(pt => _mapper.Map<TechnologyDTO>(pt.Technology)).ToList(),
