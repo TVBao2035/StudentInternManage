@@ -20,6 +20,10 @@ namespace back_end.Common
             _contextAccessor = contextAccessor;
         }
 
+        public static string GetNowDateString()
+        {
+            return DateTime.UtcNow.ToString("dd/MM/yyyy");
+        }
 
         public static bool ValidateEmail(string email)
         {
@@ -43,10 +47,11 @@ namespace back_end.Common
         public static bool IsPhoneNumber(string number)
         {
             return Regex.Match(number, @"^(0[0-9]{9})$").Success;
-            //return Regex.Match(number, @"^(\+[0-9]{9})$").Success;
         }
+        
         public static DateTime FormatDate(DateTime date)
         {
+
             return DateTime.ParseExact(
                     date.ToString("dd/MM/yyyy"),
                     //date.ToShortDateString().ToString(),
@@ -58,6 +63,7 @@ namespace back_end.Common
 
         public static string FormatDate(string date)
         {
+            if (date is null || date.Trim().Length == 0) return "";
             return DateTime.ParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("dd/MM/yyyy");
         }
 

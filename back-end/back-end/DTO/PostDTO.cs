@@ -11,7 +11,7 @@ namespace back_end.DTO
         public EmployeeDTO? Employee { get; set; }
         public int ExperienceYear { get; set; }
         public DateTime Exprised { get; set; }
-
+        public string? CreatedAt { get; set; }
         public List<TechnologyDTO>? Technologies { get; set; }
     }
 }
