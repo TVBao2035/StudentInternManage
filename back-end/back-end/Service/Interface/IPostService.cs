@@ -9,5 +9,6 @@ namespace back_end.Service.Interface
         Task<AppResponse<PostDTO>> Create(PostDTO post);
         Task<AppResponse<PostDTO>> Update(PostDTO post);
         Task<AppResponse<bool>> Delete(Guid postId);
+        Task<AppResponse<PostDTO>> GetById(Guid id);
     }
 }

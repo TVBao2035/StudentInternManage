@@ -19,6 +19,13 @@ namespace back_end.Controllers
             _jobService = jobService;
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var data = await _jobService.GetById(id);
+            return Ok(data);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(JobDTO job)
         {

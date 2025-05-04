@@ -64,8 +64,21 @@ namespace back_end.Controllers
             var data = await _taskService.Delete(id);
             return Ok(data);
         }
-
-       
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var data = await _taskService.GetById(id);
+            return Ok(data);
+        }
+        [HttpGet]
+        [Route("intern")]
+        [Authorize]
+        public async Task<IActionResult> GetByInternId()
+        {
+            var data = await _taskService.GetByInternId();
+            return Ok(data);
+        }
 
     }
 }

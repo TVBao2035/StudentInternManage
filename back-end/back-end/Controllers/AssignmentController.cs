@@ -53,6 +53,14 @@ namespace back_end.Controllers
             return Ok(data);
         }
 
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var data = await _assignmentService.GetById(id);
+            return Ok(data);
+        }
+
         [HttpPut]
         [Route("score")]
         [Authorize(Roles = "mentor")]

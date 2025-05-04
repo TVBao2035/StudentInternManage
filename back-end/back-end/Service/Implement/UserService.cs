@@ -500,5 +500,24 @@ namespace back_end.Service.Implement
             }
             
         }
+
+        public async Task<AppResponse<UserDTO>> GetById(Guid id)
+        {
+            var result = new AppResponse<UserDTO>();
+            try
+            {
+                var user = await GetUserFromToken();
+                if (user.Id != id && !checkRole("manager"))
+                    return result.BuilderError("You don't have permisson");
+
+             
+
+                return result.BuilderResult(_mapper.Map<UserDTO>(user),"Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError("Error" +  ex.Message);
+            }
+        }
     }
 }

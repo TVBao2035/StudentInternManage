@@ -39,7 +39,13 @@ namespace back_end.Controllers
             var data = await _postService.Update(post);
             return Ok(data);
         }
-
+        [HttpGet("{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var data = await _postService.GetById(id);
+            return Ok(data);
+        }
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {

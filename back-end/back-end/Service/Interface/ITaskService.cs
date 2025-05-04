@@ -11,5 +11,7 @@ namespace back_end.Service.Interface
         Task<AppResponse<TaskDTO>> Update(TaskDTO data);
         Task<AppResponse<TaskDTO>> UpdateStatus(TaskDTO data);
         Task<AppResponse<bool>> Delete(Guid id);
+        Task<AppResponse<TaskDTO>> GetById(Guid id);
+        Task<AppResponse<TaskDTO>> GetByInternId();
     }
 }

@@ -132,6 +132,30 @@ namespace back_end.Service.Implement
             }
         }
 
+        public async Task<AppResponse<EmployeeDTO>> GetById(Guid id)
+        {
+            var result = new AppResponse<EmployeeDTO>();
+            try
+            {
+                var employee = await _employeeRespository
+                    .FindBy(e => !e.IsDelete && e.Id == id)
+                    .Include(e => e.User)
+                    .FirstOrDefaultAsync();
+                if (employee is null)
+                    return result.BuilderError("Not found employee");
+                var user = await _userService.GetUserFromToken();
+                if (user.Id != employee.UserId && !_userService.checkRole("manager"))
+                    return result.BuilderError("You don't have permission");
+
+                
+                return result.BuilderResult(_mapper.Map<EmployeeDTO>(employee), "Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError("Error" + ex.Message);
+            }
+        }
+
         public async Task<AppResponse<EmployeeDTO>> Update(EmployeeDTO employee)
         {
             var result = new AppResponse<EmployeeDTO>();
