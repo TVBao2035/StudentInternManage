@@ -8,7 +8,7 @@ namespace back_end.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize(Roles ="business")]
+     [Authorize(Roles ="business")]
     public class PostController : ControllerBase
     {
         private IPostService _postService;

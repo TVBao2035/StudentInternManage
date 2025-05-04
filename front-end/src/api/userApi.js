@@ -15,3 +15,15 @@ export const refresh = async () => {
 export const getAllUser = async () => {
     return await axios.get("/User");
 }
+
+export const createUser  = async (user) => {
+    return await axios.post("/User", user);
+}
+
+export const updateUser = async (user)=> {
+    return await axios.put("/User", user);
+}
+
+export const deleteUser = async (userid) => {
+    return await axios.delete(`/User/${userid}`);
+}

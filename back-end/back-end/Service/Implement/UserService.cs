@@ -199,6 +199,7 @@ namespace back_end.Service.Implement
 
                 user.Name = data.Name;
                 user.BirthDate = data.BirthDate;
+                user.Gender = data.Gender;
                 user.UpdateTimeEntity();
 
                 await _userRespository.Update(user);
