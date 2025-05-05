@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setDataMain } from "./redux/userSlice";
-import { Login, Register } from "./pages";
+import { AccountManagement, Login, Register } from "./pages";
 import Header from "./components/Header/Header";
 import { Post } from "./components";
 import ApplyingJobs from "./pages/ApplyingJobs";
@@ -81,6 +81,7 @@ function App() {
           />
           <Route path="/task-list" element={<TaskList />} />
           <Route path="/profile" element={<InformationPersonal />} />
+          <Route path="/account" element={<AccountManagement/>} />
           <Route
             path="/profile-update"
             element={<InformationPersonalUpdate />}

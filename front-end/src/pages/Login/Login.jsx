@@ -15,8 +15,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const initInfor = {
-    email: "milo00@gmail.com",
-    password: "M02231103@",
+    email: "admin@gmail.com",
+    password: "12345",
   };
 
   const initMessage = {

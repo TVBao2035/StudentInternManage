@@ -17,18 +17,21 @@ namespace back_end.Service.Implement
         private IAssignmentRespository _assignmentRespository;
         private IEmployeeRespository _employeeRespository;
         private IUserService _userService;
+        private ITaskRespository _taskRespository;
 
         public AssignmentService(
             IMapper mapper, 
             IAssignmentRespository assignmentRespository,
             IEmployeeRespository employeeRespository,
-            IUserService userService
+            IUserService userService,
+            ITaskRespository taskRespository
             )
         {
             _mapper = mapper;
             _assignmentRespository = assignmentRespository;
             _employeeRespository = employeeRespository;
             _userService = userService;
+            _taskRespository = taskRespository;
         }
 
         public async Task<AppResponse<AssignmentDTO>> UpdateScore(AssignmentDTO data)
@@ -176,6 +179,44 @@ namespace back_end.Service.Implement
                 assignment.MentorId = assigmentData.MentorId;  
                 await _assignmentRespository.Update(assignment);
                 return result.BuilderResult(_mapper.Map<AssignmentDTO>(assignment) ,"Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError("Error: " + ex.Message);
+            }
+        }
+
+        public async Task<AppResponse<AssignmentDTO>> GetById(Guid id)
+        {
+            var result = new AppResponse<AssignmentDTO>();
+            try
+            {
+                var assignment = await _assignmentRespository.FindBy(a => !a.IsDelete && a.Id == id)
+                    .Include(assign => assign.Intern)
+                        .ThenInclude(emp => emp.User)
+                    .Include(assign => assign.Mentor)
+                        .ThenInclude(emp => emp.User)
+                    .Select( assign => new AssignmentDTO
+                    {
+                        Id = assign.Id,
+                        MentorId = assign.MentorId,
+                        InternId = assign.InternId,
+                        Mentor = _mapper.Map<EmployeeDTO>(assign.Mentor),
+                        Intern = _mapper.Map<EmployeeDTO>(assign.Intern),
+                        Score = assign.Score,
+                       // Tasks =  _taskRespository.FindBy(t => !t.IsDelete && t.AssignmentId == assign.Id).Select(t => _mapper.Map<TaskDTO>(t)).ToList()
+                    }).FirstOrDefaultAsync();
+                assignment.Tasks = await _taskRespository
+                    .FindBy(t => !t.IsDelete && t.AssignmentId == assignment.Id)
+                    .Select(t => _mapper.Map<TaskDTO>(t)).ToListAsync();
+                if (assignment is null)
+                    return result.BuilderError("Not found Assignment");
+                var user = await _userService.GetUserFromToken();
+                if (user.Id != assignment.InternId && user.Id != assignment.MentorId && !_userService.checkRole("manager"))
+                    return result.BuilderError("You don't have permission");
+
+
+                return result.BuilderResult(assignment,"Success");
             }
             catch (Exception ex)
             {

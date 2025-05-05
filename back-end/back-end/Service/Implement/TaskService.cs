@@ -32,7 +32,60 @@ namespace back_end.Service.Implement
             _assignmentRespository = assignmentRespository;
             _employeeRespository = employeeRespository;
         }
+        public async Task<AppResponse<TaskDTO>> GetByInternId()
+        {
+            var result = new AppResponse<TaskDTO>();
+            try
+            {
+                var user = await _userService.GetUserFromToken();
+                var employee = await _employeeRespository.FindBy(e => !e.IsDelete && e.UserId == user.Id).FirstOrDefaultAsync();
+                if (employee is null)
+                    return result.BuilderError("you are not employee");
+                if (employee.Type != EmployeeType.Intern)
+                    return result.BuilderError("You are not intern");
 
+                var task = await _taskRespository
+                    .FindBy(t => !t.IsDelete)
+                    .Include(t => t.Assignment)
+                    .Where(t => t.Assignment.InternId == employee.Id)
+                   // .Select(t => t.Assignment.InternId == employee.Id)
+                    .FirstOrDefaultAsync();
+                if (task is null)
+                    return result.BuilderError("Not found Task");
+                if ( task.Assignment.InternId != employee.Id)
+                    return result.BuilderError("You don't have permission");
+                task.Assignment = null;
+                var taskDTO = _mapper.Map<TaskDTO>(task);
+                return result.BuilderResult(taskDTO, "Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError("Error: " + ex.Message);
+            }
+        }
+        public async Task<AppResponse<TaskDTO>> GetById(Guid id)
+        {
+            var result = new AppResponse<TaskDTO>();
+            try
+            {
+                var user = await _userService.GetUserFromToken();
+                var task = await _taskRespository
+                    .FindBy(t => !t.IsDelete && t.Id == id)
+                    .Include(t => t.Assignment)
+                    .FirstOrDefaultAsync();
+                if (task is null)
+                    return result.BuilderError("Not found Task");
+                if (!_userService.checkRole("manager") && task.Assignment.InternId != user.Id && task.Assignment.MentorId != user.Id)
+                    return result.BuilderError("You don't have permission");
+                task.Assignment = null;
+                var taskDTO = _mapper.Map<TaskDTO>(task);
+                return result.BuilderResult(taskDTO, "Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError("Error: " + ex.Message);
+            }
+        }
         public async Task<AppResponse<TaskDTO>> Create(TaskDTO data)
         {
             var result = new AppResponse<TaskDTO>();

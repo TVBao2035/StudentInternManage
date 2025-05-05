@@ -16,4 +16,8 @@ export { default as InformationPersonal } from './Profile/InformationPersonal';
 
 export { default as InformationPersonalUpdate } from './Profile/InformationPersonalUpdate';
 
+
 export { default as Assignments } from './Assignments';
+
+export {default as AccountManagement} from './AccountManagement';
+
