@@ -167,6 +167,10 @@ namespace back_end.Service.Implement
                 User user = await _userRespository.FindBy(u => u.Email.ToLower().Equals(employee.User.Email.ToLower())).FirstOrDefaultAsync();
                 if (user is null)
                     return result.BuilderError("Not found user");
+                if (user.Email.ToLower() != employee.User.Email.ToLower() || user.PhoneNumber != employee.User.PhoneNumber)
+                {
+                    return result.BuilderError("Email or PhoneNumber cannot be changed");
+                }
                 bool isBusiness = _userService.checkRole("business");
                 if (user.Id != userAuth.Id && !isBusiness)
                     return result.BuilderError("You don't permission perform this function");

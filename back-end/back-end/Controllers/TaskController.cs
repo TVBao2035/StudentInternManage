@@ -33,7 +33,7 @@ namespace back_end.Controllers
             return Ok(data);
         }
 
-        [HttpGet("assinment/{id}")]
+        [HttpGet("assignment/{id}")]
         public async Task<IActionResult> GetTaskByAssignmentId(Guid id)
         {
             var data = await _taskService.GetTaskByAssignmentId(id);

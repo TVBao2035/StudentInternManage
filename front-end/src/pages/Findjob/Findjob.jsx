@@ -75,7 +75,7 @@ const FindJob = () => {
   };
 
   const handleSearchSubmit = (value) => {
-    console.log("Search submitted:", value);
+    //console.log("Search submitted:", value);
     setSearchQuery(value);
   };
 
@@ -86,7 +86,7 @@ const FindJob = () => {
       setSelectedSkills([...selectedSkills, skill.id]);
     }
 
-    console.log("Selected skills:", selectedSkills);
+    //console.log("Selected skills:", selectedSkills);
   };
 
   const formatJobData = (job) => {
@@ -98,7 +98,7 @@ const FindJob = () => {
         typeof job.experienceYear === "number"
           ? `${job.experienceYear} năm`
           : job.experienceYear || "Không yêu cầu",
-      postedTime: job.exprised || "",
+      createdAt: job.createdAt || "",
       context: job.context || "",
     };
   };

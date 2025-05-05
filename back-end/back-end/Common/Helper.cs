@@ -24,7 +24,6 @@ namespace back_end.Common
         {
             return DateTime.UtcNow.ToString("dd/MM/yyyy");
         }
-
         public static bool ValidateEmail(string email)
         {
             var trimmedEmail = email.Trim();
@@ -48,11 +47,13 @@ namespace back_end.Common
         {
             return Regex.Match(number, @"^(0[0-9]{9})$").Success;
         }
+        
         public static DateTime FormatDate(DateTime date)
         {
 
             return DateTime.ParseExact(
-                    date.ToShortDateString().ToString(),
+                    date.ToString("dd/MM/yyyy"),
+                    //date.ToShortDateString().ToString(),
                     "dd/MM/yyyy",
                     CultureInfo.InvariantCulture
                 );

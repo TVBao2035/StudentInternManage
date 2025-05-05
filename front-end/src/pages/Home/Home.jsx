@@ -53,7 +53,7 @@ const Home = () => {
                     title: post.name,
                     requirements: post.technologies,
                     experience: post.experienceYear,
-                    postedTime: post.exprised,
+                    createdAt: post.createdAt,
                   }}
                 />
               ))

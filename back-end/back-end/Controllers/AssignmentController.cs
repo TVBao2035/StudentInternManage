@@ -21,7 +21,7 @@ namespace back_end.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, mentor")]
         public async Task<IActionResult> GetAll()
         {
             var data = await _assignmentService.GetAll();
