@@ -24,7 +24,6 @@ namespace back_end.Common
         {
             return DateTime.UtcNow.ToString("dd/MM/yyyy");
         }
-
         public static bool ValidateEmail(string email)
         {
             var trimmedEmail = email.Trim();
@@ -63,7 +62,7 @@ namespace back_end.Common
 
         public static string FormatDate(string date)
         {
-            if (date is null || date.Trim().Length == 0) return null;
+            if (date is null || date.Trim().Length == 0) return "";
             return DateTime.ParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("dd/MM/yyyy");
         }
 
