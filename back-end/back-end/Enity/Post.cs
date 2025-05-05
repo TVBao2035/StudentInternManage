@@ -16,4 +16,4 @@ namespace back_end.Enity
         public DateTime Exprised { get; set; }
         public List<PostTechnology>? PostTechnologies { get; set; }
     }
-}
+}   

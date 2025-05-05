@@ -11,6 +11,7 @@ namespace back_end.Service.Interface
         Task<AppResponse<LoginResponse>> Login(LoginRequest data);
         Task<AppResponse<UserDTO>> Register(RegisterDTO data);
         Task<AppResponse<List<UserDTO>>> GetAll();
+        Task<AppResponse<UserDTO>> GetById(Guid id);
         Task<AppResponse<UserDTO>> Edit(UserDTO data);
         Task<AppResponse<UserDTO>> Create(UserDTO data);
         Task<AppResponse<UserDTO>> Delete(Guid userId);

@@ -160,6 +160,34 @@ namespace back_end.Service.Implement
             }
         }
 
+        public async Task<AppResponse<PostDTO>> GetById(Guid id)
+        {
+            var result = new AppResponse<PostDTO>();
+            try
+            {
+                var post = await _postRespository
+                    .FindBy(p => !p.IsDelete && p.Id == id)
+                    .Include(p => p.PostTechnologies)
+                    .Select(p => new PostDTO
+                    {
+                        Id = p.Id,
+                        Name = p.Name,
+                        Context = p.Context,
+                        ExperienceYear = p.ExperienceYear,
+                        Exprised = p.Exprised,
+                       // CreatedAt = Helper.FormatDate(p.CreatedAt),
+                        Technologies = p.PostTechnologies.Where(pt => !pt.IsDelete).Select(pt => _mapper.Map<TechnologyDTO>(pt.Technology)).ToList()
+                    })
+                    .FirstOrDefaultAsync();
+
+                return result.BuilderResult(post,"Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError("Error: " + ex.Message);
+            }
+        }
+
         public async Task<AppResponse<PostDTO>> Update(PostDTO post)
         {
             var result = new AppResponse<PostDTO>();

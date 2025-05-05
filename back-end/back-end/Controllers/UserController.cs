@@ -16,7 +16,7 @@ namespace back_end.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize(Roles ="admin")]
+   
     public class UserController : ControllerBase
     {
         private IUserService _userService;
@@ -43,6 +43,7 @@ namespace back_end.Controllers
             return Ok(data);
         }
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> GetAllUsers()
         {
             var data = await _userService.GetAll();
@@ -50,13 +51,21 @@ namespace back_end.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update([FromBody] UserDTO user)
         {
             var data = await _userService.Edit(user);
             return Ok(data);
         }
-
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var data = await _userService.GetById(id);
+            return Ok(data);
+        }
         [HttpDelete("{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var data = await _userService.Delete(id);
@@ -64,6 +73,7 @@ namespace back_end.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create([FromBody] UserDTO user)
         {
             var data = await _userService.Create(user);

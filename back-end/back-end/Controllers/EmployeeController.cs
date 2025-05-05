@@ -9,7 +9,7 @@ namespace back_end.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize(Roles ="manager")]
+
     public class EmployeeController : ControllerBase
     {
         private IEmployeeService _employeeService;
@@ -20,14 +20,21 @@ namespace back_end.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "manager")]
         public async Task<IActionResult> GetAll()
         {
             var data = await _employeeService.GetAll();
             return Ok(data);
         }
-
-
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var data = await _employeeService.GetById(id);
+            return Ok(data);
+        }
         [HttpPost]
+        [Authorize(Roles = "manager")]
         public async Task<IActionResult> Create([FromBody] EmployeeDTO employee)
         {
             var data = await _employeeService.Create(employee);
@@ -35,7 +42,7 @@ namespace back_end.Controllers
         }
 
         [HttpPut]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<IActionResult> Update([FromBody] EmployeeDTO employee)
         {
             var data = await _employeeService.Update(employee);
@@ -43,6 +50,7 @@ namespace back_end.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "manager")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var data = await _employeeService.Delete(id);
