@@ -51,7 +51,7 @@ export function useRoleBasedMenus(navigate, onLogoutClick) {
         },
         {
           title: "Xem danh sách công việc",
-          action: () => navigate("/jobs"),
+          action: () => navigate("/task-list"),
           icon: <FiFileText size={16} />,
         }
       );

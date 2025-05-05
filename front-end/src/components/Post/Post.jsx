@@ -3,9 +3,10 @@ import { Code, ArrowUpRight, Clock } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { formatDate } from "../../helpers/formatCreatedAt"; 
 
 const Post = ({ job, onApply }) => {
-  const { id, title, requirements, experience, postedTime } = job;
+  const { id, title, requirements, experience, createdAt } = job;
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const isAuthenticated = !!user.email;
@@ -16,13 +17,7 @@ const Post = ({ job, onApply }) => {
     ? requirements.split(",").map((item) => item.trim())
     : [];
 
-  const formattedDate = postedTime
-    ? new Date(postedTime).toLocaleDateString("vi-VN", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      })
-    : "";
+  const formattedDate = formatDate(createdAt);
 
   const formattedExperience =
     typeof experience === "number"
@@ -122,10 +117,7 @@ Post.propTypes = {
     title: PropTypes.string,
     requirements: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     experience: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    postedTime: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.instanceOf(Date),
-    ]),
+    createdAt: PropTypes.string,
     context: PropTypes.string,
   }).isRequired,
   onApply: PropTypes.func,

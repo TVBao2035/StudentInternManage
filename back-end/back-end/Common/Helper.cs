@@ -63,7 +63,7 @@ namespace back_end.Common
 
         public static string FormatDate(string date)
         {
-            if (date is null || date.Trim().Length == 0) return "";
+            if (date is null || date.Trim().Length == 0) return null;
             return DateTime.ParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("dd/MM/yyyy");
         }
 

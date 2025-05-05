@@ -1,22 +1,8 @@
 import React from "react";
 import { Pencil, Trash2, Calendar } from "lucide-react";
+import { formatDate } from "../../helpers/formatCreatedAt";
 
 const PostManagementItem = ({ post, onEdit, onDelete }) => {
-  const formatDate = (dateString) => {
-    if (!dateString) return "";
-
-    try {
-      return new Date(dateString).toLocaleDateString("vi-VN", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      });
-    } catch (error) {
-      console.error("Error formatting date:", error);
-      return "";
-    }
-  };
-
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden mb-4 hover:shadow-md transition-shadow duration-300">
       <div className="p-4">
@@ -25,7 +11,7 @@ const PostManagementItem = ({ post, onEdit, onDelete }) => {
             <h3 className="text-lg font-medium text-blue-600">{post.title}</h3>
             <div className="flex items-center text-sm text-gray-500 mt-2">
               <Calendar className="h-3.5 w-3.5 mr-1.5" />
-              <span>Ngày đăng: {formatDate(post.exprised)}</span>
+              <span>Ngày đăng: {formatDate(post.createdAt)}</span>
             </div>
           </div>
 
