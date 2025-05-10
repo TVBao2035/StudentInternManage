@@ -79,6 +79,7 @@ namespace back_end.Service.Implement
                 loginResponse.AccessToken = accessToken;
                 loginResponse.Name = user.Name;
                 loginResponse.Email = user.Email;
+                loginResponse.Id = user.Id;
                 loginResponse.Roles = await _userRoleRespository
                     .Queryable()
                     .Where(ur => ur.UserId == user.Id && !ur.IsDelete)
