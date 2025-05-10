@@ -1,4 +1,5 @@
 ﻿using back_end.DTO;
+using back_end.Models.Request;
 using back_end.Service.Implement;
 using back_end.Service.Interface;
 using Microsoft.AspNetCore.Authorization;
@@ -19,9 +20,15 @@ namespace back_end.Controllers
         {
             _employeeService = employeeService;
         }
-
+        [HttpPost]
+        [Route("Search")]
+        public async Task<IActionResult> Search([FromBody] SearchRequest request)
+        {
+            var data = await _employeeService.Search(request);
+            return Ok(data);
+        }
         [HttpGet]
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, mentor")]
         public async Task<IActionResult> GetAll()
         {
             var data = await _employeeService.GetAll();
@@ -47,6 +54,21 @@ namespace back_end.Controllers
         public async Task<IActionResult> Update([FromBody] EmployeeDTO employee)
         {
             var data = await _employeeService.Update(employee);
+            return Ok(data);
+        }
+
+        [HttpGet]
+        [Route("Intern")]
+        public async Task<IActionResult> GetInterns()
+        {
+            var data = await _employeeService.GetInterns();
+            return Ok(data);
+        }
+        [HttpGet]
+        [Route("InternNotAssign")]
+        public async Task<IActionResult> GetInternNotAssigned()
+        {
+            var data = await _employeeService.GetInternsNotAssigned();
             return Ok(data);
         }
 

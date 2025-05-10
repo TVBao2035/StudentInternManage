@@ -56,13 +56,13 @@ function AccountManagement() {
         <table className='mt-3 rounded-t shadow-2xl'>
               <thead className='bg-gradient-to-r from-blue-600 to-blue-500 text-white  rounded-t'>
                   <tr className=' rounded-t'>
-                    <th className='px-20 py-4 font-medium'>Name</th>
+                    <th className='px-20 py-4 font-medium'>Tên</th>
                     <th className='px-24 py-4 font-medium'>Email</th>
-                    <th className='px-16 py-4 font-medium'>Phone</th>
-                    <th className='px-8 py-4 font-medium'>BirthDate</th>
-                    <th className='px-8 py-4 font-medium'>Gender</th>
-                    <th className='px-28 py-4 font-medium'>Roles</th>
-                    <th className='px-8 py-4 font-medium'>Actions</th>
+                    <th className='px-16 py-4 font-medium'>Điện Thoại</th>
+                    <th className='px-8 py-4 font-medium'>Ngày sinh</th>
+                    <th className='px-8 py-4 font-medium'>Giới Tính</th>
+                    <th className='px-28 py-4 font-medium'>Quyền</th>
+                    <th className='px-8 py-4 font-medium'>Chức năng</th>
                 </tr>
             </thead>
             <tbody>

@@ -4,6 +4,7 @@ using back_end.DTO;
 using back_end.DTO.UserDTOModel;
 using back_end.Enity;
 using back_end.Enum;
+using back_end.Models.Request;
 using back_end.Models.Response;
 using back_end.Respositories.Implement;
 using back_end.Respositories.Interface;
@@ -43,7 +44,45 @@ namespace back_end.Service.Implement
             _userService = userService;
             _mapper = mapper;
         }
-
+        public async Task<AppResponse<List<PostDTO>>> Search(SearchRequest request)
+        {
+            var response = new AppResponse<List<PostDTO>>();
+            try
+            {
+                IQueryable<Post> postQuery;
+                string fieldName = request.FieldName.Trim().ToLower();
+                string value = request.Value.Trim().ToLower();
+                switch (fieldName)
+                {
+                    case "name":
+                        postQuery = _postRespository.FindBy(p => !p.IsDelete && p.Name.ToLower().Equals(value));
+                        break;
+                    case "employeeid":
+                        postQuery = _postRespository.FindBy(p => !p.IsDelete && p.EmployeeId == Guid.Parse(value));
+                        break;
+                    case "employeename":
+                        postQuery = _postRespository.FindBy(p => !p.IsDelete && p.Employee.User.Name.ToLower().Equals(value));
+                        break;
+                    case "phonenumber":
+                        postQuery = _postRespository.FindBy(p => !p.IsDelete && p.Employee.User.PhoneNumber.ToLower().Equals(value));
+                        break;
+                    case "email":
+                        postQuery = _postRespository.FindBy(p => !p.IsDelete && p.Employee.User.Email.ToLower().Equals(value));
+                        break;
+                    default:
+                        postQuery = _postRespository.FindBy(p => !p.IsDelete);
+                        break;
+                }
+                List<PostDTO> posts = await postQuery
+                    .Include(p => p.Employee).ThenInclude(emp => emp.User)
+                    .Select(p => _mapper.Map<PostDTO>(p)).ToListAsync();
+                return response.BuilderResult(posts,"Success");
+            }
+            catch (Exception ex)
+            {
+                return response.BuilderError("Error: " + ex.Message);
+            }
+        }
         public async Task<AppResponse<PostDTO>> Create(PostDTO post)
         {
             var result = new AppResponse<PostDTO>();

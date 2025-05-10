@@ -89,12 +89,16 @@ function UserDetailModal({setOpen, data=null}) {
     >
         <div className='w-6/12 text-black bg-white  box-border px-10 py-10 rounded-2xl'>
             <div className='flex justify-between '>
-                <p className='font-bold text-xl text-blue-500'>Create Account</p>
+                <p className='font-bold text-xl text-blue-500'>
+                    {
+                        data === null ? "Tạo mới tài khoản" : "Cập nhật tài khoản"
+                    }
+                </p>
                 <IoMdClose className='text-red-600 text-xl' onClick={handleClose}/>
             </div>
 
             <div className='flex flex-col my-3'>
-                <label htmlFor="">Name:</label>
+                <label htmlFor="">Tên:</label>
                 <input 
                     onChange={(e) => handleChange(e)}
                     value={userInfo.name}
@@ -112,7 +116,7 @@ function UserDetailModal({setOpen, data=null}) {
                     className='rounded-md shadow-2xl focus: outline-none focus: ring-blue-500 text-gray-700 border-2 px-2 py-1 ' />
             </div>
             <div className='flex flex-col my-3'>
-                <label htmlFor="">Phone:</label>
+                <label htmlFor="">Điện thoại:</label>
                 <input 
                     onChange={(e) => handleChange(e)}
                     value={userInfo.phoneNumber}
@@ -122,7 +126,7 @@ function UserDetailModal({setOpen, data=null}) {
             </div> 
         
             <div className='flex flex-col my-3'>
-                <label htmlFor="">BirthDate:</label>
+                <label htmlFor="">Ngày Sinh:</label>
                 <input 
                     onChange={e => handleChange(e)}
                     type="date" 
@@ -132,16 +136,16 @@ function UserDetailModal({setOpen, data=null}) {
                     className='rounded-md shadow-2xl focus: outline-none focus: ring-blue-500 text-gray-700 border-2 px-2 py-1 ' />
             </div>
             <div className='flex gap-2 my-3'>
-                <label htmlFor="gender">Gender:</label>
+                <label htmlFor="gender">Giới tính:</label>
                 <input id='gender' type="checkbox" 
                     onClick={e=> setUserInfo({...userInfo, gender: e.target.checked })} 
                     className='rounded-md shadow-2xl focus: outline-none focus: ring-blue-500 text-gray-700 border-2 px-2 py-1 '
                     checked={userInfo.gender} />
-                <p>Boy</p> 
+                <p>Nam</p> 
             </div>
-            <div className='flex flex-col my-3'>
-                <label htmlFor="">Roles:</label>
-                <div>
+            <div className='flex gap-2 my-3'>
+                <label htmlFor="">Quyền:</label>
+                <div className='flex gap-3 items-center'>
                     {
                         roles.map(role => 
                         {
@@ -157,7 +161,7 @@ function UserDetailModal({setOpen, data=null}) {
                                 })
                             }
                             return(
-                                <div>
+                                <div className='flex items-center gap-2'>
                                     {
                                         data=== null ?
                                         <input type="checkbox" id={role.id} onClick={(e)=>handleSelect(e, {id: role.id, name: role.name})}/>
@@ -179,7 +183,9 @@ function UserDetailModal({setOpen, data=null}) {
                   <button className='rounded-lg flex justify-center items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 font-medium text-white shadow-sm px-3 py-2'
                     onClick={handleSubmit}
                   >
-                    Add New
+                      {
+                          data === null ? "Tạo mới" : "Cập nhật"
+                      }
                 </button>
             </div>
         </div>

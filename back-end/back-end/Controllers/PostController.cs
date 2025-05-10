@@ -1,4 +1,5 @@
 ﻿using back_end.DTO;
+using back_end.Models.Request;
 using back_end.Service.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -16,6 +17,13 @@ namespace back_end.Controllers
         public PostController(IPostService postService)
         {
             _postService = postService;
+        }
+        [HttpPost]
+        [Route("Search")]
+        public async Task<IActionResult> Search([FromBody]SearchRequest request)
+        {
+            var data = await _postService.Search(request);
+            return Ok(data);
         }
 
         [HttpGet]

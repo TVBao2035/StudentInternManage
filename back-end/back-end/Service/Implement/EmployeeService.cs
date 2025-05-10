@@ -4,11 +4,13 @@ using back_end.DTO;
 using back_end.DTO.UserDTOModel;
 using back_end.Enity;
 using back_end.Enum;
+using back_end.Models.Request;
 using back_end.Models.Response;
 using back_end.Respositories.Implement;
 using back_end.Respositories.Interface;
 using back_end.Service.Interface;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using System.Reflection.Metadata.Ecma335;
 
 namespace back_end.Service.Implement
@@ -16,7 +18,7 @@ namespace back_end.Service.Implement
     public class EmployeeService : IEmployeeService
     {
         private IEmployeeRespository _employeeRespository;
-
+        private IAssignmentRespository _assignmentRespository;
         private IMapper _mapper;
         private IUserRespository _userRespository;
         private IUserService _userService;
@@ -27,15 +29,104 @@ namespace back_end.Service.Implement
             IUserRespository userRespository,
             IUserRoleRespository userRoleRespository, 
             IUserService userService,
+            IAssignmentRespository assignmentRespository,
             IMapper mapper)
         {
             _mapper = mapper;
             _employeeRespository = employeeRespository;
+            _assignmentRespository = assignmentRespository;
             _userRespository = userRespository;
             _userService = userService;
             _userRoleRespository = userRoleRespository;
         }
+        public async Task<AppResponse<List<EmployeeDTO>>> Search(SearchRequest request)
+        {
+            var response = new AppResponse<List<EmployeeDTO>>();
+            try
+            {
+                IQueryable<Employee> queryable;
+                switch (request.FieldName.ToLower().Trim())
+                {
+                    case "name":
+                        queryable = _employeeRespository
+                            .FindBy(emp => !emp.IsDelete && emp.User.Name.Equals(request.Value));
+                        break;
+                    case "email":
+                        queryable = _employeeRespository
+                            .FindBy(emp => !emp.IsDelete && emp.User.Email.Equals(request.Value));
+                        break;
+                    case "phonenumber":
+                        queryable = _employeeRespository
+                            .FindBy(emp => !emp.IsDelete && emp.User.PhoneNumber.Equals(request.Value));
+                        break;
+                    case "type":
+                        queryable = _employeeRespository
+                            .FindBy(emp => !emp.IsDelete && emp.Type == EmployeeType.Intern);
+                        break;
+                    default:
+                        queryable = _employeeRespository
+                            .FindBy(emp => !emp.IsDelete);
+                        break;
+                }
+                List<EmployeeDTO> employees = await queryable
+                    .Include(emp => emp.User)
+                    .Select(emp => _mapper.Map<EmployeeDTO>(emp))
+                    .ToListAsync();
+                
+                return response.BuilderResult(employees,"Success");
+            }
+            catch (Exception ex)
+            {
+                return response.BuilderError("Error : " + ex.Message);
+            }
+        }
+        
+        public async Task<AppResponse<List<EmployeeDTO>>> GetInterns()
+        {
+            var result = new AppResponse<List<EmployeeDTO>>();
+            try
+            {
+                var internsList = await _employeeRespository
+                    .FindBy(emp => !emp.IsDelete && emp.Type == EmployeeType.Intern)
+                    .Include(emp => emp.User)
+                    .Select(emp => _mapper.Map<EmployeeDTO>(emp))
+                    .ToListAsync();
 
+                return result.BuilderResult(internsList,"Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError("Error " + ex.Message);
+            }
+        }
+
+        public async Task<AppResponse<List<EmployeeDTO>>> GetInternsNotAssigned()
+        {
+            var result = new AppResponse<List<EmployeeDTO>>();
+            try
+            {
+                var internsList = await _employeeRespository
+                    .FindBy(emp => !emp.IsDelete && emp.Type == EmployeeType.Intern)
+                    .Include(emp => emp.User)
+                    .ToListAsync();
+                List<EmployeeDTO> internNotAssigned = new List<EmployeeDTO>();
+                Assignment isAssigned;
+                foreach (var intern in internsList)
+                {
+                    isAssigned = await _assignmentRespository
+                        .FindBy(ass => !ass.IsDelete && ass.InternId == intern.Id)
+                        .FirstOrDefaultAsync();
+
+                    if (isAssigned is null) internNotAssigned.Add(_mapper.Map<EmployeeDTO>(intern));
+
+                }
+                return result.BuilderResult(internNotAssigned, "Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError("Error " + ex.Message);
+            }
+        }
 
         public async Task<AppResponse<EmployeeDTO>> Create(EmployeeDTO employee)
         {
