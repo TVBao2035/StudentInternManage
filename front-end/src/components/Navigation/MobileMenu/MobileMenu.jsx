@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
-import { useRoleBasedMenus } from "../../hooks/useRoleBasedMenus";
+import Navbar from "../../Navbar";
+import { useRoleBasedMenus } from "../../../hooks/useRoleBasedMenus";
 
 const MobileMenu = ({
   isOpen,

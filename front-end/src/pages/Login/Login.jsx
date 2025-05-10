@@ -15,8 +15,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const initInfor = {
-    email: "admin@gmail.com",
-    password: "12345",
+    email: "milo00@gmail.com",
+    password: "M02231103@",
   };
 
   const initMessage = {
@@ -96,6 +96,7 @@ const Login = () => {
         // store access tokentoken
         dispatch(
           setDataMain({
+            id: response.data.data.id,
             email: response.data.data.email,
             name: response.data.data.name,
             roles: response.data.data.roles,
@@ -126,8 +127,7 @@ const Login = () => {
         //   response.data.data.roles.includes("admin")
         // ) {
         //   navigate("/admin-dashboard");
-        // } 
-        
+        // }
         else {
           navigate("/");
         }

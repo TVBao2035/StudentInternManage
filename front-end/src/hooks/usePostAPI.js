@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {
   getAllPost,
+  getDetailPostById,
   getAllTechnology,
   createPost,
   updatePost,
@@ -10,6 +11,7 @@ import { showSuccessToast, showErrorToast } from "../helpers/NotificationToast";
 
 export const usePostAPI = () => {
   const [posts, setPosts] = useState([]);
+  const [postDetail, setPostDetail] = useState(null);
   const [technologies, setTechnologies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -37,6 +39,37 @@ export const usePostAPI = () => {
       console.error("Error fetching posts:", error);
       setError("Connection error!");
       showErrorToast("Connection error!");
+      return null;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchPostDetail = async (postId) => {
+    if (!postId) return null;
+
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await getDetailPostById(postId);
+      if (
+        response?.status === 200 &&
+        response?.data.isSuccess &&
+        response?.data?.data
+      ) {
+        setPostDetail(response.data.data);
+        return response.data.data;
+      } else {
+        const errorMsg =
+          response?.data?.message || "Error loading post details!";
+        setError(errorMsg);
+        showErrorToast(errorMsg);
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching post details:", error);
+      setError("Connection error!");
+      showErrorToast("Connection error !");
       return null;
     } finally {
       setLoading(false);
@@ -131,11 +164,13 @@ export const usePostAPI = () => {
 
   return {
     posts,
+    postDetail,
     technologies,
     loading,
     error,
     isSubmitting,
     fetchPosts,
+    fetchPostDetail,
     fetchTechnologies,
     createNewPost,
     updateExistingPost,

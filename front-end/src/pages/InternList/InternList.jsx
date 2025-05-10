@@ -7,7 +7,7 @@ import {
 } from "../../components/InternshipModalManager";
 import DeleteConfirmModal from "../../components/DeleteConfirmModal";
 import { useInternContext } from "../../context/InternContext";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import LoadingSpinner from "../../components/Common/LoadingSpinner";
 
 const InternList = () => {
   const { interns, loading, error, createIntern, updateIntern, deleteIntern } =

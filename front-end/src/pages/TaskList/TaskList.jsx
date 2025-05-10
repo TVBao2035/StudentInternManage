@@ -6,7 +6,7 @@ import {
   IoTimeOutline,
 } from "react-icons/io5";
 import { useInternTask } from "../../hooks/useInternTask";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import LoadingSpinner from "../../components/Common/LoadingSpinner";
 
 const TaskList = () => {
   const [assignmentId, setAssignmentId] = useState(null);

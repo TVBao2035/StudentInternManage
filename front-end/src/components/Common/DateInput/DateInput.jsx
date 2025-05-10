@@ -3,7 +3,7 @@ import { Calendar, AlertCircle } from "lucide-react";
 import {
   formatDateToDisplay,
   isValidDateFormat,
-} from "../../helpers/dateUtils";
+} from "../../../helpers/dateUtils";
 
 const DateInput = ({
   value,

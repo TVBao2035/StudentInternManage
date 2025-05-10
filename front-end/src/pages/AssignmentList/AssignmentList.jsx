@@ -7,7 +7,7 @@ import {
 } from "../../components/AssignmentManagement";
 import DeleteConfirmModal from "../../components/DeleteConfirmModal";
 import { useAssignmentContext } from "../../context/AssignmentContext";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import LoadingSpinner from "../../components/Common/LoadingSpinner";
 import { showSuccessToast } from "../../helpers/NotificationToast";
 
 const AssignmentList = () => {

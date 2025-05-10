@@ -7,7 +7,7 @@ import {
 } from "../../components/InternJobModalManager";
 import DeleteConfirmModal from "../../components/DeleteConfirmModal";
 import { useTaskAPI } from "../../hooks/useTaskAPI";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import LoadingSpinner from "../../components/Common/LoadingSpinner";
 
 const InternJobManage = () => {
   const { internId } = useParams();

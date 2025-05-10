@@ -2,26 +2,12 @@ import React, { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setDataMain } from "./redux/userSlice";
-import { AccountManagement, Login, Register } from "./pages";
-import Header from "./components/Header/Header";
-import { Post } from "./components";
-import ApplyingJobs from "./pages/ApplyingJobs";
-import PostManagement from "./pages/PostManagement/PostManagement";
-import InternshipManagement from "./pages/InternshipManagement/InternshipManagement";
 import { MainLayout } from "./components/Layout";
-import Home from "./pages/Home";
-import InternJobManage from "./pages/InternJobManage";
-import TaskList from "./pages/TaskList";
-import {
-  InformationPersonal,
-  InformationPersonalUpdate,
-} from "./pages/Profile";
-import JobDetail from "./pages/JobDetail";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { setLoading } from "./redux/loadingSlice";
 import {  useSelector } from "react-redux";
-import Findjob from "./pages/Findjob";
+import { Home, PostManagement, InternJobManage, InternshipManagement, TaskList, InformationPersonal, InformationPersonalUpdate, Findjob, PostDetail, ApplyingJobs, AccountManagement, Login, Register } from "./pages";
 function App() {
   const whitelist = ["/login", "/register"];
   const dispatch = useDispatch();
@@ -86,13 +72,11 @@ function App() {
             path="/profile-update"
             element={<InformationPersonalUpdate />}
           />
-          <Route path="/job-detail" element={<JobDetail />} />
+          <Route path="/job-detail" element={<PostDetail />} />
         </Route>
 
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/header" element={<Header />} />
-        <Route path="/post" element={<Post />} />
       </Routes>
 
       <ToastContainer />

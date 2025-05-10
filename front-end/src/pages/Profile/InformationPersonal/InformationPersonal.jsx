@@ -9,39 +9,46 @@ import {
   School,
   EditIcon,
 } from "lucide-react";
+import { useUserAPI } from "../../../hooks/useUserAPI";
+import { LoadingSpinner, ErrorMessage } from "../../../components/Common";
+import { useSelector } from "react-redux";
 
 const InformationPersonal = () => {
-  const [userInfo, setUserInfo] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    gender: "",
-    dob: "",
-    school: "",
-  });
-  const [loading, setLoading] = useState(true);
+  const user = useSelector((state) => state.user);
+  const [userInfo, setUserInfo] = useState(null);
+  const { userDetail, loading, error, fetchUserByID } = useUserAPI();
 
   useEffect(() => {
-    const mockUserInfo = {
-      fullName: "Nguyễn Văn A",
-      email: "nguyenvana@gmail.com",
-      phone: "0987654123",
-      gender: "Nam",
-      dob: "12/08/2012",
-      school: "Trường đại học Tiền Giang",
-    };
+    if (user && user.id) {
+      fetchUserByID(user.id);
+    }
+  }, [user]);
 
-    setTimeout(() => {
-      setUserInfo(mockUserInfo);
-      setLoading(false);
-    }, 300);
-  }, []);
+  useEffect(() => {
+    if (userDetail) {
+      setUserInfo({
+        fullName: userDetail.name || "",
+        email: userDetail.email || "",
+        phone: userDetail.phoneNumber || "",
+        gender: formatGender(userDetail.gender),
+        dob: userDetail.birthDate || "",
+        school: userDetail.schoolName || "",
+      });
+    }
+  }, [userDetail]);
+
+  const formatGender = (gender) => {
+    if (gender === null || gender === undefined) return "Chưa cập nhật";
+    return gender === true ? "Nam" : "Nữ";
+  };
 
   if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  if (error) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-20 w-20 border-t-4 border-b-4 border-blue-600 border-opacity-80 shadow-lg"></div>
-      </div>
+      <ErrorMessage message={error} fullWidth={true} className="py-12 mt-4" />
     );
   }
 
@@ -69,32 +76,32 @@ const InformationPersonal = () => {
           <InfoRow
             icon={<User className="w-5 h-5 text-blue-500" />}
             label="Họ tên"
-            value={userInfo.fullName}
+            value={userInfo?.fullName}
           />
           <InfoRow
             icon={<Mail className="w-5 h-5 text-blue-500" />}
             label="Email"
-            value={userInfo.email}
+            value={userInfo?.email}
           />
           <InfoRow
             icon={<Phone className="w-5 h-5 text-blue-500" />}
             label="Số điện thoại"
-            value={userInfo.phone}
+            value={userInfo?.phone}
           />
           <InfoRow
             icon={<Users className="w-5 h-5 text-blue-500" />}
             label="Giới tính"
-            value={userInfo.gender}
+            value={userInfo?.gender || "Chưa cập nhật"}
           />
           <InfoRow
             icon={<Calendar className="w-5 h-5 text-blue-500" />}
             label="Năm Sinh"
-            value={userInfo.dob}
+            value={userInfo?.dob || "Chưa cập nhật"}
           />
           <InfoRow
             icon={<School className="w-5 h-5 text-blue-500" />}
             label="Tên Trường"
-            value={userInfo.school}
+            value={userInfo?.school || "Chưa cập nhật"}
           />
         </div>
       </div>
