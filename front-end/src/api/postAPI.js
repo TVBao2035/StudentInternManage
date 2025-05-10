@@ -4,6 +4,10 @@ export const getAllPost = async () => {
     return await axios.get("/Post");
 }
 
+export const getDetailPostById = async (postId) => {
+    return await axios.get(`/Post/${postId}`);
+}
+
 export const getAllTechnology = async () => {
     return await axios.get("/Technology");
 }

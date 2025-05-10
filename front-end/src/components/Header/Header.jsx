@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { FiMenu, FiX, FiHome, FiBriefcase, FiSearch } from "react-icons/fi";
 import { useLocation, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import UserDropdownMenu from "../UserDropdownMenu/UserDropdownMenu";
-import MobileMenu from "../MobileMenu/MobileMenu";
+import { UserDropdownMenu, MobileMenu } from "../Navigation";
 
 const Header = ({
   isAuthenticated,

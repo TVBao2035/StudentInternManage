@@ -5,7 +5,7 @@ import {
   showSuccessToast,
   showErrorToast,
 } from "../../../helpers/NotificationToast";
-import DateInput from "../../DateInput/DateInput";
+import DateInput from "../../../components/Common/DateInput";
 import {
   formatDateToDisplay,
   isValidDateFormat,

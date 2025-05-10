@@ -16,6 +16,10 @@ export const getAllUser = async () => {
     return await axios.get("/User");
 }
 
+export const getDetailUserById = async (userid) => {
+    return await axios.get(`/User/${userid}`);
+}
+
 export const createUser  = async (user) => {
     return await axios.post("/User", user);
 }

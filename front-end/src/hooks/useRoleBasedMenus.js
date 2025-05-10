@@ -83,7 +83,12 @@ export function useRoleBasedMenus(navigate, onLogoutClick) {
           title: "Quản lý dự án",
           action: () => navigate("/projects"),
           icon: <FiBriefcase size={16} />,
-        }
+        },
+        {
+          title: "Quản lý thực tập sinh",
+          action: () => navigate("/intern-manager"),
+          icon: <FiUsers size={16} />,
+        },
       );
     }
 
