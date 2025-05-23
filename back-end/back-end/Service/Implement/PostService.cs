@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Azure.Core;
 using back_end.Common;
 using back_end.DTO;
 using back_end.DTO.UserDTOModel;
@@ -44,44 +45,92 @@ namespace back_end.Service.Implement
             _userService = userService;
             _mapper = mapper;
         }
-        public async Task<AppResponse<List<PostDTO>>> Search(SearchRequest request)
+        public async Task<AppResponse<SearchResponse<PostDTO>>> Search(SearchRequest request)
         {
-            var response = new AppResponse<List<PostDTO>>();
+            var response = new AppResponse<SearchResponse<PostDTO>>();
             try
             {
-                IQueryable<Post> postQuery;
-                string fieldName = request.FieldName.Trim().ToLower();
-                string value = request.Value.Trim().ToLower();
-                switch (fieldName)
-                {
-                    case "name":
-                        postQuery = _postRespository.FindBy(p => !p.IsDelete && p.Name.ToLower().Equals(value));
-                        break;
-                    case "employeeid":
-                        postQuery = _postRespository.FindBy(p => !p.IsDelete && p.EmployeeId == Guid.Parse(value));
-                        break;
-                    case "employeename":
-                        postQuery = _postRespository.FindBy(p => !p.IsDelete && p.Employee.User.Name.ToLower().Equals(value));
-                        break;
-                    case "phonenumber":
-                        postQuery = _postRespository.FindBy(p => !p.IsDelete && p.Employee.User.PhoneNumber.ToLower().Equals(value));
-                        break;
-                    case "email":
-                        postQuery = _postRespository.FindBy(p => !p.IsDelete && p.Employee.User.Email.ToLower().Equals(value));
-                        break;
-                    default:
-                        postQuery = _postRespository.FindBy(p => !p.IsDelete);
-                        break;
-                }
-                List<PostDTO> posts = await postQuery
+                IQueryable<Post> postQuery = QueryableBuilder(request.Filters);
+               
+                var posts = await postQuery
                     .Include(p => p.Employee).ThenInclude(emp => emp.User)
-                    .Select(p => _mapper.Map<PostDTO>(p)).ToListAsync();
-                return response.BuilderResult(posts,"Success");
+                    .ToListAsync();
+
+                if(request.SortOrder is not null)
+                {
+                    if (request.SortOrder.IsASC)
+                    {
+                    
+                        posts = posts
+                            .OrderBy(
+                                p => p.GetType()
+                                .GetProperty(request.SortOrder.FieldName)?
+                                .GetValue(p, null))
+                            .ToList();
+                    }
+                    else
+                    {
+                        posts = posts.OrderByDescending(p => p.GetType().GetProperty(request.SortOrder.FieldName).GetValue(p, null)).ToList();
+                    }
+
+                }
+                int currentPage = request.CurrPage-1;
+                int pageSize = request.PageSize;
+                int totalPage = posts.Count / pageSize;
+                var searchResponse = new SearchResponse<PostDTO>
+                {
+                    CurrPage = currentPage + 1,
+                    TotalPage = totalPage + 1,
+                    SearchResults = posts
+                        .Skip(currentPage*pageSize)
+                        .Take(pageSize)
+                        .Select(p => _mapper.Map<PostDTO>(p))
+                        .ToList()
+                };
+
+
+                return response.BuilderResult(searchResponse, "Success");
             }
             catch (Exception ex)
             {
                 return response.BuilderError("Error: " + ex.Message);
             }
+        }
+
+
+        public IQueryable<Post> QueryableBuilder(List<SearchFilter> filters)
+        {
+            IQueryable<Post> query = _postRespository.Queryable();
+            query = query.Where(p => !p.IsDelete);
+            if(filters is not null)
+            {
+                foreach(var filter in filters)
+                {
+                    string fieldName = filter.FieldName.Trim().ToLower();
+                    string value = filter.Value.Trim().ToLower();
+                    switch (fieldName)
+                    {
+                        case "name":
+                            query = query.Where(p => p.Name.ToLower().Contains(value)).AsQueryable();
+                            break;
+                        case "employeeid":
+                            query = query.Where(p =>  p.EmployeeId == Guid.Parse(value));
+                            break;
+                        case "employeename":
+                            query = query.Where(p =>  p.Employee.User.Name.ToLower().Contains(value));
+                            break;
+                        case "phonenumber":
+                            query = query.Where(p => p.Employee.User.PhoneNumber.ToLower().Equals(value));
+                            break;
+                        case "email":
+                            query = query.Where(p => p.Employee.User.Email.ToLower().Equals(value));
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            return query;
         }
         public async Task<AppResponse<PostDTO>> Create(PostDTO post)
         {

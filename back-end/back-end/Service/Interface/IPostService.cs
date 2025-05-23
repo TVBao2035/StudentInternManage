@@ -11,6 +11,7 @@ namespace back_end.Service.Interface
         Task<AppResponse<PostDTO>> Update(PostDTO post);
         Task<AppResponse<bool>> Delete(Guid postId);
         Task<AppResponse<PostDTO>> GetById(Guid id);
-        Task<AppResponse<List<PostDTO>>> Search(SearchRequest request);
+       
+        Task<AppResponse<SearchResponse<PostDTO>>> Search(SearchRequest request);
     }
 }

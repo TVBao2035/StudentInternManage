@@ -1,8 +1,12 @@
-﻿namespace back_end.Models.Request
+﻿using back_end.DTO;
+
+namespace back_end.Models.Request
 {
     public class SearchRequest
     {
-        public string FieldName { get; set; } = string.Empty;
-        public string Value { get; set; } = string.Empty;
+        public int CurrPage { get; set; } = 1;
+        public int PageSize { get; set; } = 5;
+        public List<SearchFilter>? Filters { get; set; }
+        public SortOrder? SortOrder { get; set; }
     }
 }
