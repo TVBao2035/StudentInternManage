@@ -14,6 +14,6 @@ namespace back_end.Service.Interface
         Task<AppResponse<EmployeeDTO>> GetById(Guid id);
         Task<AppResponse<List<EmployeeDTO>>> GetInterns();
         Task<AppResponse<List<EmployeeDTO>>> GetInternsNotAssigned();
-        Task<AppResponse<List<EmployeeDTO>>> Search(SearchRequest request);
+        Task<AppResponse<SearchResponse<EmployeeDTO>>> Search(SearchRequest request);
     }
 }

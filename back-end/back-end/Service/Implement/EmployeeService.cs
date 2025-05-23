@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Azure.Core;
 using back_end.Common;
 using back_end.DTO;
 using back_end.DTO.UserDTOModel;
@@ -10,6 +11,7 @@ using back_end.Respositories.Implement;
 using back_end.Respositories.Interface;
 using back_end.Service.Interface;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection.Metadata.Ecma335;
 
@@ -39,48 +41,86 @@ namespace back_end.Service.Implement
             _userService = userService;
             _userRoleRespository = userRoleRespository;
         }
-        public async Task<AppResponse<List<EmployeeDTO>>> Search(SearchRequest request)
+        public async Task<AppResponse<SearchResponse<EmployeeDTO>>> Search(SearchRequest request)
         {
-            var response = new AppResponse<List<EmployeeDTO>>();
+            var response = new AppResponse<SearchResponse<EmployeeDTO>>();
             try
             {
-                IQueryable<Employee> queryable;
-                switch (request.FieldName.ToLower().Trim())
-                {
-                    case "name":
-                        queryable = _employeeRespository
-                            .FindBy(emp => !emp.IsDelete && emp.User.Name.Equals(request.Value));
-                        break;
-                    case "email":
-                        queryable = _employeeRespository
-                            .FindBy(emp => !emp.IsDelete && emp.User.Email.Equals(request.Value));
-                        break;
-                    case "phonenumber":
-                        queryable = _employeeRespository
-                            .FindBy(emp => !emp.IsDelete && emp.User.PhoneNumber.Equals(request.Value));
-                        break;
-                    case "type":
-                        queryable = _employeeRespository
-                            .FindBy(emp => !emp.IsDelete && emp.Type == EmployeeType.Intern);
-                        break;
-                    default:
-                        queryable = _employeeRespository
-                            .FindBy(emp => !emp.IsDelete);
-                        break;
-                }
-                List<EmployeeDTO> employees = await queryable
+                IQueryable<Employee> queryable = QueryableBuilder(request.Filters);
+                var employee = queryable
                     .Include(emp => emp.User)
-                    .Select(emp => _mapper.Map<EmployeeDTO>(emp))
-                    .ToListAsync();
-                
-                return response.BuilderResult(employees,"Success");
+                    .ToList();
+
+                if(request.SortOrder is not null)
+                {
+                    if (request.SortOrder.IsASC)
+                    {
+                        employee = employee.OrderBy(em => em.GetType().GetProperty(request.SortOrder.FieldName)?.GetValue(em, null)).ToList();
+                    }else
+                        employee = employee.OrderBy(em => em.GetType().GetProperty(request.SortOrder.FieldName)?.GetValue(em, null)).ToList();
+                }
+                int currPage = request.CurrPage - 1;
+                int pageSize = request.PageSize;
+                int totalPage = employee.Count / pageSize;
+
+
+                var searchResponse = new SearchResponse<EmployeeDTO>
+                {
+                    CurrPage = currPage + 1,
+                    TotalPage = totalPage + 1,
+                    SearchResults = employee
+                        .Skip(pageSize * currPage)
+                        .Take(pageSize)
+                        .Select(em => _mapper.Map<EmployeeDTO>(em))
+                        .ToList()
+                };
+
+
+                return response.BuilderResult(searchResponse,"Success");
             }
             catch (Exception ex)
             {
                 return response.BuilderError("Error : " + ex.Message);
             }
         }
-        
+
+        public IQueryable<Employee> QueryableBuilder(List<SearchFilter> filters)
+        {
+            IQueryable<Employee> query = _employeeRespository.Queryable();
+            query = query.Where(p => !p.IsDelete);
+            if (filters is not null)
+            {
+                foreach (var filter in filters)
+                {
+                    string fieldName = filter.FieldName.Trim().ToLower();
+                    string value = filter.Value.Trim().ToLower();
+                    switch (fieldName)
+                    {
+                        case "name":
+                            query = query
+                                .Where(emp => emp.User.Name.Contains(filter.Value));
+                            break;
+                        case "email":
+                            query = query
+                               .Where(emp => emp.User.Email.Equals(filter.Value));
+                            break;
+                        case "phonenumber":
+                            query = query
+                               .Where(emp => emp.User.PhoneNumber.Equals(filter.Value));
+                            break;
+                        case "type":
+                            query = query
+                               .Where(emp => emp.Type == EmployeeType.Intern);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            return query;
+        }
+
+
         public async Task<AppResponse<List<EmployeeDTO>>> GetInterns()
         {
             var result = new AppResponse<List<EmployeeDTO>>();
