@@ -11,14 +11,14 @@ const Searchbar = ({ value, onChange, onSubmit, placeholder }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-3xl mx-auto p-4 backdrop-blur-sm"
+      className="w-full max-w-3xl  mx-auto p-4 backdrop-blur-sm px flex-col"
     >
       <div className="relative group bg-white/30 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
         <input
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          placeholder={placeholder}
+          placeholder={placeholder} 
           className="w-full py-4 pl-6 pr-12 text-gray-700 bg-white/70 backdrop-blur-md border-2 border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 ease-in-out placeholder-gray-400 hover:border-blue-200 shadow-inner"
         />
         <button

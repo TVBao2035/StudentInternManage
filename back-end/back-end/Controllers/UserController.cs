@@ -25,6 +25,16 @@ namespace back_end.Controllers
         {
             _userService = userService;
         }
+
+        [HttpPut]
+        [Route("admin/edit")]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> EditByAdmin([FromBody] UserDTO user)
+        {
+            var data = await _userService.EditByAdmin(user);
+            return Ok(data);
+        }
+
         [HttpPost]
         [Route("register")]
         [AllowAnonymous]

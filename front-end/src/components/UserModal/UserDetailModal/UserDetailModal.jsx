@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAllRoles } from '../../../api/roleAPI';
 import { IoMdClose } from "react-icons/io";
-import { createUser, updateUser } from '../../../api/userApi';
+import { createUser,  updateUserByAdmin } from '../../../api/userApi';
 function UserDetailModal({setOpen, data=null}) {
     
     var initialUserData = {
@@ -67,7 +67,7 @@ function UserDetailModal({setOpen, data=null}) {
                 setOpen(e => ({ ...e, modalCreate: { isOpen: false }, isChange: e.isChange + 1 }));
             }
         }else{
-            let res = await updateUser(userInfo);
+            let res = await updateUserByAdmin(userInfo);
             if (res?.data?.isSuccess) {
                 setOpen(e => ({ ...e, modalEdit: { isOpen: false }, isChange: e.isChange + 1, data: null }));
             }
@@ -109,18 +109,18 @@ function UserDetailModal({setOpen, data=null}) {
             <div className='flex flex-col my-3'>
                 <label htmlFor="">Email:</label>
                 <input 
-                    onChange={(e) => handleChange(e)}
                     value={userInfo.email}
                     type="text"
+                      disabled
                     name='email' 
                     className='rounded-md shadow-2xl focus: outline-none focus: ring-blue-500 text-gray-700 border-2 px-2 py-1 ' />
             </div>
             <div className='flex flex-col my-3'>
                 <label htmlFor="">Điện thoại:</label>
                 <input 
-                    onChange={(e) => handleChange(e)}
                     value={userInfo.phoneNumber}
                     type="text"
+                    disabled
                     name='phoneNumber' 
                     className='rounded-md shadow-2xl focus: outline-none focus: ring-blue-500 text-gray-700 border-2 px-2 py-1 ' />
             </div> 

@@ -27,7 +27,9 @@ export const createUser  = async (user) => {
 export const updateUser = async (user)=> {
     return await axios.put("/User", user);
 }
-
+export const updateUserByAdmin = async (user) => {
+    return await axios.put("/User/Admin/Edit", user);
+}
 export const deleteUser = async (userid) => {
     return await axios.delete(`/User/${userid}`);
 }

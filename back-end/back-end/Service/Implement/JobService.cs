@@ -50,6 +50,7 @@ namespace back_end.Service.Implement
                 newJob.UserId = user.Id;
                 newJob.PostId = post.Id;
                 newJob.Status = JobStatus.Sent;
+                newJob.UrlCV = data.UrlCV;
                 
                 await _jobRespository.Insert(newJob);
 

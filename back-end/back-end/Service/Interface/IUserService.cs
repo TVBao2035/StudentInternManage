@@ -18,5 +18,6 @@ namespace back_end.Service.Interface
         Task ValidateTAccessToken(TokenValidatedContext context);
         Task<User> GetUserFromToken();
         bool checkRole(string roleName = "admin");
+        Task<AppResponse<UserDTO>> EditByAdmin(UserDTO data);
     }
 }

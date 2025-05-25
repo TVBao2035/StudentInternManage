@@ -16,7 +16,7 @@ namespace back_end.Enity
         [ForeignKey("Post")]
         public Guid PostId { get; set; }
         public Post? Post { get; set; }
-
+        public string UrlCV { get; set; }
         public JobStatus Status { get; set; }
     }
 }
