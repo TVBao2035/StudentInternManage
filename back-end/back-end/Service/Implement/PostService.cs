@@ -77,10 +77,11 @@ namespace back_end.Service.Implement
                 int currentPage = request.CurrPage-1;
                 int pageSize = request.PageSize;
                 int totalPage = posts.Count / pageSize;
+                if (posts.Count % pageSize != 0) totalPage++;
                 var searchResponse = new SearchResponse<PostDTO>
                 {
                     CurrPage = currentPage + 1,
-                    TotalPage = totalPage + 1,
+                    TotalPage = totalPage,
                     SearchResults = posts
                         .Skip(currentPage*pageSize)
                         .Take(pageSize)

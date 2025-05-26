@@ -62,12 +62,13 @@ namespace back_end.Service.Implement
                 int currPage = request.CurrPage - 1;
                 int pageSize = request.PageSize;
                 int totalPage = employee.Count / pageSize;
+                if (employee.Count % pageSize != 0) totalPage++;
 
 
                 var searchResponse = new SearchResponse<EmployeeDTO>
                 {
                     CurrPage = currPage + 1,
-                    TotalPage = totalPage + 1,
+                    TotalPage = totalPage,
                     SearchResults = employee
                         .Skip(pageSize * currPage)
                         .Take(pageSize)
