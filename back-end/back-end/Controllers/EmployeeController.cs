@@ -10,7 +10,7 @@ namespace back_end.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize(Roles ="manager, mentor")]
+
 
     public class EmployeeController : ControllerBase
     {
@@ -22,13 +22,14 @@ namespace back_end.Controllers
         }
         [HttpPost]
         [Route("Search")]
+        [Authorize(Roles = "manager")]
         public async Task<IActionResult> Search([FromBody] SearchRequest request)
         {
             var data = await _employeeService.Search(request);
             return Ok(data);
         }
         [HttpGet]
-        [Authorize(Roles = "manager, mentor")]
+        [Authorize(Roles = "manager")]
         public async Task<IActionResult> GetAll()
         {
             var data = await _employeeService.GetAll();
@@ -59,6 +60,7 @@ namespace back_end.Controllers
 
         [HttpGet]
         [Route("Intern")]
+        [Authorize(Roles = "manager")]
         public async Task<IActionResult> GetInterns()
         {
             var data = await _employeeService.GetInterns();
@@ -66,6 +68,7 @@ namespace back_end.Controllers
         }
         [HttpGet]
         [Route("InternNotAssign")]
+        [Authorize(Roles = "manager")]
         public async Task<IActionResult> GetInternNotAssigned()
         {
             var data = await _employeeService.GetInternsNotAssigned();

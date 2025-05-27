@@ -9,7 +9,7 @@ namespace back_end.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize]
+
     public class TaskController : ControllerBase
     {
         private ITaskService _taskService;
@@ -26,7 +26,7 @@ namespace back_end.Controllers
             return Ok(data);
         }
         [HttpGet]
-        [Authorize(Roles = "mentor")]
+        [Authorize(Roles = "mentor, business")]
         public async Task<IActionResult> GetAll()
         {
             var data = await _taskService.GetAll();
@@ -34,6 +34,7 @@ namespace back_end.Controllers
         }
 
         [HttpGet("assignment/{id}")]
+        [Authorize]
         public async Task<IActionResult> GetTaskByAssignmentId(Guid id)
         {
             var data = await _taskService.GetTaskByAssignmentId(id);

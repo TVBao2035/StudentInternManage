@@ -20,6 +20,7 @@ namespace back_end.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetById(Guid id)
         {
             var data = await _jobService.GetById(id);
@@ -27,6 +28,7 @@ namespace back_end.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create(JobDTO job)
         {
             var data = await _jobService.Create(job);
@@ -43,6 +45,7 @@ namespace back_end.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete(Guid id)
         {
             var data = await _jobService.Delete(id);

@@ -9,7 +9,7 @@ namespace back_end.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-     [Authorize(Roles ="business")]
+
     public class PostController : ControllerBase
     {
         private IPostService _postService;
@@ -20,6 +20,7 @@ namespace back_end.Controllers
         }
         [HttpPost]
         [Route("Search")]
+        [AllowAnonymous]
         public async Task<IActionResult> Search([FromBody]SearchRequest request)
         {
             var data = await _postService.Search(request);
@@ -35,6 +36,7 @@ namespace back_end.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "business")]
         public async Task<IActionResult> Create([FromBody] PostDTO post)
         {
             var data = await _postService.Create(post);
@@ -42,6 +44,7 @@ namespace back_end.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "business")]
         public async Task<IActionResult> Update([FromBody] PostDTO post)
         {
             var data = await _postService.Update(post);
@@ -55,6 +58,7 @@ namespace back_end.Controllers
             return Ok(data);
         }
         [HttpDelete("{id}")]
+        [Authorize(Roles = "business")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var data = await _postService.Delete(id);

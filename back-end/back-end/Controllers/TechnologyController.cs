@@ -10,7 +10,7 @@ namespace back_end.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize(Roles ="business")]
+
     public class TechnologyController : ControllerBase
     {
         private ITechnologyService _technologyService;
@@ -21,6 +21,7 @@ namespace back_end.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var data = await _technologyService.GetAll();
@@ -28,6 +29,7 @@ namespace back_end.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "business")]
         public async Task<IActionResult> Create([FromBody]TechnologyDTO technology)
         {
             var data = await _technologyService.Create(technology);
@@ -35,6 +37,7 @@ namespace back_end.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "business")]
         public async Task<IActionResult> Update([FromBody]TechnologyDTO technology)
         {
             var data = await _technologyService.Update(technology);
@@ -42,6 +45,7 @@ namespace back_end.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "business")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var data = await _technologyService.Delete(id);
