@@ -121,8 +121,7 @@ namespace back_end.Service.Implement
                 userRole = _mapper.Map<UserRole>(data);
                 userRole.InitialEnity();
                 await _userRoleRespository.Insert(userRole);
-                userRole.User = user;
-                userRole.Role = role;
+
                 return result.BuilderResult(userRole, "Success");
             }
             catch (Exception ex)
