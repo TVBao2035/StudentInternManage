@@ -111,6 +111,7 @@ namespace back_end.Service.Implement
                     string value = filter.Value.Trim().ToLower();
                     switch (fieldName)
                     {
+                        // search by technical 
                         case "name":
                             query = query.Where(p => p.Name.ToLower().Contains(value)).AsQueryable();
                             break;
