@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Azure;
 using back_end.Common;
 using back_end.Common.PasswordHasher;
 using back_end.DTO.Auth;
@@ -319,16 +320,77 @@ namespace back_end.Service.Implement
             }
         }
 
-        public async Task<AppResponse<LoginResponse>> Refresh(string refresh)
+        public async Task<AppResponse<LoginResponse>> Refresh(string refreshToken)
         {
-            var result = new AppResponse<LoginResponse>();
+            var response = new AppResponse<LoginResponse>();
             try
             {
-                return result.BuilderResult("OK");
+                var claimPrincial = new JwtSecurityTokenHandler().ValidateToken(
+                     refreshToken,
+                     new TokenValidationParameters
+                     {
+                         ValidateIssuer = true,
+                         ValidIssuer = _config["Authentication:Issuer"],
+                         ValidateAudience = true,
+                         ValidAudience = _config["Authentication:Audience"],
+                         ValidateLifetime = true,
+                         ValidateIssuerSigningKey = true,
+                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Authentication:Key"])),
+                         RequireExpirationTime = true,
+                         ClockSkew = TimeSpan.Zero
+                     },
+                     out _
+                     );
+
+                var claims = claimPrincial.Claims.ToList();
+                if (claims.Count == 0) return response.BuilderError("Payload is not valid");
+
+                var codeClaim = claimPrincial.FindFirst(ClaimTypes.SerialNumber);
+                if (codeClaim is null)
+                    return response.BuilderError("Not found code in token");
+                var code = codeClaim.Value.ToString();
+                var emailUserClaim = claimPrincial.FindFirst("Email");
+                if (emailUserClaim is null)
+                    return response.BuilderError("Not Found Email In Token");
+                var getRefresh = _tokenResposirory
+                    .FindBy(t => t.Code == code)
+                    .FirstOrDefault();
+                var user = _userRespository.FindBy(u => u.Email == emailUserClaim.Value).FirstOrDefault();
+
+                if (getRefresh is null)
+                    return response.BuilderError("Not found");
+
+              
+                if (user is null)
+                    return   response.BuilderError("Not found user");
+
+
+                (string accessToken, DateTime accessTokenExpired) = await CreateAccessToken(user);
+                (string refresh, DateTime refreshTokenExpired, string coden) = await CreateRefreshToken(user);
+
+                Token token = new Token();
+                token.Code = coden;
+                token.RefreshToken = refresh;
+                token.UserId = user.Id;
+                token.InitialEnity();
+                await _tokenResposirory.Insert(token);
+
+                var loginResponse = new LoginResponse();
+                loginResponse.RefreshToken = refreshToken;
+                loginResponse.AccessToken = accessToken;
+                loginResponse.Name = user.Name;
+                loginResponse.Email = user.Email;
+                loginResponse.Id = user.Id;
+                loginResponse.Roles = await _userRoleRespository
+                    .Queryable()
+                    .Where(ur => ur.UserId == user.Id && !ur.IsDelete)
+                    .Select(ur => ur.Role.Name)
+                    .ToListAsync();
+                return response.BuilderResult(loginResponse, "Success");
             }
             catch (Exception ex)
             {
-                return result.BuilderError(ex.Message);
+                return response.BuilderError(ex.Message);
             }
         }
 

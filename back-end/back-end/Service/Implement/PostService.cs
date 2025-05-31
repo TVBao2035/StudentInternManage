@@ -78,15 +78,20 @@ namespace back_end.Service.Implement
                 int pageSize = request.PageSize;
                 int totalPage = posts.Count / pageSize;
                 if (posts.Count % pageSize != 0) totalPage++;
+                var postDTOs = posts
+                        .Skip(currentPage * pageSize)
+                        .Take(pageSize)
+                        .Select(p => _mapper.Map<PostDTO>(p))
+                        .ToList();
+                foreach (var postDTO in postDTOs)
+                {
+                    postDTO.Technologies = _postTechnologyRespository.FindBy(pt => !pt.IsDelete && pt.PostId == postDTO.Id).Select(pt => _mapper.Map<TechnologyDTO>(pt.Technology)).ToList();
+                }
                 var searchResponse = new SearchResponse<PostDTO>
                 {
                     CurrPage = currentPage + 1,
                     TotalPage = totalPage,
-                    SearchResults = posts
-                        .Skip(currentPage*pageSize)
-                        .Take(pageSize)
-                        .Select(p => _mapper.Map<PostDTO>(p))
-                        .ToList()
+                    SearchResults = postDTOs
                 };
 
 
@@ -112,6 +117,9 @@ namespace back_end.Service.Implement
                     switch (fieldName)
                     {
                         // search by technical 
+                        case "technical":
+                            query = query.Where(p => p.PostTechnologies.Any(pt => pt.TechnologyId.Equals(Guid.Parse(value)))).AsQueryable();
+                            break;
                         case "name":
                             query = query.Where(p => p.Name.ToLower().Contains(value)).AsQueryable();
                             break;

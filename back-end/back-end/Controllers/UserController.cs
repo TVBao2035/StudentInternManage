@@ -93,9 +93,10 @@ namespace back_end.Controllers
         [HttpPost]
         [Route("refresh")]
         [AllowAnonymous]
-        public async Task<IActionResult> Refresh([FromBody] string refresh)
+        public async Task<IActionResult> Refresh([FromBody] RefreshRequest refreshRequest)
         {
-            return Ok();
+            var data = await _userService.Refresh(refreshRequest.RefreshToken);
+            return Ok(data);
         }
        
     }

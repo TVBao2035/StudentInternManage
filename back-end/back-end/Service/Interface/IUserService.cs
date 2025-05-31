@@ -19,5 +19,6 @@ namespace back_end.Service.Interface
         Task<User> GetUserFromToken();
         bool checkRole(string roleName = "admin");
         Task<AppResponse<UserDTO>> EditByAdmin(UserDTO data);
+        Task<AppResponse<LoginResponse>> Refresh(string refreshToken);
     }
 }
