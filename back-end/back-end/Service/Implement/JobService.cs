@@ -96,6 +96,7 @@ namespace back_end.Service.Implement
                     {
                         Id = j.Id,
                         PostId = j.PostId,
+                        UrlCV = j.UrlCV,
                         Post = _mapper.Map<PostDTO>(j.Post),
                         Status = j.Status,
                         User = _mapper.Map<UserDTO>(j.User)
