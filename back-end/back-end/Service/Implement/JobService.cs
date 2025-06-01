@@ -51,6 +51,7 @@ namespace back_end.Service.Implement
                 newJob.PostId = post.Id;
                 newJob.Status = JobStatus.Sent;
                 newJob.UrlCV = data.UrlCV;
+
                 
                 await _jobRespository.Insert(newJob);
 
@@ -96,6 +97,7 @@ namespace back_end.Service.Implement
                     {
                         Id = j.Id,
                         PostId = j.PostId,
+                        CreatedAt = j.CreatedAt.ToString("dd/MM/yyyy")             ,
                         UrlCV = j.UrlCV,
                         Post = _mapper.Map<PostDTO>(j.Post),
                         Status = j.Status,
@@ -115,7 +117,7 @@ namespace back_end.Service.Implement
             try
             {
                 var user = await _userService.GetUserFromToken();
-                var job = await _jobRespository
+                var j   ob = await _jobRespository
                     .FindBy(j => !j.IsDelete && j.Id == id)
                     .Include(j => j.User)
                     .Include(j => j.Post)
@@ -127,6 +129,7 @@ namespace back_end.Service.Implement
                     return result.BuilderError("You can't have permission");
 
                 var jobDTO = _mapper.Map<JobDTO>(job);
+                jobDTO.CreatedAt = job.CreatedAt.ToString("dd/MM/yyyy");
 
                 return result.BuilderResult(jobDTO, "Success");
             }

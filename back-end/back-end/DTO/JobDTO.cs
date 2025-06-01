@@ -10,6 +10,8 @@ namespace back_end.DTO
         public Guid PostId { get; set; }
         public PostDTO? Post { get; set; }
         public string UrlCV { get; set; }
+        public string Message { get; set; }
+        public string CreatedAt { get; set; } 
         public JobStatus? Status { get; set; }
     }
 }
