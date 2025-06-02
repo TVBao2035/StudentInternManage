@@ -47,14 +47,11 @@ namespace back_end.Service.Implement
                 var task = await _taskRespository
                     .FindBy(t => !t.IsDelete)
                     .Include(t => t.Assignment)
-                    .Where(t => t.Assignment.InternId == employee.Id)
+                    .Where(t => t.Assignment.InternId == employee.Id).ToListAsync();
                    // .Select(t => t.Assignment.InternId == employee.Id)
-                    .FirstOrDefaultAsync();
                 if (task is null)
                     return result.BuilderError("Not found Task");
-                if ( task.Assignment.InternId != employee.Id)
-                    return result.BuilderError("You don't have permission");
-                task.Assignment = null;
+                ;
                 var taskDTO = _mapper.Map<TaskDTO>(task);
                 return result.BuilderResult(taskDTO, "Success");
             }
