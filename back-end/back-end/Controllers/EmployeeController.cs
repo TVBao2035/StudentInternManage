@@ -29,7 +29,7 @@ namespace back_end.Controllers
             return Ok(data);
         }
         [HttpGet]
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, mentor")]
         public async Task<IActionResult> GetAll()
         {
             var data = await _employeeService.GetAll();

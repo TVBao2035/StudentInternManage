@@ -8,6 +8,10 @@ export const getTaskByAssignment = async (assignmentId) => {
     return await axios.get(`/Task/assignment/${assignmentId}`);
 }
 
+export const getTaskByIntern = async () => {
+    return await axios.get("/Task/intern");
+}
+
 export const createTask = async (taskData) => {
     return await axios.post("/Task", taskData);
 }
