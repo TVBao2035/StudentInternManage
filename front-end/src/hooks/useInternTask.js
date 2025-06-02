@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getTaskByAssignment } from "../api/taskAPI";
+import { getTaskByIntern } from "../api/taskAPI";
 import { formatDate } from "../helpers/formatCreatedAt";
 
 export const useInternTask = (assignmentId) => {
@@ -19,12 +19,11 @@ export const useInternTask = (assignmentId) => {
         return;
       }
 
-      const response = await getTaskByAssignment(assignmentId);
+      const response = await getTaskByIntern();
 
       if (
         response?.status === 200 &&
-        response?.data?.isSuccess &&
-        response?.data?.data
+        response?.data?.isSuccess
       ) {
         const mappedTasks = response.data.data.map((task) => ({
           id: task.id,

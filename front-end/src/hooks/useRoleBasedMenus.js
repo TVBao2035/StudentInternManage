@@ -15,11 +15,6 @@ export function useRoleBasedMenus(navigate, onLogoutClick) {
     if (userRoles.includes("admin")) {
       menuItems.push(
         {
-          title: "Quản lý nhân viên",
-          action: () => navigate("/employees"),
-          icon: <FiUsers size={16} />,
-        },
-        {
           title: "Quản lý tài khoản",
           action: () => navigate("/account"),
           icon: <FiSettings size={16} />,
@@ -33,11 +28,6 @@ export function useRoleBasedMenus(navigate, onLogoutClick) {
           title: "Quản lý bài đăng",
           action: () => navigate("/post-manager"),
           icon: <FiFileText size={16} />,
-        },
-        {
-          title: "Quản lý ứng tuyển",
-          action: () => navigate("/cv-review"),
-          icon: <FiBriefcase size={16} />,
         }
       );
     }
