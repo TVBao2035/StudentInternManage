@@ -49,9 +49,7 @@ namespace back_end.Service.Implement
                     .FindBy(t => !t.IsDelete)
                     .Include(t => t.Assignment)
                     .Where(t => t.Assignment.InternId == employee.Id).ToListAsync();
-                   // .Select(t => t.Assignment.InternId == employee.Id)
-
-                    .ToListAsync();
+            
 
                 if (task is null)
                     return result.BuilderError("Not found Task");
