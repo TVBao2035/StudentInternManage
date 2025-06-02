@@ -23,3 +23,7 @@ export const updatePost = async (postData) => {
 export const deletePost = async (postId) => {
     return await axios.delete(`/Post/${postId}`);
 }
+
+export const searchPosts = async (searchRequest) => {
+    return await axios.post("/Post/search", searchRequest);
+}

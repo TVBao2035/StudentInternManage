@@ -15,7 +15,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const initInfor = {
-    email: "milo00@gmail.com",
+    email: "minh022101015@tgu.edu.vn",
     password: "M02231103@",
   };
 
@@ -290,7 +290,7 @@ const Login = () => {
                 to="/register"
                 className="font-medium text-blue-600 hover:text-blue-500 transition-colors duration-200 border-b border-blue-600 hover:border-blue-500"
               >
-                Đăng ký
+                Register
               </Link>
             </p>
           </div>

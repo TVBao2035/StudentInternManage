@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
-  getAllJobApplications,
+  getMyApplications,
   createJobApplication,
-  updateJobApplication,
   deleteJobApplication,
 } from "../api/jobAPI";
 import { showSuccessToast, showErrorToast } from "../helpers/NotificationToast";
@@ -19,13 +18,31 @@ export const useJobAPI = (postId = null) => {
   const user = useSelector((state) => state.user);
   const isAuthenticated = !!user.email;
 
+  const currentUserRef = useRef(user.email);
+
+  useEffect(() => {
+    if (currentUserRef.current !== user.email) {
+      setJobApplications([]);
+      setApplicationStatus(null);
+      setApplicationId(null);
+      setError(null);
+
+      currentUserRef.current = user.email;
+    }
+  }, [user.email]);
+
   const fetchJobApplications = async () => {
-    if (!isAuthenticated) return null;
+    if (!isAuthenticated) {
+      setJobApplications([]);
+      setApplicationStatus(null);
+      setApplicationId(null);
+      return null;
+    }
 
     setLoading(true);
     setError(null);
     try {
-      const response = await getAllJobApplications();
+      const response = await getMyApplications();
       if (
         response?.status === 200 &&
         response?.data?.isSuccess &&
@@ -62,7 +79,7 @@ export const useJobAPI = (postId = null) => {
     }
   };
 
-  const applyForJob = async () => {
+  const applyForJob = async (applicationData = null) => {
     if (!isAuthenticated || !postId) {
       showErrorToast("You need to login to apply!");
       return { success: false, error: "Unauthorized" };
@@ -70,7 +87,7 @@ export const useJobAPI = (postId = null) => {
 
     setIsSubmitting(true);
     try {
-      const response = await createJobApplication(postId);
+      const response = await createJobApplication(postId, applicationData);
       if (
         response?.status === 200 &&
         response?.data?.isSuccess &&
@@ -131,6 +148,10 @@ export const useJobAPI = (postId = null) => {
   useEffect(() => {
     if (isAuthenticated) {
       fetchJobApplications();
+    } else {
+      setJobApplications([]);
+      setApplicationStatus(null);
+      setApplicationId(null);
     }
   }, [isAuthenticated, postId]);
 

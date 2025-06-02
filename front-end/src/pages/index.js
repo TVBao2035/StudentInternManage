@@ -22,5 +22,7 @@ export { default as PostDetail } from './PostDetail';
 
 export { default as ApplyingJobs } from './ApplyingJobs';
 
+export { default as CVReview } from './CVReview';
+
 export * from './Profile';
 

@@ -50,13 +50,12 @@ const PostDetail = () => {
     setShowApplyModal(false);
   };
 
-  const handleSubmitApplication = async (formData) => {
+  const handleSubmitApplication = async (applicationData) => {
     try {
-      const result = await applyForJob();
+      const result = await applyForJob(applicationData);
 
       if (result.success) {
         setShowApplyModal(false);
-        fetchJobApplications();
       }
     } catch (error) {
       console.error("Error when submitting application:", error);
@@ -64,19 +63,19 @@ const PostDetail = () => {
   };
 
   const formattedExperience =
-    typeof postDetail.experienceYear === "number"
+    postDetail && typeof postDetail.experienceYear === "number"
       ? postDetail.experienceYear === 0
         ? "Không yêu cầu"
         : `${postDetail.experienceYear} năm`
       : "Không yêu cầu";
 
   const requirements =
-    postDetail.technologies && postDetail.technologies.length > 0
+    postDetail && postDetail.technologies && postDetail.technologies.length > 0
       ? postDetail.technologies.map((tech) => tech.name).join(", ")
       : "Không có yêu cầu cụ thể";
 
   const contextContent =
-    typeof postDetail.context === "string"
+    postDetail && typeof postDetail.context === "string"
       ? postDetail.context
       : "Không có mô tả chi tiết";
 

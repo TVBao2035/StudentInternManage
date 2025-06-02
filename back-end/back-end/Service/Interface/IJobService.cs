@@ -10,6 +10,7 @@ namespace back_end.Service.Interface
         Task<AppResponse<bool>> Delete(Guid id);
         Task<AppResponse<JobDTO>> Update(JobDTO data);
         Task<AppResponse<JobDTO>> GetById(Guid id);
+        Task<AppResponse<List<JobDTO>>> GetMyApplications();
 
     }
 }
