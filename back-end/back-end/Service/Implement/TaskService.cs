@@ -32,11 +32,12 @@ namespace back_end.Service.Implement
             _assignmentRespository = assignmentRespository;
             _employeeRespository = employeeRespository;
         }
-        public async Task<AppResponse<TaskDTO>> GetByInternId()
+        public async Task<AppResponse<List<TaskDTO>>> GetByInternId()
         {
-            var result = new AppResponse<TaskDTO>();
+            var result = new AppResponse<List<TaskDTO>> ();
             try
             {
+
                 var user = await _userService.GetUserFromToken();
                 var employee = await _employeeRespository.FindBy(e => !e.IsDelete && e.UserId == user.Id).FirstOrDefaultAsync();
                 if (employee is null)
@@ -49,14 +50,23 @@ namespace back_end.Service.Implement
                     .Include(t => t.Assignment)
                     .Where(t => t.Assignment.InternId == employee.Id)
                    // .Select(t => t.Assignment.InternId == employee.Id)
-                    .FirstOrDefaultAsync();
+                    .ToListAsync();
+
                 if (task is null)
                     return result.BuilderError("Not found Task");
-                if ( task.Assignment.InternId != employee.Id)
-                    return result.BuilderError("You don't have permission");
-                task.Assignment = null;
-                var taskDTO = _mapper.Map<TaskDTO>(task);
-                return result.BuilderResult(taskDTO, "Success");
+                var tasks = task.Select(t => new TaskDTO
+                {
+                    Id = t.Id,
+                    AssignmentId = t.AssignmentId,
+                    Name = t.Name,
+                    Note = t.Note,
+                    Status = t.Status
+                }).ToList();
+                //if ( task.Assignment.InternId != employee.Id)
+                //    return result.BuilderError("You don't have permission");
+                //task.Assignment = null;
+                //var taskDTO = _mapper.Map<TaskDTO>(task);
+                return result.BuilderResult(tasks, "Success");
             }
             catch (Exception ex)
             {

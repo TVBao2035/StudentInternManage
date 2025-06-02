@@ -35,11 +35,6 @@ export function useRoleBasedMenus(navigate, onLogoutClick) {
     if (userRoles.includes("student")) {
       menuItems.push(
         {
-          title: "Quản lý ứng tuyển",
-          action: () => navigate("/applications/manage"),
-          icon: <FiBriefcase size={16} />,
-        },
-        {
           title: "Xem danh sách công việc",
           action: () => navigate("/task-list"),
           icon: <FiFileText size={16} />,
@@ -65,13 +60,8 @@ export function useRoleBasedMenus(navigate, onLogoutClick) {
     if (userRoles.includes("manager")) {
       menuItems.push(
         {
-          title: "Báo cáo tổng quan",
-          action: () => navigate("/reports"),
-          icon: <FiFileText size={16} />,
-        },
-        {
-          title: "Quản lý dự án",
-          action: () => navigate("/projects"),
+          title: "Quản lý hồ sơ",
+          action: () => navigate("/cv-review"),
           icon: <FiBriefcase size={16} />,
         },
         {
