@@ -35,8 +35,8 @@ export function useRoleBasedMenus(navigate, onLogoutClick) {
           icon: <FiFileText size={16} />,
         },
         {
-          title: "Quản lý thực tập",
-          action: () => navigate("/interns"),
+          title: "Quản lý ứng tuyển",
+          action: () => navigate("/cv-review"),
           icon: <FiBriefcase size={16} />,
         }
       );

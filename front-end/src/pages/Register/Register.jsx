@@ -171,8 +171,8 @@ const Register = () => {
           } else {
             setErrors((prev) => ({
               ...prev,
-              email: "Account has already been registered",
-              phone: "Account has already been registered",
+              email: "Email has already been registered",
+              phone: "Phone has already been registered",
             }));
           }
         }

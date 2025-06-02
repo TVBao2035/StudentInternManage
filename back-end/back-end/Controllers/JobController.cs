@@ -59,5 +59,14 @@ namespace back_end.Controllers
             var data = await _jobService.Update(job);
             return Ok(data);
         }
+
+        [HttpGet("my-applications")]
+        [Authorize]
+        public async Task<IActionResult> GetMyApplications()
+        {
+            var result = await _jobService.GetMyApplications();
+            return Ok(result);
+        }
+
     }
 }

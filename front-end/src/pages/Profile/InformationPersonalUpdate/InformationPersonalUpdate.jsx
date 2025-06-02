@@ -17,7 +17,6 @@ import { LoadingSpinner, ErrorMessage } from "../../../components/Common";
 const InformationPersonalUpdate = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
-  console.log(user);
   const {
     userDetail,
     loading,
@@ -96,10 +95,9 @@ const InformationPersonalUpdate = () => {
     };
 
     const success = await updateUserInfo(userDataToUpdate);
-
     if (success) {
       navigate("/profile");
-    }
+    } 
   };
 
   const handleCancel = () => {
@@ -283,6 +281,7 @@ const GenderFormRow = ({ icon, label, name, value, onChange }) => (
         onChange={onChange}
         className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
       >
+        <option value="Không xác định">Không xác định</option>
         <option value="Nam">Nam</option>
         <option value="Nữ">Nữ</option>
       </select>

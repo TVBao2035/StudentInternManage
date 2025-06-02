@@ -51,7 +51,6 @@ export const useUserAPI = () => {
 
     try {
       const response = await updateUser(userData);
-
       if (
         response?.status === 200 &&
         response?.data?.isSuccess &&

@@ -18,8 +18,8 @@ const Header = ({
   const getActiveNavItem = () => {
     const path = location.pathname;
     if (path === "/" || path === "") return "home";
-    if (path.includes("post-manager")) return "jobs";
-    if (path.includes("intern-manager")) return "applications";
+    if (path.includes("find-job")) return "jobs";
+    if (path.includes("applyingjobs")) return "applications";
 
     return null;
   };

@@ -23,7 +23,7 @@ namespace back_end.Service.Implement
             IJobRespository jobRespository,
             IUserRespository userRespository,
             IPostRespository postRespository,
-            IUserService userService, 
+            IUserService userService,
             IMapper mapper
             )
         {
@@ -45,19 +45,19 @@ namespace back_end.Service.Implement
                 var post = await _postRespository.FindBy(p => p.Id == data.PostId && !p.IsDelete).FirstOrDefaultAsync();
                 if (post is null) return result.BuilderError("Not found post!");
 
-                Job newJob = new Job();
+                Job newJob = _mapper.Map<Job>(data);
                 newJob.InitialEnity();
                 newJob.UserId = user.Id;
                 newJob.PostId = post.Id;
                 newJob.Status = JobStatus.Sent;
                 newJob.UrlCV = data.UrlCV;
+                newJob.Message = data.Message;
 
-                
                 await _jobRespository.Insert(newJob);
 
                 data = _mapper.Map<JobDTO>(newJob);
                 data.Post = _mapper.Map<PostDTO>(post);
-                return result.BuilderResult( data, "Success");
+                return result.BuilderResult(data, "Success");
             }
             catch (Exception ex)
             {
@@ -89,7 +89,7 @@ namespace back_end.Service.Implement
 
         public async Task<AppResponse<List<JobDTO>>> GetAll()
         {
-            var result = new AppResponse<List<JobDTO>> ();
+            var result = new AppResponse<List<JobDTO>>();
             try
             {
                 List<JobDTO> listJobs = await _jobRespository.FindBy(j => !j.IsDelete)
@@ -97,8 +97,9 @@ namespace back_end.Service.Implement
                     {
                         Id = j.Id,
                         PostId = j.PostId,
-                        CreatedAt = j.CreatedAt.ToString("dd/MM/yyyy")             ,
+                        CreatedAt = j.CreatedAt.ToString("dd/MM/yyyy"),
                         UrlCV = j.UrlCV,
+                        Message = j.Message,
                         Post = _mapper.Map<PostDTO>(j.Post),
                         Status = j.Status,
                         User = _mapper.Map<UserDTO>(j.User)
@@ -111,13 +112,13 @@ namespace back_end.Service.Implement
             }
         }
 
-        public async  Task<AppResponse<JobDTO>> GetById(Guid id)
+        public async Task<AppResponse<JobDTO>> GetById(Guid id)
         {
             var result = new AppResponse<JobDTO>();
             try
             {
                 var user = await _userService.GetUserFromToken();
-                var j   ob = await _jobRespository
+                var job = await _jobRespository
                     .FindBy(j => !j.IsDelete && j.Id == id)
                     .Include(j => j.User)
                     .Include(j => j.Post)
@@ -151,12 +152,43 @@ namespace back_end.Service.Implement
                 job.UpdateTimeEntity();
                 await _jobRespository.Update(job);
 
-                return result.BuilderResult(_mapper.Map<JobDTO>(job) ,"Success");
+                return result.BuilderResult(_mapper.Map<JobDTO>(job), "Success");
             }
             catch (Exception ex)
             {
                 return result.BuilderError("Error: " + ex.Message);
             }
         }
+
+        public async Task<AppResponse<List<JobDTO>>> GetMyApplications()
+        {
+            var result = new AppResponse<List<JobDTO>>();
+            try
+            {
+                var user = await _userService.GetUserFromToken();
+                if (user is null)
+                    return result.BuilderError("Not found user!");
+
+                List<JobDTO> listJobs = await _jobRespository.FindBy(j => !j.IsDelete && j.UserId == user.Id)
+                    .Select(j => new JobDTO
+                    {
+                        Id = j.Id,
+                        PostId = j.PostId,
+                        CreatedAt = j.CreatedAt.ToString("dd/MM/yyyy"),
+                        UrlCV = j.UrlCV,
+                        Message = j.Message,
+                        Post = _mapper.Map<PostDTO>(j.Post),
+                        Status = j.Status,
+                        User = _mapper.Map<UserDTO>(j.User)
+                    }).ToListAsync();
+
+                return result.BuilderResult(listJobs, "Success");
+            }
+            catch (Exception ex)
+            {
+                return result.BuilderError("Error: " + ex.Message);
+            }
+        }
+
     }
 }

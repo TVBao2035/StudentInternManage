@@ -3,7 +3,7 @@ import { Code, ArrowUpRight, Clock } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import { formatDate } from "../../helpers/formatCreatedAt"; 
+import { formatDate } from "../../helpers/formatCreatedAt";
 
 const Post = ({ job, onApply }) => {
   const { id, title, requirements, experience, createdAt } = job;
@@ -21,8 +21,10 @@ const Post = ({ job, onApply }) => {
 
   const formattedExperience =
     typeof experience === "number"
-      ? `${experience} năm`
-      : experience || "Không yêu cầu";
+      ? experience === 0
+        ? "Không"
+        : `${experience} năm`
+      : experience || "";
 
   const handleApplyClick = () => {
     if (isAuthenticated) {
